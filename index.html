@@ -150,7 +150,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             list-style: none;
         }
 
@@ -159,10 +159,13 @@
             color: var(--text-secondary);
             font-weight: 500;
             font-size: 0.95rem;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.25rem;
             border-radius: var(--radius-md);
             transition: var(--transition-fast);
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-link:hover {
@@ -173,6 +176,115 @@
         .nav-link.active {
             color: var(--text-primary);
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+        }
+
+        /* Enhanced Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--secondary-dark);
+            min-width: 280px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition-normal);
+            z-index: 1000;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.875rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            padding-left: 2rem;
+        }
+
+        .dropdown-content a i {
+            width: 20px;
+            text-align: center;
+            color: var(--accent-blue);
+            font-size: 1rem;
+        }
+
+        .dropdown-content .category-item {
+            position: relative;
+        }
+
+        .dropdown-content .category-item::after {
+            content: '';
+            position: absolute;
+            left: 1.5rem;
+            right: 1.5rem;
+            bottom: 0;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .dropdown-content .category-item:last-child::after {
+            display: none;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-email {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition-fast);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+        }
+
+        .contact-email:hover {
+            color: var(--text-primary);
+            background: var(--card-bg);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--card-bg);
         }
 
         /* Premium Hero Section */
@@ -267,53 +379,153 @@
             font-size: 1.25rem;
         }
 
-            /* Premium Tool Categories */
-        .tool-categories {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            max-width: 900px;
+        /* Tools Grid System */
+        .tools-section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: var(--text-primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-blue-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
             margin: 0 auto;
         }
-        
-        .category-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+
+        /* Premium Tool Cards Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
-            padding: 24px;
-            width: 140px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
-        
-        .category-card:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            opacity: 0;
+            transition: var(--transition-normal);
         }
-        
-        .category-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .tool-card:hover::before {
+            opacity: 1;
+        }
+
+        .tool-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 24px;
-        }
-        
-        .category-card span {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            flex-shrink: 0;
         }
 
-        /* Category Navigation */
+        .tool-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .tool-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .tool-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .tool-link:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .tool-stats {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Category Navigation Bar (Below Hero) */
         .category-nav {
             position: sticky;
             top: 80px;
@@ -507,11 +719,10 @@
             
             .mobile-menu-btn {
                 display: block;
-                background: transparent;
-                border: none;
-                color: var(--text-primary);
-                font-size: 1.5rem;
-                cursor: pointer;
+            }
+            
+            .header-actions .contact-email {
+                display: none;
             }
         }
 
@@ -577,31 +788,66 @@
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
         }
 
-        /* Hide/Show Sections */
-        .section-hidden {
-            display: none;
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid var(--border-color);
-            border-top-color: var(--accent-blue);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
+        /* Mobile Menu Styles */
+        @media (max-width: 992px) {
+            .nav.active {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--secondary-dark);
+                padding: 2rem;
+                border-bottom: 1px solid var(--border-color);
+                display: block;
+                animation: slideDown 0.3s ease;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                display: block;
+            }
+            
+            .nav-link {
+                padding: 1rem;
+                border-radius: var(--radius-md);
+                display: block;
+            }
+            
+            .dropdown-content {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: transparent;
+                border: none;
+                padding: 0.5rem 0 0.5rem 2rem;
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+            
+            .mobile-dropdown-btn {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                background: none;
+                border: none;
+                color: inherit;
+                font-size: inherit;
+                cursor: pointer;
+                padding: 1rem;
+                text-align: left;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Premium Header -->
+    <!-- Premium Header with Dropdown Categories -->
     <header class="header">
         <div class="container header-container">
             <a href="#" class="logo">
@@ -611,23 +857,71 @@
                 <span class="logo-text">ToolNest</span>
             </a>
 
-            <nav class="nav">
+            <nav class="nav" id="mainNav">
                 <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#tools" class="nav-link">All Tools</a></li>
-                    <li><a href="#categories" class="nav-link">Categories</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#home" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#tools" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            Tools
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="#image" class="category-item">
+                                <i class="fas fa-image"></i>
+                                Image Processing
+                            </a>
+                            <a href="#document" class="category-item">
+                                <i class="fas fa-file-alt"></i>
+                                Document Tools
+                            </a>
+                            <a href="#calculator" class="category-item">
+                                <i class="fas fa-calculator"></i>
+                                Calculators
+                            </a>
+                            <a href="#text" class="category-item">
+                                <i class="fas fa-font"></i>
+                                Text Processing
+                            </a>
+                            <a href="#developer" class="category-item">
+                                <i class="fas fa-code"></i>
+                                Developer Tools
+                            </a>
+                            <a href="#color" class="category-item">
+                                <i class="fas fa-palette"></i>
+                                Color Design
+                            </a>
+                            <a href="#seo" class="category-item">
+                                <i class="fas fa-chart-line"></i>
+                                SEO & Analytics
+                            </a>
+                            <a href="#utility">
+                                <i class="fas fa-tools"></i>
+                                Utility Tools
+                            </a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#about" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        About
+                    </a></li>
                 </ul>
-                
-                <a href="mailto:toolnest3@gmail.com" class="nav-link">
-                    <i class="fas fa-envelope"></i>
-                    <span style="margin-left: 0.5rem;">Contact</span>
-                </a>
             </nav>
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="header-actions">
+                <a href="mailto:toolnest3@gmail.com" class="contact-email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -1245,11 +1539,36 @@
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const nav = document.querySelector('.nav');
             
+            // Mobile menu toggle
             mobileMenuBtn.addEventListener('click', () => {
                 nav.classList.toggle('active');
                 mobileMenuBtn.innerHTML = nav.classList.contains('active') 
                     ? '<i class="fas fa-times"></i>' 
                     : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Mobile dropdown handling
+            if (window.innerWidth <= 992) {
+                const dropdownToggle = document.querySelector('.dropdown > .nav-link');
+                if (dropdownToggle) {
+                    dropdownToggle.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 992) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            dropdownToggle.parentElement.classList.toggle('active');
+                        }
+                    });
+                }
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992 && nav.classList.contains('active')) {
+                    if (!nav.contains(e.target) && e.target !== mobileMenuBtn) {
+                        nav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
             });
             
             // Smooth scroll for navigation links
@@ -1298,7 +1617,9 @@
         function setupCategoryNavigation() {
             const categoryBtns = document.querySelectorAll('.category-btn');
             const sections = document.querySelectorAll('.tools-section > .container > .section-header, .tools-section > .container > .tools-grid');
+            const dropdownLinks = document.querySelectorAll('.dropdown-content a');
             
+            // Category button click handler
             categoryBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     // Update active button
@@ -1306,34 +1627,53 @@
                     btn.classList.add('active');
                     
                     const category = btn.dataset.category;
+                    filterByCategory(category);
+                });
+            });
+            
+            // Dropdown link click handler
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const category = link.getAttribute('href').replace('#', '');
+                    const correspondingBtn = document.querySelector(`.category-btn[data-category="${category}"]`);
                     
-                    if (category === 'all') {
-                        // Show all sections
-                        sections.forEach(section => {
-                            section.style.display = '';
-                        });
-                    } else {
-                        // Show only selected category
-                        sections.forEach(section => {
-                            if (section.id === `${category}-tools` || 
-                                section.previousElementSibling?.id === category) {
-                                section.style.display = '';
-                            } else if (section.classList.contains('tools-grid')) {
-                                section.style.display = 'none';
-                            }
-                        });
-                    }
-                    
-                    // Scroll to category
-                    const targetSection = document.getElementById(category === 'all' ? 'tools' : category);
-                    if (targetSection) {
-                        window.scrollTo({
-                            top: targetSection.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
+                    if (correspondingBtn) {
+                        // Update active button
+                        categoryBtns.forEach(b => b.classList.remove('active'));
+                        correspondingBtn.classList.add('active');
+                        
+                        filterByCategory(category);
                     }
                 });
             });
+            
+            function filterByCategory(category) {
+                if (category === 'all') {
+                    // Show all sections
+                    sections.forEach(section => {
+                        section.style.display = '';
+                    });
+                } else {
+                    // Show only selected category
+                    sections.forEach(section => {
+                        if (section.id === `${category}-tools` || 
+                            section.previousElementSibling?.id === category) {
+                            section.style.display = '';
+                        } else if (section.classList.contains('tools-grid')) {
+                            section.style.display = 'none';
+                        }
+                    });
+                }
+                
+                // Scroll to category
+                const targetSection = document.getElementById(category === 'all' ? 'tools' : category);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
         }
 
         // Setup search functionality
@@ -1411,7 +1751,4 @@
     </script>
 </body>
 </html>
-
-
-
 
