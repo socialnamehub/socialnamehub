@@ -1,1492 +1,590 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MagicWebAI - AI-Powered Website Generator</title>
-    <meta name="description" content="Generate complete, professional websites instantly with AI. MagicWebAI creates responsive, modern websites from simple text prompts.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-dark: #0a0e17;
-            --secondary-dark: #121826;
-            --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
-            --accent-pink: #ec4899;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --border-color: #2d3748;
-            --success-green: #10b981;
-            --warning-orange: #f59e0b;
-            --gradient-bg: linear-gradient(135deg, #0a0e17 0%, #121826 100%);
-            --gradient-accent: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            --border-radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--gradient-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(10, 14, 23, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .logo i {
-            font-size: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius);
-        }
-
-        nav a:hover {
-            color: var(--text-primary);
-            background: rgba(59, 130, 246, 0.1);
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--gradient-accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-blue);
-            border: 1px solid var(--accent-blue);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(59, 130, 246, 0.2);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 5rem 0;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--text-primary), var(--accent-blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Main Generator */
-        .generator-container {
-            background: rgba(18, 24, 38, 0.8);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .prompt-input-container {
-            margin-bottom: 2rem;
-        }
-
-        .prompt-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .prompt-label i {
-            color: var(--accent-blue);
-        }
-
-        .prompt-input {
-            width: 100%;
-            min-height: 150px;
-            padding: 1.5rem;
-            background: rgba(10, 14, 23, 0.7);
-            border: 2px solid var(--border-color);
-            border-radius: var(--border-radius);
-            color: var(--text-primary);
-            font-size: 1rem;
-            resize: vertical;
-            transition: var(--transition);
-        }
-
-        .prompt-input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        }
-
-        .prompt-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .option-group {
-            background: rgba(10, 14, 23, 0.7);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-        }
-
-        .option-group label {
-            display: block;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .option-group select {
-            width: 100%;
-            padding: 0.75rem;
-            background: var(--secondary-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 1rem;
-        }
-
-        .generate-btn {
-            width: 100%;
-            padding: 1.25rem;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Results Section */
-        .results-container {
-            display: none;
-            background: rgba(18, 24, 38, 0.8);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .results-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .results-header h2 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-primary);
-        }
-
-        .results-header h2 i {
-            color: var(--accent-blue);
-        }
-
-        .results-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .preview-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (max-width: 1024px) {
-            .preview-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .code-editor, .live-preview {
-            background: rgba(10, 14, 23, 0.9);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-        }
-
-        .editor-header, .preview-header {
-            padding: 1rem 1.5rem;
-            background: rgba(18, 24, 38, 0.9);
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .editor-header h3, .preview-header h3 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-primary);
-        }
-
-        .code-content {
-            padding: 1.5rem;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-            max-height: 500px;
-            overflow-y: auto;
-        }
-
-        .preview-frame {
-            width: 100%;
-            height: 500px;
-            border: none;
-            background: white;
-        }
-
-        /* Features */
-        .features {
-            padding: 5rem 0;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-primary);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: rgba(18, 24, 38, 0.8);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-accent);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .feature-card h3 {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(10, 14, 23, 0.95);
-            border-top: 1px solid var(--border-color);
-            padding: 3rem 0;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-
-        .footer-section h4 {
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-section a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-section a:hover {
-            color: var(--accent-blue);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-        }
-
-        /* Loading */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 3rem;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(59, 130, 246, 0.2);
-            border-top-color: var(--accent-blue);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1.5rem;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .preview-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Code styling */
-        .code-content pre {
-            color: var(--text-primary);
-            line-height: 1.5;
-        }
-
-        .code-content .tag {
-            color: #ff79c6;
-        }
-
-        .code-content .attr {
-            color: #50fa7b;
-        }
-
-        .code-content .value {
-            color: #f1fa8c;
-        }
-
-        .code-content .comment {
-            color: #6272a4;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-magic"></i>
-                    MagicWebAI
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
-                        <li><a href="#"><i class="fas fa-images"></i> Templates</a></li>
-                        <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <button class="btn btn-secondary"><i class="fas fa-user"></i> Sign In</button>
-                    <button class="btn btn-primary"><i class="fas fa-rocket"></i> Get Started</button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="container">
-        <section class="hero">
-            <h1>Generate Websites with AI Magic</h1>
-            <p>Describe what you need, and MagicWebAI will create a complete, responsive, professional website in seconds. No coding required.</p>
-            <button class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
-                <i class="fas fa-bolt"></i> Start Generating
-            </button>
-        </section>
-
-        <section class="generator-container">
-            <div class="prompt-input-container">
-                <div class="prompt-label">
-                    <i class="fas fa-keyboard"></i>
-                    Describe Your Website
-                </div>
-                <textarea 
-                    class="prompt-input" 
-                    id="promptInput" 
-                    placeholder="Example: Create a modern restaurant website with a dark theme, menu section, reservation form, and contact information. Make it elegant and responsive..."
-                    rows="5"
-                ></textarea>
-            </div>
-
-            <div class="options-grid">
-                <div class="option-group">
-                    <label><i class="fas fa-paint-brush"></i> Design Style</label>
-                    <select id="designStyle">
-                        <option value="modern">Modern & Clean</option>
-                        <option value="minimal">Minimalist</option>
-                        <option value="elegant">Elegant</option>
-                        <option value="bold">Bold & Colorful</option>
-                        <option value="professional">Professional</option>
-                        <option value="creative">Creative</option>
-                    </select>
-                </div>
-                <div class="option-group">
-                    <label><i class="fas fa-palette"></i> Color Scheme</label>
-                    <select id="colorScheme">
-                        <option value="dark">Dark Theme</option>
-                        <option value="light">Light Theme</option>
-                        <option value="blue">Blue Gradient</option>
-                        <option value="purple">Purple Theme</option>
-                        <option value="green">Green Theme</option>
-                        <option value="custom">Custom Colors</option>
-                    </select>
-                </div>
-                <div class="option-group">
-                    <label><i class="fas fa-mobile-alt"></i> Layout Type</label>
-                    <select id="layoutType">
-                        <option value="single">Single Page</option>
-                        <option value="multi">Multi-Page</option>
-                        <option value="landing">Landing Page</option>
-                        <option value="portfolio">Portfolio</option>
-                        <option value="ecommerce">E-commerce</option>
-                        <option value="blog">Blog Layout</option>
-                    </select>
-                </div>
-                <div class="option-group">
-                    <label><i class="fas fa-code"></i> Features</label>
-                    <select id="features">
-                        <option value="basic">Basic Website</option>
-                        <option value="interactive">Interactive Elements</option>
-                        <option value="animations">With Animations</option>
-                        <option value="forms">Contact Forms</option>
-                        <option value="gallery">Image Gallery</option>
-                        <option value="shop">Shopping Cart</option>
-                    </select>
-                </div>
-            </div>
-
-            <button class="btn btn-primary generate-btn" id="generateBtn">
-                <i class="fas fa-wand-magic-sparkles"></i> Generate Website
-            </button>
-        </section>
-
-        <div class="loading" id="loadingSection">
-            <div class="spinner"></div>
-            <h3>MagicWebAI is creating your website...</h3>
-            <p>Analyzing your prompt and generating code. This usually takes 10-20 seconds.</p>
-        </div>
-
-        <section class="results-container" id="resultsSection">
-            <div class="results-header">
-                <h2><i class="fas fa-code"></i> Your Generated Website</h2>
-                <div class="results-actions">
-                    <button class="btn btn-secondary" id="copyCodeBtn">
-                        <i class="fas fa-copy"></i> Copy Code
-                    </button>
-                    <button class="btn btn-primary" id="downloadBtn">
-                        <i class="fas fa-download"></i> Download
-                    </button>
-                    <button class="btn btn-secondary" id="regenerateBtn">
-                        <i class="fas fa-redo"></i> Regenerate
-                    </button>
-                </div>
-            </div>
-
-            <div class="preview-container">
-                <div class="code-editor">
-                    <div class="editor-header">
-                        <h3><i class="fas fa-file-code"></i> Generated HTML Code</h3>
-                        <span id="codeLines">Lines: 0</span>
-                    </div>
-                    <div class="code-content" id="codeContent">
-                        <pre id="generatedCode"><!-- Generated code will appear here --></pre>
-                    </div>
-                </div>
-
-                <div class="live-preview">
-                    <div class="preview-header">
-                        <h3><i class="fas fa-eye"></i> Live Preview</h3>
-                        <button class="btn btn-secondary" id="refreshPreview">
-                            <i class="fas fa-sync-alt"></i> Refresh
-                        </button>
-                    </div>
-                    <iframe class="preview-frame" id="previewFrame" sandbox="allow-scripts"></iframe>
-                </div>
-            </div>
-        </section>
-
-        <section class="features" id="features">
-            <h2>Why Choose MagicWebAI</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Instant Generation</h3>
-                    <p>Generate complete websites in seconds. Just describe what you need and let AI do the rest.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Fully Responsive</h3>
-                    <p>All generated websites are mobile-friendly and work perfectly on all devices and screen sizes.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Clean Code</h3>
-                    <p>Get production-ready, well-structured HTML, CSS, and JavaScript code that's easy to customize.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Multiple Styles</h3>
-                    <p>Choose from various design styles, color schemes, and layouts to match your brand perfectly.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-download"></i>
-                    </div>
-                    <h3>Export Ready</h3>
-                    <p>Download your generated website as a complete package with all assets included.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>No Signup Required</h3>
-                    <p>Start generating websites immediately without any registration or subscription required.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>MagicWebAI</h4>
-                    <p>The most advanced AI website generator. Create professional websites instantly with the power of artificial intelligence.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#features"><i class="fas fa-chevron-right"></i> Features</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pricing</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Documentation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Templates</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Community</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-envelope"></i> support@magicwebai.com</a></li>
-                        <li><a href="#"><i class="fas fa-twitter"></i> @MagicWebAI</a></li>
-                        <li><a href="#"><i class="fas fa-discord"></i> Discord Community</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 MagicWebAI. All rights reserved. | AI-Powered Website Generation</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // DOM Elements
-        const promptInput = document.getElementById('promptInput');
-        const generateBtn = document.getElementById('generateBtn');
-        const loadingSection = document.getElementById('loadingSection');
-        const resultsSection = document.getElementById('resultsSection');
-        const generatedCode = document.getElementById('generatedCode');
-        const previewFrame = document.getElementById('previewFrame');
-        const copyCodeBtn = document.getElementById('copyCodeBtn');
-        const downloadBtn = document.getElementById('downloadBtn');
-        const regenerateBtn = document.getElementById('regenerateBtn');
-        const refreshPreview = document.getElementById('refreshPreview');
-        const codeLines = document.getElementById('codeLines');
-        const designStyle = document.getElementById('designStyle');
-        const colorScheme = document.getElementById('colorScheme');
-        const layoutType = document.getElementById('layoutType');
-        const features = document.getElementById('features');
-
-        // Website templates based on prompts
-        const websiteTemplates = {
-            restaurant: {
-                name: "Restaurant Website",
-                description: "Modern restaurant website with menu and reservation system",
-                code: generateRestaurantWebsite()
-            },
-            portfolio: {
-                name: "Portfolio Website",
-                description: "Professional portfolio for designers or developers",
-                code: generatePortfolioWebsite()
-            },
-            ecommerce: {
-                name: "E-commerce Store",
-                description: "Online store with product listings and shopping cart",
-                code: generateEcommerceWebsite()
-            },
-            landing: {
-                name: "Landing Page",
-                description: "High-converting landing page with call-to-action",
-                code: generateLandingPage()
-            },
-            blog: {
-                name: "Blog Website",
-                description: "Modern blog with articles and comments section",
-                code: generateBlogWebsite()
-            }
-        };
-
-        // Generate restaurant website
-        function generateRestaurantWebsite() {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourmet Haven | Fine Dining Restaurant</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-dark: #0a0e17;
-            --accent-gold: #d4af37;
-            --text-light: #f8f9fa;
-            --text-muted: #adb5bd;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--primary-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: rgba(10, 14, 23, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            text-decoration: none;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--accent-gold);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(10, 14, 23, 0.8), rgba(10, 14, 23, 0.8)),
-                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: var(--accent-gold);
-        }
-        
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .btn {
-            padding: 1rem 2rem;
-            background: var(--accent-gold);
-            color: var(--primary-dark);
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* Menu Section */
-        .menu-section {
-            padding: 5rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--accent-gold);
-        }
-        
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .menu-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .menu-item h3 {
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-        }
-        
-        .price {
-            color: var(--accent-gold);
-            font-weight: 600;
-            float: right;
-        }
-        
-        /* Reservation Form */
-        .reservation {
-            padding: 5rem 0;
-            background: rgba(212, 175, 55, 0.1);
-        }
-        
-        .reservation-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--accent-gold);
-        }
-        
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 5px;
-            color: var(--text-light);
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .social-links a {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent-gold);
-        }
-        
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Gourmet Haven</a>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#menu">Menu</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#reservation">Reservations</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Experience Culinary Excellence</h1>
-                <p>Indulge in an unforgettable dining experience at Gourmet Haven, where every dish is crafted with passion and precision.</p>
-                <a href="#reservation" class="btn">Book a Table</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="menu-section" id="menu">
-        <div class="container">
-            <h2 class="section-title">Our Signature Dishes</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <h3>Truffle Risotto <span class="price">$32</span></h3>
-                    <p>Creamy Arborio rice with black truffle, Parmesan, and white wine</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Wagyu Beef Tenderloin <span class="price">$68</span></h3>
-                    <p>Premium Japanese Wagyu with truffle mashed potatoes and red wine reduction</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Lobster Thermidor <span class="price">$45</span></h3>
-                    <p>Fresh Maine lobster in a creamy brandy sauce with gruyère cheese</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Chocolate Soufflé <span class="price">$18</span></h3>
-                    <p>Decadent dark chocolate soufflé with vanilla bean ice cream</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="reservation" id="reservation">
-        <div class="container">
-            <h2 class="section-title">Make a Reservation</h2>
-            <form class="reservation-form">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="time">Time</label>
-                    <select id="time" required>
-                        <option value="">Select Time</option>
-                        <option value="18:00">6:00 PM</option>
-                        <option value="18:30">6:30 PM</option>
-                        <option value="19:00">7:00 PM</option>
-                        <option value="19:30">7:30 PM</option>
-                        <option value="20:00">8:00 PM</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="guests">Number of Guests</label>
-                    <select id="guests" required>
-                        <option value="1">1 Person</option>
-                        <option value="2">2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4">4 People</option>
-                        <option value="5">5+ People</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Reserve Table</button>
-            </form>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p>123 Gourmet Street, Culinary City</p>
-            <p>Phone: (123) 456-7890 | Email: info@gourmethaven.com</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-tripadvisor"></i></a>
-            </div>
-            <p>&copy; 2023 Gourmet Haven. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Form submission
-        document.querySelector('.reservation-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your reservation! We will confirm shortly.');
-            this.reset();
-        });
-        
-        // Smooth scrolling
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId.startsWith('#')) {
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>`;
-            },
-            // Other template generators would be here
-        };
-
-        // Generate portfolio website
-        function generatePortfolioWebsite() {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Morgan | Creative Portfolio</title>
-    <style>
-        /* Portfolio specific styles */
-        body {
-            background: linear-gradient(135deg, #0a0e17 0%, #1a1f3a 100%);
-            color: #f8fafc;
-        }
-        /* ... portfolio code ... */
-    </style>
-</head>
-<body>
-    <h1>Portfolio Website Generated</h1>
-    <p>This is a placeholder for the portfolio website. In a full implementation, this would generate a complete portfolio with projects, about section, and contact form.</p>
-</body>
-</html>`;
-        }
-
-        // Generate e-commerce website
-        function generateEcommerceWebsite() {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Store | E-commerce</title>
-    <style>
-        /* E-commerce specific styles */
-        body {
-            background: linear-gradient(135deg, #0a0e17 0%, #1a1f3a 100%);
-            color: #f8fafc;
-        }
-        /* ... e-commerce code ... */
-    </style>
-</head>
-<body>
-    <h1>E-commerce Website Generated</h1>
-        <p>This is a placeholder for the e-commerce website. In a full implementation, this would generate a complete online store with product listings, cart functionality, and checkout.</p>
-    </body>
-    </html>`;
-        }
-
-        // Generate landing page
-        function generateLandingPage() {
-            return `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Premium Landing Page</title>
-        <style>
-            /* Landing page specific styles */
-            body {
-                background: linear-gradient(135deg, #0a0e17 0%, #1a1f3a 100%);
-                color: #f8fafc;
-            }
-            /* ... landing page code ... */
-        </style>
-    </head>
-    <body>
-        <h1>Landing Page Generated</h1>
-        <p>This is a placeholder for the landing page. In a full implementation, this would generate a high-converting landing page with hero section, features, testimonials, and call-to-action.</p>
-    </body>
-    </html>`;
-        }
-
-        // Generate blog website
-        function generateBlogWebsite() {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Blog | AI Generated</title>
-<style>
-    /* Blog specific styles */
-    body {
-        background: linear-gradient(135deg, #0a0e17 0%, #1a1f3a 100%);
-        color: #f8fafc;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Tool Nest - Your All-in-One Online Tools Platform</title>
+  <meta name="description" content="Read Tool Nest's comprehensive privacy policy. Learn how we protect your data while providing free online tools, calculators, converters, and utilities.">
+  <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-dark: #0a192f;
+      --secondary-dark: #112240;
+      --accent-blue: #3b82f6;
+      --light-blue: #60a5fa;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: #2d3748;
+      --card-bg: rgba(17, 34, 64, 0.8);
+      --gradient-bg: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+      --gradient-accent: linear-gradient(135deg, #3b82f6, #60a5fa);
+      --border-radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    /* ... blog code ... */
-</style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--gradient-bg);
+      color: var(--text-primary);
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: rgba(10, 25, 47, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1.5rem 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: translateY(-2px);
+    }
+
+    .logo i {
+      font-size: 2rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.75rem 1.5rem;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      background: rgba(59, 130, 246, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 4rem 0;
+    }
+
+    .policy-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .policy-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--text-primary), var(--accent-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .policy-header .date {
+      color: var(--text-muted);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .policy-header .date i {
+      color: var(--accent-blue);
+    }
+
+    .policy-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .policy-section {
+      margin-bottom: 3rem;
+      padding: 2.5rem;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .policy-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-accent);
+    }
+
+    .policy-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .policy-section h2 {
+      color: var(--accent-blue);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .policy-section h2 i {
+      font-size: 1.5rem;
+      color: var(--light-blue);
+    }
+
+    .policy-section p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .policy-section ul {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .policy-section li {
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .policy-section li::before {
+      content: '•';
+      color: var(--accent-blue);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    .highlight-box {
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 4px solid var(--accent-blue);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .highlight-box p {
+      color: var(--text-primary);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .highlight-box i {
+      color: var(--accent-blue);
+      margin-right: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(10, 25, 47, 0.95);
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 0;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-logo i {
+      font-size: 2.2rem;
+    }
+
+    .footer-tagline {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      
+      .policy-header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .policy-section {
+        padding: 1.5rem;
+      }
+      
+      .policy-section h2 {
+        font-size: 1.5rem;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .policy-section {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .policy-section:nth-child(1) { animation-delay: 0.1s; }
+    .policy-section:nth-child(2) { animation-delay: 0.2s; }
+    .policy-section:nth-child(3) { animation-delay: 0.3s; }
+    .policy-section:nth-child(4) { animation-delay: 0.4s; }
+    .policy-section:nth-child(5) { animation-delay: 0.5s; }
+    .policy-section:nth-child(6) { animation-delay: 0.6s; }
+    .policy-section:nth-child(7) { animation-delay: 0.7s; }
+    .policy-section:nth-child(8) { animation-delay: 0.8s; }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--secondary-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-blue);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--light-blue);
+    }
+  </style>
 </head>
 <body>
-    <h1>Blog Website Generated</h1>
-    <p>This is a placeholder for the blog website. In a full implementation, this would generate a complete blog with articles, comments, categories, and author profiles.</p>
-</body>
-</html>`;
-        }
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <i class="fas fa-tools"></i>
+          Tool Nest
+        </a>
+        <a href="index.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i>
+          Back to Tools
+        </a>
+      </div>
+    </div>
+  </header>
 
-        // Detect website type from prompt
-        function detectWebsiteType(prompt) {
-            const promptLower = prompt.toLowerCase();
-            
-            if (promptLower.includes('restaurant') || promptLower.includes('food') || promptLower.includes('menu') || promptLower.includes('dining')) {
-                return 'restaurant';
-            } else if (promptLower.includes('portfolio') || promptLower.includes('designer') || promptLower.includes('developer') || promptLower.includes('freelance')) {
-                return 'portfolio';
-            } else if (promptLower.includes('shop') || promptLower.includes('store') || promptLower.includes('ecommerce') || promptLower.includes('product')) {
-                return 'ecommerce';
-            } else if (promptLower.includes('landing') || promptLower.includes('conversion') || promptLower.includes('lead')) {
-                return 'landing';
-            } else if (promptLower.includes('blog') || promptLower.includes('article') || promptLower.includes('post')) {
-                return 'blog';
-            } else {
-                // Default to restaurant if no match
-                return 'restaurant';
-            }
-        }
+  <main class="main-content">
+    <div class="container">
+      <div class="policy-header">
+        <h1>Privacy Policy</h1>
+        <p class="date">
+          <i class="fas fa-calendar-alt"></i>
+          Last Updated: December 2023
+        </p>
+        <p style="color: var(--text-secondary); max-width: 700px; margin: 1rem auto;">
+          Your privacy is our priority. This policy explains how Tool Nest collects, uses, and protects your information.
+        </p>
+      </div>
 
-        // Generate website based on prompt
-        function generateWebsiteFromPrompt(prompt) {
-            const websiteType = detectWebsiteType(prompt);
-            const selectedDesign = designStyle.value;
-            const selectedColor = colorScheme.value;
-            const selectedLayout = layoutType.value;
-            const selectedFeatures = features.value;
+      <div class="policy-content">
+        <section class="policy-section">
+          <h2><i class="fas fa-shield-alt"></i> Our Commitment to Privacy</h2>
+          <p>
+            At <strong>Tool Nest</strong>, we value your privacy and are fully committed to protecting your personal information. 
+            This Privacy Policy explains how we collect, use, and safeguard data when you use our multi-tool website, 
+            online tools, calculators, converters, generators, and web utilities.
+          </p>
+          <div class="highlight-box">
+            <p><i class="fas fa-info-circle"></i> <strong>No Registration Required:</strong> Use all our tools without creating an account or providing personal information.</p>
+          </div>
+        </section>
 
-            // Get base template
-            let htmlCode = websiteTemplates[websiteType].code;
+        <section class="policy-section">
+          <h2><i class="fas fa-database"></i> Information We Collect</h2>
+          <p>
+            Tool Nest operates with minimal data collection. We only gather information necessary to provide and improve our services:
+          </p>
+          <ul>
+            <li><strong>Non-Personal Information:</strong> Browser type, device information, IP address (anonymized)</li>
+            <li><strong>Usage Data:</strong> Tools accessed, duration of use, interaction patterns</li>
+            <li><strong>Technical Data:</strong> Operating system, screen resolution, language preferences</li>
+            <li><strong>Cookies:</strong> Session cookies for functionality and preference storage</li>
+          </ul>
+          <p>
+            We do <strong>not</strong> collect sensitive personal information such as names, email addresses, 
+            phone numbers, or payment details unless explicitly provided by you for specific services.
+          </p>
+        </section>
 
-            // Customize based on selected options
-            htmlCode = customizeWebsite(htmlCode, {
-                design: selectedDesign,
-                color: selectedColor,
-                layout: selectedLayout,
-                features: selectedFeatures
-            });
+        <section class="policy-section">
+          <h2><i class="fas fa-cogs"></i> How We Use Information</h2>
+          <p>
+            All collected data serves specific purposes to enhance your experience:
+          </p>
+          <ul>
+            <li>Improve website functionality, speed, and tool performance</li>
+            <li>Analyze usage trends and optimize tool interfaces</li>
+            <li>Maintain website security and prevent abuse</li>
+            <li>Deliver better online tools and utilities based on user needs</li>
+            <li>Monitor tool performance and fix technical issues</li>
+            <li>Develop new tools and features based on usage patterns</li>
+          </ul>
+        </section>
 
-            return htmlCode;
-        }
+        <section class="policy-section">
+          <h2><i class="fas fa-cookie-bite"></i> Cookies and Tracking Technologies</h2>
+          <p>
+            Tool Nest uses cookies and similar technologies to enhance user experience:
+          </p>
+          <ul>
+            <li><strong>Essential Cookies:</strong> Required for basic website functionality</li>
+            <li><strong>Performance Cookies:</strong> Help us understand how visitors interact with our tools</li>
+            <li><strong>Preference Cookies:</strong> Remember your settings and tool preferences</li>
+            <li><strong>Analytics Cookies:</strong> Anonymous usage statistics to improve services</li>
+          </ul>
+          <div class="highlight-box">
+            <p><i class="fas fa-user-check"></i> <strong>Your Control:</strong> You can disable cookies in your browser settings, though some tool features may not function optimally.</p>
+          </div>
+        </section>
 
-        // Customize website based on options
-        function customizeWebsite(htmlCode, options) {
-            // This function would modify the HTML/CSS based on user selections
-            // For this example, we'll just add a comment at the top
-            const customizationComment = `\n<!-- 
-    Website generated by MagicWebAI
-    Design Style: ${options.design}
-    Color Scheme: ${options.color}
-    Layout Type: ${options.layout}
-    Features: ${options.features}
--->\n`;
+        <section class="policy-section">
+          <h2><i class="fas fa-handshake"></i> Third-Party Services</h2>
+          <p>
+            We may use trusted third-party services to enhance our platform:
+          </p>
+          <ul>
+            <li><strong>Analytics Providers:</strong> For understanding usage patterns (anonymous data only)</li>
+            <li><strong>Content Delivery Networks:</strong> To serve tools faster globally</li>
+            <li><strong>Security Services:</strong> For protecting against malicious activities</li>
+          </ul>
+          <p>
+            These services may collect data in accordance with their own privacy policies. 
+            <strong>Tool Nest does not sell, trade, or rent your personal data to third parties.</strong>
+          </p>
+        </section>
 
-            return customizationComment + htmlCode;
-        }
+        <section class="policy-section">
+          <h2><i class="fas fa-lock"></i> Data Security</h2>
+          <p>
+            We implement industry-standard security measures to protect user data:
+          </p>
+          <ul>
+            <li>Encryption for data transmission (HTTPS/SSL)</li>
+            <li>Regular security audits and vulnerability assessments</li>
+            <li>Secure server infrastructure with firewalls</li>
+            <li>Access controls and authentication mechanisms</li>
+            <li>Regular software updates and security patches</li>
+          </ul>
+          <p>
+            While no online platform can guarantee 100% security, we strive to keep Tool Nest 
+            safe, reliable, and secure for all users.
+          </p>
+        </section>
 
-        // Update line count
-        function updateLineCount(code) {
-            const lines = code.split('\n').length;
-            codeLines.textContent = `Lines: ${lines}`;
-        }
+        <section class="policy-section">
+          <h2><i class="fas fa-child"></i> Children's Information</h2>
+          <p>
+            Tool Nest does not knowingly collect personal information from children under 13 years of age. 
+            Our tools are designed for general audiences and do not target children specifically.
+          </p>
+          <p>
+            If you are a parent or guardian and believe that your child has provided us with personal 
+            information, please contact us immediately. We will take steps to remove such information 
+            from our records.
+          </p>
+        </section>
 
-        // Format code for display
-        function formatCodeForDisplay(code) {
-            // Simple syntax highlighting
-            return code
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/(".*?")/g, '<span class="value">$1</span>')
-                .replace(/(class=|id=|href=|src=)/g, '<span class="attr">$1</span>')
-                .replace(/(&lt;\/?[a-zA-Z][^&gt;]*&gt;)/g, '<span class="tag">$1</span>')
-                .replace(/&lt;!--.*?--&gt;/g, '<span class="comment">$&</span>');
-        }
+        <section class="policy-section">
+          <h2><i class="fas fa-sync-alt"></i> Changes to This Privacy Policy</h2>
+          <p>
+            We may update this Privacy Policy periodically to reflect changes in our practices or 
+            for other operational, legal, or regulatory reasons.
+          </p>
+          <ul>
+            <li>Significant changes will be prominently announced on our website</li>
+            <li>The "Last Updated" date at the top will be revised</li>
+            <li>Continued use of Tool Nest after changes constitutes acceptance</li>
+          </ul>
+          <div class="highlight-box">
+            <p><i class="fas fa-check-circle"></i> <strong>Your Consent:</strong> By using Tool Nest, you agree to this Privacy Policy and our Terms of Service.</p>
+          </div>
+        </section>
 
-        // Generate website
-        generateBtn.addEventListener('click', async () => {
-            const prompt = promptInput.value.trim();
-            
-            if (!prompt) {
-                alert('Please describe the website you want to generate.');
-                return;
-            }
+        <section class="policy-section">
+          <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+          <p>
+            If you have questions about this Privacy Policy or our data practices, please reach out:
+          </p>
+          <ul>
+            <li><strong>Email:</strong> privacy@toolnest.online</li>
+            <li><strong>Website Contact Form:</strong> Available on our contact page</li>
+            <li><strong>Response Time:</strong> We aim to respond within 3-5 business days</li>
+          </ul>
+          <p>
+            We appreciate your trust in Tool Nest and are committed to protecting your privacy 
+            while providing valuable online tools and utilities.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
 
-            // Show loading, hide results
-            loadingSection.style.display = 'block';
-            resultsSection.style.display = 'none';
-            
-            // Simulate AI processing time
-            setTimeout(() => {
-                const generatedHTML = generateWebsiteFromPrompt(prompt);
-                
-                // Display code
-                generatedCode.innerHTML = formatCodeForDisplay(generatedHTML);
-                updateLineCount(generatedHTML);
-                
-                // Update preview iframe
-                const previewDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
-                previewDoc.open();
-                previewDoc.write(generatedHTML);
-                previewDoc.close();
-                
-                // Show results, hide loading
-                loadingSection.style.display = 'none';
-                resultsSection.style.display = 'block';
-                
-                // Scroll to results
-                resultsSection.scrollIntoView({ behavior: 'smooth' });
-                
-                // Show notification
-                showNotification('Website generated successfully!', 'success');
-            }, 2000); // Simulate 2-second processing time
-        });
-
-        // Copy code to clipboard
-        copyCodeBtn.addEventListener('click', async () => {
-            const code = generatedCode.textContent || generatedCode.innerText;
-            
-            try {
-                await navigator.clipboard.writeText(code);
-                showNotification('Code copied to clipboard!', 'success');
-                
-                // Visual feedback
-                copyCodeBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                copyCodeBtn.style.background = 'var(--success-green)';
-                
-                setTimeout(() => {
-                    copyCodeBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Code';
-                    copyCodeBtn.style.background = '';
-                }, 2000);
-            } catch (err) {
-                showNotification('Failed to copy code', 'error');
-            }
-        });
-
-        // Download website
-        downloadBtn.addEventListener('click', () => {
-            const code = generatedCode.textContent || generatedCode.innerText;
-            const blob = new Blob([code], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            
-            a.href = url;
-            a.download = 'generated-website.html';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            showNotification('Website downloaded successfully!', 'success');
-        });
-
-        // Regenerate website
-        regenerateBtn.addEventListener('click', () => {
-            generateBtn.click();
-        });
-
-        // Refresh preview
-        refreshPreview.addEventListener('click', () => {
-            const code = generatedCode.textContent || generatedCode.innerText;
-            const previewDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
-            
-            previewDoc.open();
-            previewDoc.write(code);
-            previewDoc.close();
-            
-            showNotification('Preview refreshed', 'info');
-        });
-
-        // Notification system
-        function showNotification(message, type = 'info') {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                <span>${message}</span>
-            `;
-            
-            // Style based on type
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
-                color: white;
-                padding: 15px 20px;
-                border-radius: var(--border-radius);
-                box-shadow: var(--shadow);
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                z-index: 10000;
-                animation: slideIn 0.3s ease;
-            `;
-            
-            // Add to page
-            document.body.appendChild(notification);
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
-
-        // Add CSS for notifications
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Example prompts for inspiration
-        const examplePrompts = [
-            "Create a modern restaurant website with a dark theme, menu section, reservation form, and contact information.",
-            "Generate a professional portfolio website for a web developer with project showcase and skills section.",
-            "Build an e-commerce website for a fashion store with product listings, shopping cart, and checkout.",
-            "Design a landing page for a SaaS product with features, testimonials, and pricing tables.",
-            "Create a blog website with dark theme, article listings, categories, and author profiles."
-        ];
-
-        // Add example prompt when clicking on textarea
-        promptInput.addEventListener('focus', function() {
-            if (!this.value) {
-                this.placeholder = examplePrompts[Math.floor(Math.random() * examplePrompts.length)];
-            }
-        });
-
-        // Initialize with a sample prompt
-        promptInput.value = "Create a modern restaurant website with a dark theme, menu section, reservation form, and contact information.";
-    </script>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <a href="index.html" class="footer-logo">
+          <i class="fas fa-tools"></i>
+          Tool Nest
+        </a>
+        
+        <p class="footer-tagline">
+          Your trusted platform for free online tools, calculators, converters, 
+          and utilities. No registration required.
+        </p>
+        
+        <div class="footer-links">
+          <a href="index.html">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+          <a href="privacy-policy.html">
+            <i class="fas fa-shield-alt"></i>
+            Privacy Policy
+          </a>
+          <a href="terms.html">
+            <i class="fas fa-file-contract"></i>
+            Terms of Service
+          </a>
+          <a href="contact.html">
+            <i class="fas fa-envelope"></i>
+            Contact Us
+          </a>
+        </div>
+        
+        <div class="copyright">
+          <p>&copy; 2023 Tool Nest. All rights reserved. | AI-Powered Online Tools Platform</p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
+            <i class="fas fa-heart" style="color: #ef4444;"></i> Made with care for the global community
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
-
-
