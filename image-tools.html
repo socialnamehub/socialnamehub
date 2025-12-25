@@ -1,339 +1,586 @@
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Professional Document Tools Online – PDF Converter, Merger, Compressor & eSign | Tool Nest</title>
-
-<meta name="description" content="Tool Nest professional document tools help you convert, compress, merge, secure and sign PDFs online. Use PDF to Word converter, PDF merger, PDF lock tool and eSign PDF for fast, secure and SEO-friendly document processing.">
-
-<meta name="keywords" content="professional document tools, pdf to word converter online, advanced pdf compressor, pdf merger splitter, document converter online, pdf lock tool, esign pdf, digital signature pdf, free pdf tools online">
-
-<link rel="icon" href="favicon-16x16.png" type="image/x-icon">
-
-<style>
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#0a1a33;
-    color:#e6f0ff;
-    line-height:1.85;
-}
-header{
-    background:#071327;
-    padding:50px 20px;
-    text-align:center;
-}
-header h1{
-    color:#4da3ff;
-    margin-bottom:10px;
-}
-header p{
-    max-width:900px;
-    margin:auto;
-    opacity:0.9;
-}
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:40px 20px;
-}
-h2{
-    color:#4da3ff;
-    margin-top:60px;
-}
-h3{
-    color:#7cbcff;
-}
-.tool-box{
-    background:#0f2a52;
-    padding:25px;
-    border-radius:8px;
-    margin:30px 0;
-}
-.tool-box a{
-    color:#7cbcff;
-    font-weight:bold;
-    text-decoration:none;
-}
-.tool-box a:hover{
-    text-decoration:underline;
-}
-footer{
-    background:#071327;
-    padding:50px 20px;
-}
-.footer-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-footer h3{
-    color:#4da3ff;
-}
-footer a{
-    color:#7cbcff;
-    text-decoration:none;
-}
-footer a:hover{
-    text-decoration:underline;
-}
-.copy{
-    text-align:center;
-    margin-top:40px;
-    font-size:14px;
-    opacity:0.75;
-}
+<!DOCTYPE html><html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="description" content="Discover Tool Nest's comprehensive suite of free online tools for image processing, document management, calculations, text manipulation, development, SEO, and utilities. Boost your productivity with our professional tools."> <meta name="keywords" content="online tools, free tools, image converter, PDF compressor, SEO tools, developer tools, calculator tools, text tools, document tools, image processing, productivity tools, web tools, professional tools, digital tools"> <title>Tool Nest | Comprehensive Suite of Free Professional Online Tools</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <link rel="icon" href="favicon-16x16.png" type="image/x-icon"> <style> :root { --primary-dark: #0a192f; --primary-blue: #1e3a8a; --secondary-blue: #3b82f6; --accent-blue: #60a5fa; --light-blue: #93c5fd; --text-light: #f8fafc; --text-gray: #cbd5e1; --card-bg: #1e293b; --card-hover: #334155; }
+text
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-light);
+        background-color: var(--primary-dark);
+        background-image: linear-gradient(to bottom right, var(--primary-dark), #0f172a);
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+        background-color: rgba(10, 25, 47, 0.95);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .logo h1 {
+        font-size: 1.8rem;
+        background: linear-gradient(to right, var(--accent-blue), var(--light-blue));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .logo-icon {
+        color: var(--accent-blue);
+        font-size: 1.8rem;
+    }
+    
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+    }
+    
+    nav a {
+        color: var(--text-gray);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        padding: 0.5rem 0.8rem;
+        border-radius: 4px;
+    }
+    
+    nav a:hover {
+        color: var(--accent-blue);
+        background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Main Content */
+    .hero {
+        padding: 4rem 0;
+        text-align: center;
+        background: radial-gradient(circle at top right, rgba(30, 58, 138, 0.2), transparent 70%);
+    }
+    
+    .hero h2 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+        color: var(--text-gray);
+        max-width: 800px;
+        margin: 0 auto 2rem;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(to right, var(--secondary-blue), var(--accent-blue));
+        color: white;
+        padding: 0.9rem 2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+    }
+    
+    /* Tools Sections */
+    .tools-section {
+        margin: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        padding-bottom: 0.8rem;
+        border-bottom: 2px solid var(--secondary-blue);
+        display: inline-block;
+    }
+    
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .tool-card {
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition: transform 0.3s, background-color 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .tool-card:hover {
+        transform: translateY(-5px);
+        background-color: var(--card-hover);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    .tool-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+        color: var(--accent-blue);
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .tool-icon {
+        color: var(--light-blue);
+    }
+    
+    .tool-card p {
+        color: var(--text-gray);
+        margin-bottom: 1.2rem;
+        font-size: 0.95rem;
+    }
+    
+    .tool-link {
+        display: inline-block;
+        color: var(--secondary-blue);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    
+    .tool-link:hover {
+        color: var(--accent-blue);
+    }
+    
+    /* Footer */
+    footer {
+        background-color: #0f172a;
+        padding: 3rem 0 1.5rem;
+        margin-top: 4rem;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .footer-column h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.2rem;
+        color: var(--accent-blue);
+    }
+    
+    .footer-links {
+        list-style: none;
+    }
+    
+    .footer-links li {
+        margin-bottom: 0.7rem;
+    }
+    
+    .footer-links a {
+        color: var(--text-gray);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+        color: var(--accent-blue);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid #334155;
+        color: var(--text-gray);
+        font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        nav ul {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.2rem;
+        }
+        
+        .tools-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
-</head>
-
-<body>
-
-<header>
-<h1>Professional Document Tools Online</h1>
-<p>
-Convert, compress, merge, secure, and digitally sign documents with Tool Nest’s powerful online document tools.
-Fast, secure, and designed for productivity and SEO performance.
-</p>
-</header>
-
-<div class="container">
-
-<p>
-In today’s digital-first world, documents are at the heart of communication, business operations, education, and legal workflows. From contracts and invoices to reports and academic papers, handling documents efficiently is critical. <strong>Professional document tools</strong> enable users to edit, convert, secure, and manage files without relying on heavy desktop software.
-</p>
-
-<p>
-<strong>Tool Nest Professional Document Tools</strong> provide a complete online solution for working with PDF and document files. Whether you need to convert PDFs to editable formats, compress large documents, merge or split PDF files, lock PDFs with passwords, or digitally sign documents, Tool Nest offers fast, secure, and free tools accessible directly from your browser.
-</p>
-
-<h2>Why Professional Document Tools Matter</h2>
-
-<p>
-Documents are essential assets in businesses and organizations. Poor document management can lead to inefficiency, data loss, security risks, and increased costs. Online document tools solve these challenges by making document handling simple, fast, and accessible from anywhere.
-</p>
-
-<p>
-Using professional document tools helps:
-</p>
-
-<ul>
-<li>Improve productivity and workflow efficiency</li>
-<li>Reduce file sizes for faster sharing</li>
-<li>Convert documents for compatibility</li>
-<li>Enhance document security</li>
-<li>Enable digital signatures and paperless processes</li>
-<li>Save time and operational costs</li>
-</ul>
-
-<p>
-Tool Nest document tools are designed with performance, security, and usability in mind, making them ideal for professionals, students, freelancers, and businesses.
-</p>
-
-<h2>PDF to Word Converter – Convert PDFs into Editable Documents</h2>
-
-<div class="tool-box">
-<p>
-The <strong>PDF to Word Converter</strong> allows users to convert PDF files into fully editable Word documents without losing formatting. This tool is essential when you need to edit text, images, or layouts contained within a PDF.
-</p>
-
-<p>
-Many PDF files are locked or non-editable by default. Converting PDFs to Word format makes it easier to update contracts, reports, assignments, and official documents.
-</p>
-
-<p>
-Key benefits include:
-</p>
-
-<ul>
-<li>Accurate layout preservation</li>
-<li>Editable text and images</li>
-<li>Fast online conversion</li>
-<li>No software installation required</li>
-</ul>
-
-<a href="https://www.tool-nest.online/pdf-to-word.html">Convert PDF to Word →</a>
-</div>
-
-<h2>Advanced PDF Compressor – Reduce PDF File Size</h2>
-
-<div class="tool-box">
-<p>
-The <strong>Advanced PDF Compressor</strong> reduces PDF file sizes while maintaining readability and quality. Large PDF files are difficult to upload, share, and store, especially over email or cloud platforms.
-</p>
-
-<p>
-Compressing PDF files improves performance and reduces bandwidth usage, making document sharing faster and more efficient.
-</p>
-
-<p>
-This tool is ideal for:
-</p>
-
-<ul>
-<li>Email attachments</li>
-<li>Website uploads</li>
-<li>Cloud storage optimization</li>
-<li>Mobile-friendly documents</li>
-</ul>
-
-<a href="https://www.tool-nest.online/pdf-converter.html">Compress PDF Files →</a>
-</div>
-
-<h2>PDF Merger & Splitter – Combine or Separate PDFs</h2>
-
-<div class="tool-box">
-<p>
-The <strong>PDF Merger & Splitter</strong> enables users to combine multiple PDF files into one document or split a single PDF into multiple files. This tool is extremely useful for organizing and managing large documents.
-</p>
-
-<p>
-Merging PDFs helps create unified documents such as reports or portfolios, while splitting PDFs allows users to extract specific pages or sections.
-</p>
-
-<p>
-Use cases include:
-</p>
-
-<ul>
-<li>Merging contracts and invoices</li>
-<li>Splitting large PDFs into chapters</li>
-<li>Reorganizing document pages</li>
-<li>Sharing selected pages only</li>
-</ul>
-
-<a href="https://www.tool-nest.online/pdf-merger.html">Merge or Split PDFs →</a>
-</div>
-
-<h2>Document Converter – Convert Files Between Formats</h2>
-
-<div class="tool-box">
-<p>
-The <strong>Document Converter</strong> allows users to convert documents between multiple formats, ensuring compatibility across devices and platforms.
-</p>
-
-<p>
-Different applications require different document formats. Converting documents ensures seamless sharing and editing without formatting issues.
-</p>
-
-<p>
-This tool is perfect for:
-</p>
-
-<ul>
-<li>Office compatibility</li>
-<li>Cross-platform document sharing</li>
-<li>Professional document preparation</li>
-<li>Educational and academic use</li>
-</ul>
-
-<a href="https://www.tool-nest.online/doc-converter.html">Convert Documents →</a>
-</div>
-
-<h2>PDF Lock Tool – Secure Your Documents</h2>
-
-<div class="tool-box">
-<p>
-The <strong>PDF Lock Tool</strong> adds password protection to PDF files, ensuring confidentiality and data security. Securing documents is crucial when sharing sensitive information such as financial records, legal contracts, or personal data.
-</p>
-
-<p>
-With this tool, users can restrict unauthorized access and maintain document integrity.
-</p>
-
-<p>
-Security benefits include:
-</p>
-
-<ul>
-<li>Password-protected PDFs</li>
-<li>Improved data privacy</li>
-<li>Secure document sharing</li>
-<li>Compliance with data protection standards</li>
-</ul>
-
-<a href="https://www.tool-nest.online/pdf-locker.html">Lock PDF Files →</a>
-</div>
-
-<h2>eSign PDF – Digital Signature Solution</h2>
-
-<div class="tool-box">
-<p>
-The <strong>eSign PDF</strong> tool allows users to digitally sign PDF documents online. Digital signatures eliminate the need for printing, scanning, and physical paperwork.
-</p>
-
-<p>
-eSign PDF is widely used for contracts, agreements, approvals, and official documents, enabling fast and secure digital workflows.
-</p>
-
-<p>
-Advantages of digital signatures include:
-</p>
-
-<ul>
-<li>Paperless documentation</li>
-<li>Faster approval cycles</li>
-<li>Legal validity</li>
-<li>Remote signing convenience</li>
-</ul>
-
-<a href="https://www.tool-nest.online/pdf-locker.html">Sign PDF Digitally →</a>
-</div>
-
-<h2>Why Choose Tool Nest for Document Processing?</h2>
-
-<p>
-Tool Nest stands out as a reliable platform for professional document tools due to its simplicity, speed, and security.
-</p>
-
-<ul>
-<li>No software installation required</li>
-<li>Fast browser-based processing</li>
-<li>Secure document handling</li>
-<li>User-friendly interface</li>
-<li>Free online access</li>
-</ul>
-
-<p>
-Whether you are a business professional, student, freelancer, or legal expert, Tool Nest provides all the essential document tools you need in one place.
-</p>
-
-</div>
+</head> <body> <header> <div class="container header-container"> <div class="logo"> <i class="fas fa-tools logo-icon"></i> <h1>Tool Nest</h1> </div> <nav> <ul> <li><a href="#image-tools">Image Tools</a></li> <li><a href="#document-tools">Document Tools</a></li> <li><a href="#calculator-tools">Calculator Tools</a></li> <li><a href="#text-tools">Text Tools</a></li> <li><a href="#developer-tools">Developer Tools</a></li> </ul> </nav> </div> </header>
+text
+<main class="container">
+    <section class="hero">
+        <h2>Unlock Productivity with Our Comprehensive Online Tool Suite</h2>
+        <p>Tool Nest provides a powerful collection of free online tools for image processing, document management, calculations, text manipulation, web development, SEO optimization, and more. Streamline your workflow with our professional-grade tools designed for both individuals and businesses.</p>
+        <a href="#all-tools" class="cta-button">Explore All Tools</a>
+    </section>
+    
+    <section id="image-tools" class="tools-section">
+        <h2 class="section-title">Advanced Image Processing Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3><i class="fas fa-file-image tool-icon"></i> Image Converter</h3>
+                <p>Convert images between multiple formats like JPG, PNG, WebP, GIF, and BMP with our advanced image converter tool.</p>
+                <a href="https://www.tool-nest.online/image-converter.html" class="tool-link">Use Image Converter →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-compress-alt tool-icon"></i> Image Compressor</h3>
+                <p>Reduce image file sizes without sacrificing quality with our intelligent image compression algorithm.</p>
+                <a href="https://www.tool-nest.online/image-compressor.html" class="tool-link">Use Image Compressor →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-expand-alt tool-icon"></i> Image Resizer</h3>
+                <p>Resize images to specific dimensions while maintaining aspect ratio and quality for web and social media.</p>
+                <a href="https://www.tool-nest.online/image-resizer.html" class="tool-link">Use Image Resizer →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-crop tool-icon"></i> Image Cropper</h3>
+                <p>Crop images to remove unwanted areas or focus on specific elements with precision cropping tools.</p>
+                <a href="https://www.tool-nest.online/image-cropper.html" class="tool-link">Use Image Cropper →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-font tool-icon"></i> Image to Text (OCR)</h3>
+                <p>Extract text from images using advanced Optical Character Recognition technology.</p>
+                <a href="https://www.tool-nest.online/image-to-text.html" class="tool-link">Use Image to Text →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-sync-alt tool-icon"></i> Image Rotator/Flipper</h3>
+                <p>Rotate, flip, and adjust orientation of images for proper display on any platform.</p>
+                <a href="https://www.tool-nest.online/image-rotator.html" class="tool-link">Use Image Rotator →</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="document-tools" class="tools-section">
+        <h2 class="section-title">Professional Document Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3><i class="fas fa-file-pdf tool-icon"></i> PDF to Word Converter</h3>
+                <p>Convert PDF documents to editable Word format while preserving formatting and layout.</p>
+                <a href="https://www.tool-nest.online/pdf-to-word.html" class="tool-link">Use PDF to Word →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-file-archive tool-icon"></i> Advanced PDF Compressor</h3>
+                <p>Reduce PDF file sizes significantly without compromising on quality or readability.</p>
+                <a href="https://www.tool-nest.online/pdf-converter.html" class="tool-link">Use PDF Compressor →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-copy tool-icon"></i> PDF Merger & Splitter</h3>
+                <p>Combine multiple PDF files into one or split large PDFs into smaller documents.</p>
+                <a href="https://www.tool-nest.online/pdf-merger.html" class="tool-link">Use PDF Merger →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-exchange-alt tool-icon"></i> Document Converter</h3>
+                <p>Convert between various document formats including DOC, DOCX, PDF, TXT, and RTF.</p>
+                <a href="https://www.tool-nest.online/doc-converter.html" class="tool-link">Use Document Converter →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-lock tool-icon"></i> PDF Lock Tool</h3>
+                <p>Add password protection and encryption to your PDF documents for enhanced security.</p>
+                <a href="https://www.tool-nest.online/pdf-locker.html" class="tool-link">Use PDF Locker →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-signature tool-icon"></i> eSign PDF – Digital Signature</h3>
+                <p>Add legally binding digital signatures to PDF documents quickly and securely.</p>
+                <a href="https://www.tool-nest.online/pdf-locker.html" class="tool-link">Use eSign PDF →</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="calculator-tools" class="tools-section">
+        <h2 class="section-title">Advanced Calculator Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3><i class="fas fa-calculator tool-icon"></i> Scientific Calculator</h3>
+                <p>Advanced scientific calculator with functions for complex mathematical calculations.</p>
+                <a href="https://www.tool-nest.online/scientific-calculator.html" class="tool-link">Use Calculator →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-birthday-cake tool-icon"></i> Age Calculator</h3>
+                <p>Calculate exact age in years, months, days, and even hours from any birth date.</p>
+                <a href="https://www.tool-nest.online/age-calculator.html" class="tool-link">Use Age Calculator →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-weight tool-icon"></i> BMI Calculator</h3>
+                <p>Calculate Body Mass Index to assess healthy weight ranges based on height and weight.</p>
+                <a href="https://www.tool-nest.online/bmi-calculator.html" class="tool-link">Use BMI Calculator →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-money-check-alt tool-icon"></i> Loan EMI Calculator</h3>
+                <p>Calculate Equated Monthly Installments for loans with different interest rates and tenures.</p>
+                <a href="https://www.tool-nest.online/emi-calculator.html" class="tool-link">Use EMI Calculator →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-percentage tool-icon"></i> GST Calculator</h3>
+                <p>Calculate Goods and Services Tax amounts for invoices and financial planning.</p>
+                <a href="https://www.tool-nest.online/gst-calculator.html" class="tool-link">Use GST Calculator →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-money-bill-wave tool-icon"></i> Currency Converter</h3>
+                <p>Convert between global currencies with real-time exchange rates and historical data.</p>
+                <a href="https://www.tool-nest.online/currency-converter.html" class="tool-link">Use Currency Converter →</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="text-tools" class="tools-section">
+        <h2 class="section-title">Professional Text Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3><i class="fas fa-text-height tool-icon"></i> Text Case Converter</h3>
+                <p>Convert text between uppercase, lowercase, title case, sentence case and more.</p>
+                <a href="https://www.tool-nest.online/text-case-converter.html" class="tool-link">Use Case Converter →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-font tool-icon"></i> Word & Character Counter</h3>
+                <p>Count words, characters, sentences, and paragraphs in any text with detailed analysis.</p>
+                <a href="https://www.tool-nest.online/character-count.html" class="tool-link">Use Word Counter →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-filter tool-icon"></i> Remove Duplicate Lines</h3>
+                <p>Clean text by removing duplicate lines while preserving original order and formatting.</p>
+                <a href="https://www.tool-nest.online/remove-dupe-lines.html" class="tool-link">Use Duplicate Remover →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-sort-alpha-down tool-icon"></i> Text Sorter</h3>
+                <p>Sort lines of text alphabetically, numerically, reverse order, or by custom criteria.</p>
+                <a href="https://www.tool-nest.online/text-shorter.html" class="tool-link">Use Text Sorter →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-retweet tool-icon"></i> Text Reverser</h3>
+                <p>Reverse text character order, word order, or line order for various applications.</p>
+                <a href="https://www.tool-nest.online/text-reverse.html" class="tool-link">Use Text Reverser →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-lock tool-icon"></i> Text Encryptor/Decryptor</h3>
+                <p>Encrypt and decrypt text using advanced cryptographic algorithms for security.</p>
+                <a href="https://www.tool-nest.online/text-encryptor.html" class="tool-link">Use Text Encryptor →</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="developer-tools" class="tools-section">
+        <h2 class="section-title">Professional Developer Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3><i class="fas fa-code tool-icon"></i> HTML/CSS/JS Minifier</h3>
+                <p>Minify and compress HTML, CSS, and JavaScript code for faster website loading.</p>
+                <a href="https://www.tool-nest.online/html-minifier.html" class="tool-link">Use Code Minifier →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-brackets-curly tool-icon"></i> JSON Formatter & Validator</h3>
+                <p>Format, validate, and beautify JSON data with syntax highlighting and error detection.</p>
+                <a href="https://www.tool-nest.online/json-formatter.html" class="tool-link">Use JSON Formatter →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-key tool-icon"></i> Base64 Encoder/Decoder</h3>
+                <p>Encode and decode Base64 strings for data transmission and storage applications.</p>
+                <a href="https://www.tool-nest.online/base64.html" class="tool-link">Use Base64 Tool →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-link tool-icon"></i> URL Encoder/Decoder</h3>
+                <p>Encode and decode URL strings to ensure proper formatting and compatibility.</p>
+                <a href="https://www.tool-nest.online/url.html" class="tool-link">Use URL Encoder →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-palette tool-icon"></i> Color Picker & Converter</h3>
+                <p>Pick colors and convert between HEX, RGB, HSL, and other color formats.</p>
+                <a href="https://www.tool-nest.online/color-picker.html" class="tool-link">Use Color Picker →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-terminal tool-icon"></i> Regex Tester</h3>
+                <p>Test and debug regular expressions with real-time matching and explanation.</p>
+                <a href="https://www.tool-nest.online/regex-tester.html" class="tool-link">Use Regex Tester →</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="all-tools" class="tools-section">
+        <h2 class="section-title">More Professional Tools</h2>
+        <p style="color: var(--text-gray); margin-bottom: 2rem;">Explore our complete collection of specialized tools for color management, SEO optimization, and utility functions.</p>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3><i class="fas fa-eye-dropper tool-icon"></i> Color Picker from Image</h3>
+                <p>Extract color codes directly from images for design and development projects.</p>
+                <a href="https://www.tool-nest.online/color-pick-image.html" class="tool-link">Use Color Picker →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-search tool-icon"></i> Keyword Density Checker</h3>
+                <p>Analyze keyword density and distribution for SEO optimization and content strategy.</p>
+                <a href="https://www.tool-nest.online/key-word.html" class="tool-link">Use Keyword Checker →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-qrcode tool-icon"></i> QR Code Generator & Scanner</h3>
+                <p>Create custom QR codes and scan existing ones for various business and personal uses.</p>
+                <a href="https://www.tool-nest.online/qr.html" class="tool-link">Use QR Code Tool →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-barcode tool-icon"></i> Barcode Generator</h3>
+                <p>Generate barcodes in multiple formats for inventory, retail, and tracking purposes.</p>
+                <a href="https://www.tool-nest.online/barcode.html" class="tool-link">Use Barcode Generator →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-ruler-combined tool-icon"></i> Unit Converter</h3>
+                <p>Convert between units of length, weight, temperature, volume, and more.</p>
+                <a href="https://www.tool-nest.online/unit-converter.html" class="tool-link">Use Unit Converter →</a>
+            </div>
+            <div class="tool-card">
+                <h3><i class="fas fa-random tool-icon"></i> Random Generator</h3>
+                <p>Generate random numbers, passwords, strings, and other randomized data.</p>
+                <a href="https://www.tool-nest.online/random-number.html" class="tool-link">Use Random Generator →</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="hero" style="margin-top: 4rem; padding: 3rem 0; background: rgba(30, 58, 138, 0.1); border-radius: 12px;">
+        <h2 style="font-size: 2.2rem;">Why Choose Tool Nest?</h2>
+        <p style="max-width: 900px;">Tool Nest stands out as the premier destination for free online tools with our commitment to quality, security, and user experience. Our comprehensive suite of professional tools covers every need from image processing and document management to advanced calculations and developer utilities. All tools are completely free, require no registration, and process your data securely in your browser without uploading to servers in most cases.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
+            <div style="text-align: center; flex: 1; min-width: 200px;">
+                <i class="fas fa-lock" style="font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 0.5rem;">Secure & Private</h3>
+                <p style="color: var(--text-gray);">Your data stays on your device</p>
+            </div>
+            <div style="text-align: center; flex: 1; min-width: 200px;">
+                <i class="fas fa-bolt" style="font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 0.5rem;">Fast Processing</h3>
+                <p style="color: var(--text-gray);">Instant results with no delays</p>
+            </div>
+            <div style="text-align: center; flex: 1; min-width: 200px;">
+                <i class="fas fa-desktop" style="font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 0.5rem;">No Installation</h3>
+                <p style="color: var(--text-gray);">Works directly in your browser</p>
+            </div>
+        </div>
+    </section>
+</main>
 
 <footer>
-<div class="footer-grid">
-<div>
-<h3>Tool Nest</h3>
-<p>Professional online tools for documents, images, developers, SEO, and productivity.</p>
-</div>
-<div>
-<h3>Popular Document Tools</h3>
-<p>
-<a href="https://www.tool-nest.online/pdf-to-word.html">PDF to Word</a><br>
-<a href="https://www.tool-nest.online/pdf-merger.html">PDF Merger</a><br>
-<a href="https://www.tool-nest.online/pdf-locker.html">PDF Lock & eSign</a>
-</p>
-</div>
-<div>
-<h3>Quick Links</h3>
-<p>
-<a href="https://www.tool-nest.online/">Home</a><br>
-<a href="https://www.tool-nest.online/pdf-converter.html">PDF Compressor</a><br>
-<a href="https://www.tool-nest.online/doc-converter.html">Document Converter</a>
-</p>
-</div>
-</div>
-
-<div class="copy">
-© 2025 Tool Nest. All Rights Reserved.
-</div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tool Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#image-tools">Image Processing Tools</a></li>
+                    <li><a href="#document-tools">Document Tools</a></li>
+                    <li><a href="#calculator-tools">Calculator Tools</a></li>
+                    <li><a href="#text-tools">Text Tools</a></li>
+                    <li><a href="#developer-tools">Developer Tools</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Popular Tools</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.tool-nest.online/image-converter.html">Image Converter</a></li>
+                    <li><a href="https://www.tool-nest.online/pdf-to-word.html">PDF to Word</a></li>
+                    <li><a href="https://www.tool-nest.online/scientific-calculator.html">Scientific Calculator</a></li>
+                    <li><a href="https://www.tool-nest.online/qr.html">QR Code Generator</a></li>
+                    <li><a href="https://www.tool-nest.online/json-formatter.html">JSON Formatter</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About Tool Nest</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1rem;">Tool Nest provides a comprehensive collection of free online tools for professionals, students, and everyday users. Our mission is to simplify complex tasks with intuitive, powerful tools that work directly in your browser.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook" style="color: var(--text-gray); font-size: 1.2rem;"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter" style="color: var(--text-gray); font-size: 1.2rem;"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" style="color: var(--text-gray); font-size: 1.2rem;"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github" style="color: var(--text-gray); font-size: 1.2rem;"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Tool Nest. All rights reserved. | Free Online Tools for Productivity and Creativity</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">All tools are free to use. No registration required. Data privacy guaranteed.</p>
+        </div>
+    </div>
 </footer>
 
-</body>
-</html>
+<script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Add active class to nav links on scroll
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if(scrollY >= (sectionTop - 100)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body> </html>
 
 
 
