@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tool Nest - Premium Online Tools for Professionals | Convert, Calculate, Optimize</title>
+    <title>Tool Nest | Premium Online Tools for Professionals</title>
     <meta name="description" content="Tool Nest offers 50+ premium online tools for professionals. Free image converters, PDF editors, calculators, SEO tools, and developer utilities. Trusted by 100,000+ users.">
     <meta name="keywords" content="online tools, PDF converter, image editor, calculator tools, SEO tools, developer tools, free tools, professional tools">
     <meta name="author" content="Tool Nest">
@@ -13,84 +13,779 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* All your existing CSS remains the same... */
-        
+        :root {
+            /* Professional Color Palette */
+            --primary-blue: #2563eb;
+            --primary-blue-dark: #1d4ed8;
+            --primary-blue-light: #3b82f6;
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --dark-card-hover: #334155;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --text-gray-light: #cbd5e1;
+            --border-color: #334155;
+            --border-light: #475569;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f59e0b;
+            
+            /* Professional Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Gradients */
+            --gradient-blue: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            --gradient-card: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            --gradient-hover: linear-gradient(145deg, #334155 0%, #1e293b 100%);
+            
+            /* Spacing */
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header - Professional */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: var(--transition-fast);
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-blue);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .logo-tagline {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-gray);
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        /* Navigation */
+        #main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        #main-nav a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        #main-nav a:hover {
+            color: var(--text-light);
+        }
+
+        #main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: var(--transition-fast);
+        }
+
+        #main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: -20px;
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--dark-card-hover);
+            color: var(--text-light);
+        }
+
+        .dropdown-content i {
+            width: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+        }
+
+        /* Header Contact */
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-green);
+        }
+
+        .contact-email {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gradient-blue);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+
+        .contact-email:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* Hero Section - Professional */
+        .hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(15, 23, 42, 0.98) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #f8fafc, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gradient-blue);
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition-fast);
+            margin-bottom: 60px;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Tool Categories */
+        .tool-categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .category-card:hover {
+            background: var(--dark-card-hover);
+            border-color: var(--border-light);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-blue);
+        }
+
+        .category-card span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            padding: 40px 0;
+            background: var(--dark-card);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Search Section */
+        .search-section {
+            padding: 60px 0;
+            background: var(--dark-bg);
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 20px 18px 52px;
+            background: var(--dark-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-gray);
+        }
+
         /* Categories Grid */
+        .tools-section {
+            padding: 100px 0;
+        }
+
+        .section-alt {
+            background: linear-gradient(180deg, var(--dark-bg) 0%, #0a0f1a 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
-        
+
         .category-card-large {
-            background: var(--gradient-card);
+            background: var(--dark-card);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
             padding: 40px 30px;
             text-decoration: none;
-            color: var(--text-gray);
+            color: var(--text-light);
             transition: var(--transition);
-            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            text-align: center;
         }
-        
+
         .category-card-large:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
+            background: var(--dark-card-hover);
             border-color: var(--border-light);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
         }
-        
+
         .category-card-large:hover .category-icon-large {
-            transform: scale(1.1) rotate(5deg);
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(30, 64, 175, 0.2) 100%);
+            transform: scale(1.1);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+            color: white;
         }
-        
+
         .category-icon-large {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
             border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
-            color: var(--light-blue);
+            margin-bottom: 24px;
+            color: var(--primary-blue);
             font-size: 32px;
             transition: var(--transition);
         }
-        
+
         .category-card-large h3 {
+            font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 12px;
             color: var(--text-light);
         }
-        
+
         .category-card-large p {
             color: var(--text-gray);
             font-size: 0.95rem;
             margin-bottom: 20px;
             line-height: 1.6;
         }
-        
+
         .tools-count {
             display: inline-block;
-            background-color: rgba(66, 153, 225, 0.15);
-            color: #63b3ed;
+            background: rgba(66, 153, 225, 0.15);
+            color: var(--primary-blue-light);
             padding: 6px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 20px;
         }
-        
-        /* All other CSS remains exactly the same as your original code */
+
+        .tool-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: 2px solid var(--primary-blue);
+            border-radius: var(--radius-md);
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+            margin-top: auto;
+        }
+
+        .category-card-large:hover .tool-button {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-card);
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0 40px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .footer-tagline {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .footer-contact .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .footer-contact i {
+            color: var(--primary-blue);
+            width: 20px;
+        }
+
+        .footer-links h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--text-light);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-legal a:hover {
+            color: var(--text-light);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tool-categories {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 600px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                gap: 20px;
+            }
+            
+            #main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tool-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-contact {
+                gap: 12px;
+            }
+            
+            .contact-email span {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header (same as before) -->
+    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo-wrapper">
@@ -132,7 +827,7 @@
                 </div>
                 <a href="mailto:toolnest3@gmail.com" class="contact-email">
                     <i class="fas fa-envelope"></i>
-                    Contact Us
+                    <span>Contact Us</span>
                 </a>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
@@ -145,8 +840,8 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content fade-in">
-                <h1>Professional Tools for Modern Work Flow</h1>
-                <p>Convert, calculate, compress, and optimize your workflow with our premium suite of 50+ online tools. Fast, secure, and trusted by thousands.</p>
+                <h1>Professional Tools for Modern Workflows</h1>
+                <p>Convert, calculate, compress, and optimize your workflow with our premium suite of 50+ online tools. Fast, secure, and trusted by thousands of professionals worldwide.</p>
                 <a href="#categories" class="hero-cta">
                     <i class="fas fa-rocket"></i>
                     Explore All Categories
@@ -236,13 +931,7 @@
             <div class="search-container">
                 <div class="search-wrapper">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="text" placeholder="Search for any tool... (e.g., 'PDF Converter', 'Image Editor')" id="searchInput" class="search-input">
-                </div>
-                <div class="search-results" id="searchResults">
-                    <h3>Search Results</h3>
-                    <ul id="resultsList">
-                        <!-- Results populated by JavaScript -->
-                    </ul>
+                    <input type="text" placeholder="Search for any tool... (e.g., 'PDF Converter', 'Image Editor', 'Color Picker')" id="searchInput" class="search-input">
                 </div>
             </div>
         </div>
@@ -254,7 +943,7 @@
             <div class="section-header fade-in">
                 <span class="section-badge">All Tools</span>
                 <h2>Browse Tools by Category</h2>
-                <p>Explore our comprehensive collection of professional tools organized into 8 main categories</p>
+                <p>Explore our comprehensive collection of professional tools organized into 8 main categories. Each category contains specialized tools designed for specific professional needs.</p>
             </div>
             
             <div class="categories-grid">
@@ -266,7 +955,7 @@
                     <span class="tools-count">6 Tools</span>
                     <h3>Image Processing</h3>
                     <p>Edit, convert and optimize your images with our powerful professional-grade tools including converters, compressors, and editors</p>
-                    <div class="tool-button" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--light-blue);">
+                    <div class="tool-button">
                         View Category
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -280,7 +969,7 @@
                     <span class="tools-count">6 Tools</span>
                     <h3>Document Tools</h3>
                     <p>Manage and convert your documents with enterprise-grade security and precision. PDF tools, converters, and editors</p>
-                    <div class="tool-button" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--light-blue);">
+                    <div class="tool-button">
                         View Category
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -294,7 +983,7 @@
                     <span class="tools-count">6 Tools</span>
                     <h3>Calculator Tools</h3>
                     <p>Perform various calculations for your daily needs with scientific accuracy. Financial, health, and conversion calculators</p>
-                    <div class="tool-button" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--light-blue);">
+                    <div class="tool-button">
                         View Category
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -308,7 +997,7 @@
                     <span class="tools-count">6 Tools</span>
                     <h3>Text Processing</h3>
                     <p>Manipulate and analyze text with our advanced text processing and NLP tools. Convert case, count words, and more</p>
-                    <div class="tool-button" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--light-blue);">
+                    <div class="tool-button">
                         View Category
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -322,7 +1011,7 @@
                     <span class="tools-count">6 Tools</span>
                     <h3>Developer Tools</h3>
                     <p>Essential tools for developers and webmasters with advanced features. Code minifiers, validators, and debugging tools</p>
-                    <div class="tool-button" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--light-blue);">
+                    <div class="tool-button">
                         View Category
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -336,7 +1025,7 @@
                     <span class="tools-count">6 Tools</span>
                     <h3>Color Tools</h3>
                     <p>Create, convert and analyze colors for your designs with precision color science. Palette generators and contrast checkers</p>
-                    <div class="tool-button" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--light-blue);">
+                    <div class="tool-button">
                         View Category
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -350,7 +1039,7 @@
                     <span class="tools-count">3 Tools</span>
                     <h3>SEO & Marketing</h3>
                     <p>Optimize your content and analyze your website performance with advanced analytics. Keyword analysis and meta tag checkers</p>
-                    <div class="tool-button" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--light-blue);">
+                    <div class="tool-button">
                         View Category
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -364,7 +1053,7 @@
                     <span class="tools-count">6 Tools</span>
                     <h3>Utility Tools</h3>
                     <p>Handy tools for various everyday needs with professional-grade reliability. QR generators, converters, and random tools</p>
-                    <div class="tool-button" style="background: transparent; border: 2px solid var(--primary-blue); color: var(--light-blue);">
+                    <div class="tool-button">
                         View Category
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -373,13 +1062,13 @@
         </div>
     </section>
     
-    <!-- Footer (same as before) -->
+    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
                     <a href="index.html" class="footer-logo">Tool Nest</a>
-                    <p class="footer-tagline">Your trusted partner for premium online tools. Professional solutions for modern workflows.</p>
+                    <p class="footer-tagline">Your trusted partner for premium online tools. Professional solutions for modern workflows. Built with precision, designed for professionals.</p>
                     <div class="footer-contact">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -438,11 +1127,57 @@
             </div>
         </div>
     </footer>
-    
+
     <script>
-        // All your existing JavaScript remains the same...
-        // Only update the search function to work with category pages
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const nav = document.getElementById('main-nav');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            // Add search logic here
+        });
+
+        // Fade in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
+
 
