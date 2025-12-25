@@ -1,935 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Professional Developer Tools Online – Free Web Development Utilities | Tool Nest</title>
 
-<!DOCTYPE html><html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="description" content="Master text manipulation with Tool Nest's professional text tools. From case conversion and word counting to encryption and duplicate removal, discover how to enhance your writing, coding, and content creation workflow."> <meta name="keywords" content="text tools, online text tools, text case converter, word counter, character counter, remove duplicate lines, text sorter, text reverser, text encryptor, text decryptor, SEO tools, content optimization, writing tools, text manipulation, data cleaning, text encryption, productivity tools"> <title>Professional Text Tools: Master Text Manipulation with Tool Nest's Complete Toolkit</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <link rel="icon" href="favicon-16x16.png" type="image/x-icon"> <style> :root { --primary-dark: #0a192f; --primary-blue: #1e3a8a; --secondary-blue: #3b82f6; --accent-blue: #60a5fa; --light-blue: #93c5fd; --text-light: #f8fafc; --text-gray: #cbd5e1; --card-bg: #1e293b; --card-hover: #334155; --blog-bg: #0f172a; }
-text
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.7;
-        color: var(--text-light);
-        background-color: var(--primary-dark);
-        background-image: linear-gradient(to bottom right, var(--primary-dark), var(--blog-bg));
-    }
-    
-    .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    /* Header Styles */
-    header {
-        background-color: rgba(10, 25, 47, 0.98);
-        padding: 1rem 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-    
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .logo h1 {
-        font-size: 1.8rem;
-        background: linear-gradient(to right, var(--accent-blue), var(--light-blue));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    
-    .logo-icon {
-        color: var(--accent-blue);
-        font-size: 1.8rem;
-    }
-    
-    nav ul {
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-    }
-    
-    nav a {
-        color: var(--text-gray);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-        padding: 0.5rem 0.8rem;
-        border-radius: 4px;
-    }
-    
-    nav a:hover {
-        color: var(--accent-blue);
-        background-color: rgba(59, 130, 246, 0.1);
-    }
-    
-    /* Blog Content */
-    .blog-header {
-        padding: 4rem 0 3rem;
-        text-align: center;
-        background: radial-gradient(circle at top right, rgba(30, 58, 138, 0.2), transparent 70%);
-    }
-    
-    .blog-title {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
-        background: linear-gradient(to right, var(--accent-blue), var(--light-blue));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    
-    .blog-meta {
-        color: var(--text-gray);
-        font-size: 1.1rem;
-        max-width: 800px;
-        margin: 0 auto 2rem;
-    }
-    
-    .blog-content {
-        padding: 2rem 0 4rem;
-    }
-    
-    .content-section {
-        margin-bottom: 4rem;
-        background-color: rgba(30, 41, 59, 0.5);
-        padding: 2.5rem;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-    
-    .section-title {
-        font-size: 2.2rem;
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.8rem;
-        border-bottom: 3px solid var(--secondary-blue);
-        display: inline-block;
-    }
-    
-    .intro-text {
-        font-size: 1.2rem;
-        color: var(--text-gray);
-        margin-bottom: 2rem;
-        line-height: 1.8;
-    }
-    
-    .tool-category {
-        margin-bottom: 3rem;
-    }
-    
-    .category-title {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-        color: var(--accent-blue);
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .category-icon {
-        color: var(--light-blue);
-    }
-    
-    .tool-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-        gap: 1.8rem;
-        margin-bottom: 2rem;
-    }
-    
-    .tool-card {
-        background-color: var(--card-bg);
-        border-radius: 10px;
-        padding: 2rem;
-        transition: transform 0.3s, background-color 0.3s;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        border-left: 4px solid var(--secondary-blue);
-    }
-    
-    .tool-card:hover {
-        transform: translateY(-8px);
-        background-color: var(--card-hover);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-    }
-    
-    .tool-card h3 {
-        font-size: 1.6rem;
-        margin-bottom: 1.2rem;
-        color: var(--accent-blue);
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-    }
-    
-    .tool-icon {
-        color: var(--light-blue);
-    }
-    
-    .tool-description {
-        color: var(--text-gray);
-        margin-bottom: 1.5rem;
-        font-size: 1.05rem;
-        line-height: 1.7;
-    }
-    
-    .use-cases {
-        background-color: rgba(59, 130, 246, 0.08);
-        padding: 1.2rem;
-        border-radius: 8px;
-        margin-bottom: 1.5rem;
-        border-left: 3px solid var(--accent-blue);
-    }
-    
-    .use-cases h4 {
-        color: var(--light-blue);
-        margin-bottom: 0.8rem;
-        font-size: 1.1rem;
-    }
-    
-    .use-cases ul {
-        padding-left: 1.2rem;
-    }
-    
-    .use-cases li {
-        margin-bottom: 0.5rem;
-        color: var(--text-gray);
-    }
-    
-    .tool-link {
-        display: inline-block;
-        background: linear-gradient(to right, var(--secondary-blue), var(--accent-blue));
-        color: white;
-        padding: 0.8rem 1.8rem;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1rem;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .tool-link:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
-    }
-    
-    .seo-highlight {
-        background-color: rgba(59, 130, 246, 0.1);
-        border-left: 4px solid var(--accent-blue);
-        padding: 1.8rem;
-        margin: 2.5rem 0;
-        border-radius: 8px;
-    }
-    
-    .seo-highlight h3 {
-        color: var(--light-blue);
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-    }
-    
-    .comparison-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 2rem 0;
-        background-color: rgba(30, 41, 59, 0.7);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-    
-    .comparison-table th, .comparison-table td {
-        padding: 1rem;
-        text-align: left;
-        border-bottom: 1px solid #334155;
-    }
-    
-    .comparison-table th {
-        background-color: var(--primary-blue);
-        color: var(--text-light);
-        font-weight: 600;
-    }
-    
-    .comparison-table tr:hover {
-        background-color: rgba(59, 130, 246, 0.1);
-    }
-    
-    /* Footer */
-    footer {
-        background-color: #0f172a;
-        padding: 3rem 0 1.5rem;
-        margin-top: 4rem;
-    }
-    
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .footer-column h3 {
-        font-size: 1.3rem;
-        margin-bottom: 1.2rem;
-        color: var(--accent-blue);
-    }
-    
-    .footer-links {
-        list-style: none;
-    }
-    
-    .footer-links li {
-        margin-bottom: 0.7rem;
-    }
-    
-    .footer-links a {
-        color: var(--text-gray);
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-    
-    .footer-links a:hover {
-        color: var(--accent-blue);
-    }
-    
-    .copyright {
-        text-align: center;
-        padding-top: 1.5rem;
-        border-top: 1px solid #334155;
-        color: var(--text-gray);
-        font-size: 0.9rem;
-    }
-    
-    /* Responsive */
-    @media (max-width: 1100px) {
-        .tool-grid {
-            grid-template-columns: 1fr;
+    <!-- SEO META -->
+    <meta name="description" content="Explore professional developer tools online including HTML, CSS & JavaScript minifier, JSON formatter and validator, Base64 encoder decoder, URL encoder decoder, color picker, and regex tester. Free, fast, and secure tools for developers by Tool Nest.">
+    <meta name="keywords" content="professional developer tools, online developer tools, web developer tools, html minifier, css minifier, javascript minifier, json formatter, json validator, base64 encoder decoder, url encoder decoder, regex tester online, color picker tool, free developer tools">
+    <meta name="author" content="Tool Nest">
+
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+
+    <!-- STYLES -->
+    <style>
+        :root {
+            --bg-main: #071b33;
+            --bg-secondary: #0d2a52;
+            --card-bg: #103865;
+            --border: #174a80;
+            --accent: #1e90ff;
+            --text-main: #eaf2ff;
+            --text-muted: #b7c9e6;
         }
-    }
-    
-    @media (max-width: 768px) {
-        .header-container {
-            flex-direction: column;
-            gap: 1rem;
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        
-        nav ul {
-            flex-wrap: wrap;
-            justify-content: center;
+
+        body {
+            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.9;
         }
-        
-        .blog-title {
-            font-size: 2.2rem;
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
         }
-        
+
+        header {
+            background: linear-gradient(135deg, #0d2a52, #071b33);
+            padding: 75px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        header h1 {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            max-width: 950px;
+            margin: auto;
+            font-size: 18px;
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 55px 20px;
+        }
+
+        h2 {
+            font-size: 34px;
+            margin: 65px 0 25px;
+        }
+
+        h3 {
+            font-size: 26px;
+            margin: 40px 0 15px;
+        }
+
+        p {
+            margin-bottom: 22px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 55px 0;
+        }
+
         .tool-card {
-            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 32px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .content-section {
-            padding: 1.5rem;
+
+        .tool-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.45);
         }
-        
-        .section-title {
-            font-size: 1.8rem;
+
+        .tool-card h3 {
+            margin-bottom: 10px;
         }
-    }
-</style>
-</head> <body> <header> <div class="container header-container"> <div class="logo"> <i class="fas fa-tools logo-icon"></i> <h1>Tool Nest Blog</h1> </div> <nav> <ul> <li><a href="https://www.tool-nest.online">Home</a></li> <li><a href="#text-case-converter">Case Converter</a></li> <li><a href="#word-counter">Word Counter</a></li> <li><a href="#duplicate-remover">Duplicate Remover</a></li> <li><a href="#text-sorter">Text Sorter</a></li> </ul> </nav> </div> </header>
-text
-<main class="container">
-    <article>
-        <header class="blog-header">
-            <h1 class="blog-title">Professional Text Tools: The Complete Guide to Mastering Text Manipulation</h1>
-            <p class="blog-meta"><i class="fas fa-calendar-alt"></i> Published: December 15, 2023 | <i class="fas fa-clock"></i> Read Time: 12 min | <i class="fas fa-font"></i> 6 Essential Text Tools</p>
-        </header>
-        
-        <div class="blog-content">
-            <section class="content-section">
-                <h2 class="section-title">Introduction: The Power of Professional Text Tools</h2>
-                <p class="intro-text">In our digital age, text manipulation is no longer a luxury—it's a necessity. Whether you're a content creator, programmer, data analyst, student, or business professional, the ability to efficiently process, analyze, and transform text can dramatically improve your productivity and output quality. Tool Nest's suite of professional text tools provides comprehensive solutions for every text-related challenge you might encounter. From simple case conversions to sophisticated encryption, these tools are designed to handle complex text manipulation tasks with precision and ease. In this ultimate guide, we'll explore each of our six essential text tools in detail, revealing how they can transform your writing workflow, enhance your content creation process, and solve common text-related problems that professionals face daily.</p>
-                
-                <div class="seo-highlight">
-                    <h3>Why Text Manipulation Matters for Digital Success</h3>
-                    <p>Effective text manipulation is at the heart of digital communication, content creation, data processing, and information security. Properly formatted text improves readability and professionalism. Accurate word counts ensure content meets platform requirements. Clean data sets enable accurate analysis. Secure text protects sensitive information. By mastering these text manipulation techniques, you not only save valuable time but also enhance the quality and impact of your work across all digital platforms. Tool Nest's text tools are specifically designed to address these critical needs with intuitive interfaces and powerful functionality that works directly in your browser—no downloads, no installations, and completely free.</p>
-                </div>
-            </section>
-            
-            <section id="text-case-converter" class="content-section">
-                <h2 class="section-title">Text Case Converter: Master Text Formatting</h2>
-                <p class="intro-text">Text case consistency is fundamental to professional writing, coding standards, and data normalization. Inconsistent casing can make content appear unprofessional, cause errors in programming, and create confusion in data processing. Our Text Case Converter provides comprehensive case transformation with intelligent processing that goes far beyond simple uppercase/lowercase conversion.</p>
-                
-                <div class="tool-category">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <h3><i class="fas fa-text-height tool-icon"></i> Text Case Converter</h3>
-                            <p class="tool-description">The Text Case Converter is an essential utility for anyone working with digital text across different platforms and applications. This powerful tool transforms text between multiple case formats with precision and intelligence. It handles all standard transformations: converting to UPPERCASE (all capital letters), lowercase (all small letters), Title Case (capitalizing principal words), and Sentence case (capitalizing first word of each sentence). But it goes much further, offering specialized transformations for specific use cases including camelCase for JavaScript variables, PascalCase for class names in programming, snake_case for Python variables and filenames, kebab-case for URLs and CSS classes, and SCREAMING_SNAKE_CASE for constants.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Key Features and Benefits:</h4>
-                                <ul>
-                                    <li><strong>Intelligent Title Case:</strong> Properly handles articles, conjunctions, and prepositions according to style guide rules</li>
-                                    <li><strong>Acronym Preservation:</strong> Recognizes and preserves acronyms like NASA, HTML, JSON during case conversion</li>
-                                    <li><strong>Multi-format Support:</strong> Handles all common text formats with proper encoding awareness</li>
-                                    <li><strong>Batch Processing:</strong> Convert multiple text blocks or entire documents simultaneously</li>
-                                    <li><strong>Real-time Preview:</strong> See all case variants simultaneously before applying changes</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">For developers, the tool includes programming-specific features like proper camelCase conversion that distinguishes between different naming conventions. For content creators, it offers style-appropriate title casing that follows AP, Chicago, or MLA style guide rules. The converter handles complex scenarios like hyphenated words (mother-in-law becomes Mother-in-Law in Title Case), possessive forms, and mixed content with numbers and symbols. Batch processing capabilities allow you to convert entire documents or multiple text selections at once, maintaining consistent formatting across all your content. The intuitive interface provides immediate visual feedback, showing how your text will appear in each case format before you commit to the transformation.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Practical Applications:</h4>
-                                <ul>
-                                    <li><strong>Content Creation:</strong> Ensure consistent heading capitalization across blog posts and articles</li>
-                                    <li><strong>Programming:</strong> Convert between naming conventions when working with different programming languages</li>
-                                    <li><strong>Data Processing:</strong> Normalize text data for database import and analysis</li>
-                                    <li><strong>Academic Writing:</strong> Format titles, headings, and references according to specific style guides</li>
-                                    <li><strong>SEO Optimization:</strong> Create properly formatted URLs, meta titles, and headers</li>
-                                </ul>
-                            </div>
-                            
-                            <a href="https://www.tool-nest.online/text-case-converter.html" class="tool-link">Use Text Case Converter</a>
-                        </div>
-                    </div>
-                    
-                    <div class="seo-highlight">
-                        <h3>Case Conversion for SEO and Readability</h3>
-                        <p>Proper text casing significantly impacts both search engine optimization and user experience. Search engines parse text case patterns to understand content structure and importance. Title Case headings signal important content sections, while sentence case improves readability for longer content. For URLs and filenames, kebab-case (hyphen-separated lowercase) is favored by search engines as it improves readability for both users and crawlers. By using our Text Case Converter, you can ensure your content follows SEO best practices while maintaining professional presentation across all platforms.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="word-counter" class="content-section">
-                <h2 class="section-title">Word & Character Counter: Precision Text Analysis</h2>
-                <p class="intro-text">Precise text measurement is critical for writers, students, SEO specialists, and anyone working with length-restricted content. Whether you're crafting a tweet with character limits, writing an article with word count targets, or optimizing meta descriptions for search engines, accurate counting forms the foundation of effective content creation. Our Word & Character Counter provides comprehensive text analysis that goes far beyond simple word counting.</p>
-                
-                <div class="tool-category">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <h3><i class="fas fa-font tool-icon"></i> Word & Character Counter</h3>
-                            <p class="tool-description">The Word & Character Counter is a sophisticated text analysis tool designed for professionals who need precise metrics about their content. At its core, it calculates all fundamental text measurements: word count, character count (both with and without spaces), sentence count, paragraph count, and estimated reading time based on average reading speeds. But the tool extends far beyond these basics, offering advanced analytical capabilities that provide deep insights into your writing style, structure, and quality.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Advanced Analytical Features:</h4>
-                                <ul>
-                                    <li><strong>Keyword Density Analysis:</strong> Identifies most frequent words and phrases with percentage calculations</li>
-                                    <li><strong>Readability Scoring:</strong> Calculates Flesch-Kincaid Grade Level, Gunning Fog Index, and SMOG Index</li>
-                                    <li><strong>Sentence Complexity Analysis:</strong> Flags long sentences, passive voice constructions, and complex phrasing</li>
-                                    <li><strong>Vocabulary Diversity:</strong> Measures lexical richness and identifies overused words</li>
-                                    <li><strong>Platform-specific Limits:</strong> Pre-configured constraints for Twitter, Meta, LinkedIn, and other platforms</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">For content creators working with specific platforms, the tool includes built-in constraints and warnings. As you approach Twitter's 280-character limit, the counter changes color to provide visual feedback. For meta descriptions, it indicates the ideal 155-160 character range that displays fully in search results. For academic writing, it can enforce specific word count ranges and provide detailed breakdowns of introduction, body, and conclusion sections. The tool's real-time analysis updates as you type, providing immediate feedback on your writing metrics. This allows you to adjust your content dynamically rather than discovering length issues only after completion.</p>
-                            
-                            <table class="comparison-table">
-                                <thead>
-                                    <tr>
-                                        <th>Platform/Use Case</th>
-                                        <th>Ideal Character Count</th>
-                                        <th>Word Count Equivalent</th>
-                                        <th>Tool Feature</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Twitter Posts</td>
-                                        <td>280 characters</td>
-                                        <td>40-50 words</td>
-                                        <td>Visual warning at 260 characters</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Meta Descriptions</td>
-                                        <td>155-160 characters</td>
-                                        <td>25-30 words</td>
-                                        <td>Optimal range highlighting</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email Subject Lines</td>
-                                        <td>40-50 characters</td>
-                                        <td>6-8 words</td>
-                                        <td>Mobile display optimization</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Blog Post Introductions</td>
-                                        <td>Not applicable</td>
-                                        <td>50-100 words</td>
-                                        <td>Section analysis feature</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Academic Abstracts</td>
-                                        <td>Not applicable</td>
-                                        <td>150-250 words</td>
-                                        <td>Target range enforcement</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            
-                            <p class="tool-description">The tool also includes historical tracking and productivity features. Writers can monitor their daily word counts, track writing speed, and set goals for consistent content production. For teams, the tool can generate reports showing content metrics across multiple authors or projects. The interface is designed for clarity, with visual progress bars for length targets, color-coded warnings for problematic areas, and expandable sections for detailed metrics that matter most to your specific use case.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Professional Applications:</h4>
-                                <ul>
-                                    <li><strong>SEO Content Creation:</strong> Optimize article length for search engine ranking factors</li>
-                                    <li><strong>Academic Writing:</strong> Ensure compliance with journal or assignment word limits</li>
-                                    <li><strong>Social Media Management:</strong> Craft platform-optimized posts within character constraints</li>
-                                    <li><strong>Advertising Copy:</strong> Create compelling ad text within strict character budgets</li>
-                                    <li><strong>Technical Documentation:</strong> Maintain consistent section lengths for readability</li>
-                                </ul>
-                            </div>
-                            
-                            <a href="https://www.tool-nest.online/character-count.html" class="tool-link">Use Word & Character Counter</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="duplicate-remover" class="content-section">
-                <h2 class="section-title">Remove Duplicate Lines: Data Cleaning Mastery</h2>
-                <p class="intro-text">Data cleaning is a fundamental step in data analysis, content optimization, and information management. Duplicate content can skew analysis results, create confusion, and waste storage resources. Our Remove Duplicate Lines tool provides sophisticated deduplication capabilities with flexible options that handle everything from simple line removal to complex near-duplicate identification.</p>
-                
-                <div class="tool-category">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <h3><i class="fas fa-filter tool-icon"></i> Remove Duplicate Lines</h3>
-                            <p class="tool-description">The Remove Duplicate Lines tool is designed for professionals who work with text data in any capacity—whether you're cleaning mailing lists, preparing data for analysis, optimizing content by eliminating redundancy, or processing system logs. This sophisticated tool goes beyond simple duplicate removal, offering multiple deduplication methodologies with precise control over matching criteria and output formatting.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Deduplication Methodologies:</h4>
-                                <ul>
-                                    <li><strong>Exact Match Removal:</strong> Eliminates identical lines regardless of position</li>
-                                    <li><strong>Consecutive Duplicate Removal:</strong> Removes only back-to-back duplicate lines</li>
-                                    <li><strong>Near-Duplicate Identification:</strong> Finds similar lines using configurable similarity thresholds</li>
-                                    <li><strong>Partial Match Detection:</strong> Identifies duplicates within lines or specific columns</li>
-                                    <li><strong>Inverse Filtering:</strong> Keeps only duplicate lines to identify repetitions</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">The tool offers sophisticated matching options that accommodate real-world data scenarios. You can choose case-sensitive or case-insensitive comparison, decide whether to consider whitespace variations (tabs vs. spaces, multiple spaces), and configure how to handle punctuation differences. For tabular data, the tool can deduplicate based on specific columns—perfect for CSV files where you might want to remove rows with duplicate email addresses while preserving other column variations. The similarity threshold feature is particularly powerful for identifying near-duplicates: set a percentage (e.g., 85%) and the tool will flag lines that are substantially similar but not identical, which is invaluable for detecting plagiarism or content scraping.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Processing and Output Options:</h4>
-                                <ul>
-                                    <li><strong>Order Preservation:</strong> Maintain original line order after deduplication</li>
-                                    <li><strong>Sorting Integration:</strong> Sort alphabetically or numerically after removing duplicates</li>
-                                    <li><strong>Preview Functionality:</strong> See exactly which lines will be removed before processing</li>
-                                    <li><strong>Batch Processing:</strong> Handle multiple files or large datasets efficiently</li>
-                                    <li><strong>Statistics Reporting:</strong> Generate reports showing duplicate counts and patterns</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">For large datasets, the tool includes performance optimization that handles thousands of lines efficiently. The processing engine uses intelligent algorithms that scale well with data size, providing quick results even with substantial text volumes. The interface clearly distinguishes between original and processed text, with visual indicators showing removed lines and preservation counts. For regulatory compliance (like GDPR right-to-be-forgotten requests), the tool can generate audit trails showing exactly what data was removed and why.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Industry Applications:</h4>
-                                <ul>
-                                    <li><strong>Data Science:</strong> Clean datasets before analysis to ensure accuracy</li>
-                                    <li><strong>Email Marketing:</strong> Remove duplicate entries from mailing lists</li>
-                                    <li><strong>Content Management:</strong> Identify and eliminate duplicate website content</li>
-                                    <li><strong>System Administration:</strong> Clean log files by removing repetitive entries</li>
-                                    <li><strong>Academic Research:</strong> Prepare bibliographies by removing duplicate citations</li>
-                                </ul>
-                            </div>
-                            
-                            <a href="https://www.tool-nest.online/remove-dupe-lines.html" class="tool-link">Remove Duplicate Lines</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="text-sorter" class="content-section">
-                <h2 class="section-title">Text Sorter: Intelligent Organization</h2>
-                <p class="intro-text">Organizing text data systematically improves readability, analysis potential, and information retrieval. Whether you're sorting vocabulary lists, organizing survey responses, preparing data for import, or creating structured content, proper sorting transforms chaotic text into usable information. Our Text Sorter provides multiple sorting methodologies with customizable options for precise control over organization.</p>
-                
-                <div class="tool-category">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <h3><i class="fas fa-sort-alpha-down tool-icon"></i> Text Sorter</h3>
-                            <p class="tool-description">The Text Sorter is a versatile organization tool that handles everything from simple alphabetical sorting to complex multi-criteria arrangement. At its most basic, it sorts lines alphabetically (A-Z or Z-A), numerically (ascending or descending), and chronologically for date-formatted content. But its true power lies in advanced sorting capabilities that handle real-world data complexities with intelligence and precision.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Advanced Sorting Capabilities:</h4>
-                                <ul>
-                                    <li><strong>Natural Sorting:</strong> Correctly handles numbers within strings (item2 before item10)</li>
-                                    <li><strong>Locale-Aware Sorting:</strong> Properly sorts international characters and accented letters</li>
-                                    <strong>Multi-level Sorting:</strong> Sort by primary, secondary, and tertiary criteria</li>
-                                    <li><strong>Custom Rule Sorting:</strong> Define your own sorting rules for specialized applications</li>
-                                    <li><strong>Column-Based Sorting:</strong> Sort tabular data by specific columns or fields</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">The natural sorting feature is particularly valuable for developers and system administrators working with filenames or version numbers. Unlike basic alphabetical sorting that would place "item10" before "item2" (because "1" comes before "2"), natural sorting recognizes the numerical sequence and sorts correctly. For multilingual content, the locale-aware sorting ensures proper ordering according to language-specific rules—critical for international applications. The tool can also handle sorting within lines: if you have comma-separated values, you can sort the values within each line while maintaining line structure, or sort the lines based on values in specific positions.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Specialized Sorting Options:</h4>
-                                <ul>
-                                    <li><strong>Ignore Articles:</strong> Sort while ignoring "a," "an," and "the" at beginnings</li>
-                                    <li><strong>Case-Insensitive Sorting:</strong> Group similar words regardless of capitalization</li>
-                                    <li><strong>Stability Preservation:</strong> Maintain original order of equal elements</li>
-                                    <li><strong>Empty Line Handling:</strong> Remove, preserve, or group empty lines during sorting</li>
-                                    <li><strong>Reverse Sorting:</strong> Quick reversal of any sorted list</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">For data processing workflows, the Text Sorter integrates seamlessly with other tools in our suite. You can remove duplicates first, then sort the cleaned data. Or sort first, then analyze with the Word Counter. The tool remembers your sorting preferences across sessions, allowing you to establish consistent organization patterns for recurring tasks. Batch processing capabilities let you sort multiple documents simultaneously, applying the same rules across an entire project. Real-time preview shows exactly how your text will appear after sorting, with visual indicators highlighting the sorting criteria being applied to each element.</p>
-                            
-                            <table class="comparison-table">
-                                <thead>
-                                    <tr>
-                                        <th>Sorting Type</th>
-                                        <th>Best For</th>
-                                        <th>Example Input</th>
-                                        <th>Example Output</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Alphabetical</td>
-                                        <td>Vocabulary lists, directories</td>
-                                        <td>Orange, Apple, Banana</td>
-                                        <td>Apple, Banana, Orange</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Natural</td>
-                                        <td>Filenames, version numbers</td>
-                                        <td>item10, item2, item1</td>
-                                        <td>item1, item2, item10</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Numerical</td>
-                                        <td>Statistics, rankings, scores</td>
-                                        <td>100, 25, 75, 50</td>
-                                        <td>25, 50, 75, 100</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Chronological</td>
-                                        <td>Events, logs, schedules</td>
-                                        <td>2023-12-01, 2023-11-15, 2023-12-25</td>
-                                        <td>2023-11-15, 2023-12-01, 2023-12-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Custom Rules</td>
-                                        <td>Specialized applications</td>
-                                        <td>High, Medium, Low, Critical</td>
-                                        <td>Critical, High, Medium, Low</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            
-                            <div class="use-cases">
-                                <h4>Professional Use Cases:</h4>
-                                <ul>
-                                    <li><strong>Database Management:</strong> Prepare data for import with consistent sorting</li>
-                                    <li><strong>Content Organization:</strong> Structure articles, FAQs, or knowledge bases</li>
-                                    <li><strong>Research Data Processing:</strong> Organize survey responses or experimental results</li>
-                                    <li><strong>Inventory Management:</strong> Sort product lists by various criteria</li>
-                                    <li><strong>Programming:</strong> Organize code elements, imports, or configuration values</li>
-                                </ul>
-                            </div>
-                            
-                            <a href="https://www.tool-nest.online/text-shorter.html" class="tool-link">Sort Text</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="text-reverser" class="content-section">
-                <h2 class="section-title">Text Reverser: Creative and Analytical Applications</h2>
-                <p class="intro-text">Text reversal serves diverse purposes ranging from cryptographic applications and linguistic analysis to creative writing and data processing. While seemingly simple, text reversal reveals patterns, tests symmetry, and enables unique applications across multiple disciplines. Our Text Reverser provides multiple reversal methodologies with precision control, transforming this basic operation into a powerful analytical and creative tool.</p>
-                
-                <div class="tool-category">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <h3><i class="fas fa-retweet tool-icon"></i> Text Reverser</h3>
-                            <p class="tool-description">The Text Reverser is far more than a simple mirroring tool. It provides multiple reversal methodologies, each serving specific purposes in different professional contexts. At its simplest, it can reverse text character by character, producing mirrored text. But it also offers word-order reversal (maintaining word integrity), line-order reversal for entire documents, and selective reversal for specific text sections. Each method reveals different patterns and serves distinct analytical or creative purposes.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Reversal Methodologies:</h4>
-                                <ul>
-                                    <li><strong>Character Reversal:</strong> Mirrors entire text character by character</li>
-                                    <li><strong>Word Order Reversal:</strong> Reverses sequence of words while preserving word integrity</li>
-                                    <li><strong>Line Order Reversal:</strong> Reverses sequence of lines in multi-line text</li>
-                                    <li><strong>Selective Reversal:</strong> Applies reversal only to specified sections or patterns</li>
-                                    <li><strong>Preserved Structure Reversal:</strong> Maintains markup, code, or formatting during reversal</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">The tool includes advanced analytical features that leverage reversal for pattern detection and analysis. The palindrome detector identifies words, phrases, or entire sections that read the same forwards and backwards—valuable for linguistic studies, puzzle creation, and cryptography applications. Pattern analysis in reversed text can reveal hidden structures, repetition, or encoding patterns not visible in normal orientation. For programmers, the tool can reverse while preserving code structure, allowing analysis of algorithms or data patterns from different perspectives. The interface provides visual comparison with original and reversed text displayed side-by-side, making it easy to identify changes and patterns.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Specialized Features:</h4>
-                                <ul>
-                                    <li><strong>Palindrome Detection:</strong> Identifies and highlights palindromic text sections</li>
-                                    <li><strong>Pattern Visualization:</strong> Reveals symmetrical or repeating patterns through reversal</li>
-                                    <strong>Encoding Analysis:</strong> Tests text for encoding patterns visible only when reversed</li>
-                                    <li><strong>Batch Processing:</strong> Reverse multiple text blocks with consistent methodology</li>
-                                    <li><strong>Undo/Redo Functionality:</strong> Experiment with different reversal approaches safely</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">For educational applications, the Text Reverser serves as a powerful teaching tool. It demonstrates palindrome concepts visually, shows how language structure changes with reversal, and illustrates symmetry in writing systems. In creative writing, authors use text reversal to generate unique phrases, break writer's block, or create cryptic messages. For data analysis, reversing text order can reveal patterns in logs, sequences, or encoded data that aren't apparent in normal orientation. The tool's preservation modes are particularly valuable for technical applications: when working with code or markup, you can choose to reverse only content while preserving structural elements, ensuring the reversed output remains functional or properly formatted.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Professional and Creative Applications:</h4>
-                                <ul>
-                                    <li><strong>Cryptography:</strong> Create and analyze basic cipher techniques</li>
-                                    <li><strong>Linguistics:</strong> Study language structure, palindromes, and symmetry</li>
-                                    <li><strong>Creative Writing:</strong> Generate unique phrases, puzzles, or poetic structures</li>
-                                    <li><strong>Data Analysis:</strong> Identify patterns in sequences, logs, or encoded information</li>
-                                    <li><strong>Education:</strong> Demonstrate language concepts and pattern recognition</li>
-                                </ul>
-                            </div>
-                            
-                            <a href="https://www.tool-nest.online/text-reverse.html" class="tool-link">Reverse Text</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="text-encryptor" class="content-section">
-                <h2 class="section-title">Text Encryptor/Decryptor: Secure Information Management</h2>
-                <p class="intro-text">Text security is increasingly important in our digital communications, particularly for sensitive information, personal data, and confidential communications. While dedicated encryption software exists for high-security needs, there are countless everyday situations where basic text encryption provides valuable protection. Our Text Encryptor/Decryptor provides accessible encryption without compromising security, offering multiple encryption algorithms suitable for different use cases and security requirements.</p>
-                
-                <div class="tool-category">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <h3><i class="fas fa-lock tool-icon"></i> Text Encryptor/Decryptor</h3>
-                            <p class="tool-description">The Text Encryptor/Decryptor is designed to make basic encryption accessible while maintaining proper security practices. The tool supports multiple encryption algorithms ranging from military-grade AES-256 to simpler historical ciphers for educational purposes. For each encryption method, the interface clearly explains the security level, appropriate use cases, and limitations, ensuring users select appropriate protection for their specific needs.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Supported Encryption Methods:</h4>
-                                <ul>
-                                    <li><strong>AES-256 Encryption:</strong> Military-grade symmetric encryption for serious security needs</li>
-                                    <li><strong>RSA Encryption:</strong> Public-key cryptography for secure message exchange</li>
-                                    <li><strong>Caesar Cipher:</strong> Historical substitution cipher for educational purposes</li>
-                                    <li><strong>Vigenère Cipher:</strong> Polyalphabetic cipher demonstrating classical cryptography</li>
-                                    <li><strong>Custom Ciphers:</strong> User-defined substitution and transposition methods</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">The tool includes comprehensive key management features essential for proper encryption. For password-based encryption, it includes secure password generation with configurable complexity requirements. Key derivation functions convert passwords into encryption keys with appropriate salting and iteration counts to resist brute-force attacks. The interface clearly distinguishes between encryption and decryption modes, preventing accidental misapplication that could lead to data loss. For educational use, the tool includes step-by-step explanations of how each cipher works, making it valuable for teaching cryptography concepts. Encrypted output can be formatted as Base64 for easy sharing through text-based channels or kept as raw hexadecimal for specific applications.</p>
-                            
-                            <div class="use-cases">
-                                <h4>Security and Usability Features:</h4>
-                                <ul>
-                                    <li><strong>Secure Password Generation:</strong> Creates strong encryption keys with entropy analysis</li>
-                                    <li><strong>Key Derivation Configuration:</strong> Adjustable iteration counts for password-based encryption</li>
-                                    <li><strong>Output Format Options:</strong> Base64, hexadecimal, or binary representation</li>
-                                    <li><strong>Error Detection:</strong> Identifies and explains encryption/decryption errors</li>
-                                    <li><strong>History Management:</strong> Secure storage of recent operations (client-side only)</li>
-                                </ul>
-                            </div>
-                            
-                            <p class="tool-description">For developers and technical users, the tool generates code snippets in multiple programming languages showing how to reproduce the encryption/decryption programmatically. This bridges the gap between using the tool and implementing similar functionality in applications. The tool operates entirely client-side for maximum security—your text never leaves your browser during encryption or decryption. This ensures that even sensitive information remains completely private. For collaborative scenarios, the tool can generate shareable encrypted messages with instructions for decryption using the same tool with the correct key.</p>
-                            
-                            <table class="comparison-table">
-                                <thead>
-                                    <tr>
-                                        <th>Encryption Method</th>
-                                        <th>Security Level</th>
-                                        <th>Best For</th>
-                                        <th>Key Management</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>AES-256</td>
-                                        <td>Military Grade</td>
-                                        <td>Sensitive data, confidential notes</td>
-                                        <td>Password or key file</td>
-                                    </tr>
-                                    <tr>
-                                        <td>RSA</td>
-                                        <td>High Security</td>
-                                        <td>Secure message exchange</td>
-                                        <td>Public/private key pair</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Vigenère Cipher</td>
-                                        <td>Historical/Low</td>
-                                        <td>Education, puzzles, basic obfuscation</td>
-                                        <td>Keyword or phrase</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Caesar Cipher</td>
-                                        <td>Minimal</td>
-                                        <td>Educational demonstrations</td>
-                                        <td>Rotation number (1-25)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Custom Cipher</td>
-                                        <td>Variable</td>
-                                        <td>Learning, experimentation</td>
-                                        <td>User-defined parameters</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            
-                            <div class="use-cases">
-                                <h4>Practical Applications:</h4>
-                                <ul>
-                                    <li><strong>Secure Note Taking:</strong> Encrypt sensitive personal or business notes</li>
-                                    <li><strong>Password Management:</strong> Create encrypted backup of important credentials</li>
-                                    <li><strong>Educational Use:</strong> Teach cryptography concepts with hands-on examples</li>
-                                    <li><strong>Puzzle Creation:</strong> Design cryptographic puzzles and challenges</li>
-                                    <li><strong>Basic Communication Security:</strong> Add simple encryption to non-critical messages</li>
-                                </ul>
-                            </div>
-                            
-                            <a href="https://www.tool-nest.online/text-encryptor.html" class="tool-link">Encrypt/Decrypt Text</a>
-                        </div>
-                    </div>
-                    
-                    <div class="seo-highlight">
-                        <h3>Integrating Text Tools into Your Workflow</h3>
-                        <p>The true power of Tool Nest's text tools emerges when you use them together in integrated workflows. Start by cleaning data with the Remove Duplicate Lines tool, then organize it with the Text Sorter. Use the Text Case Converter to normalize formatting, then analyze with the Word & Character Counter. For sensitive information, apply encryption after processing. These tools are designed to work seamlessly together, creating a comprehensive text manipulation environment that handles every aspect of text processing from initial cleaning to final formatting and security. By mastering these six essential tools, you equip yourself with capabilities that address 90% of common text manipulation challenges faced by professionals across industries.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="content-section">
-                <h2 class="section-title">Conclusion: Transform Your Text Workflow</h2>
-                <p class="intro-text">Text manipulation forms the foundation of digital communication, content creation, data analysis, and information management. By mastering the six essential tools in Tool Nest's professional text toolkit, you gain capabilities that dramatically enhance productivity, improve output quality, and solve common challenges that professionals encounter daily. Whether you're a writer optimizing content, a developer processing data, a student preparing research, or a business professional managing information, these tools provide the precision and power needed for professional text handling.</p>
-                
-                <div class="seo-highlight">
-                    <h3>Start Transforming Your Text Work Today</h3>
-                    <p>All six professional text tools are available completely free at Tool Nest, with no registration required and no limits on usage. Each tool works directly in your browser with no downloads or installations needed. Your data remains private—processed locally on your device whenever possible. Bookmark these tools today and transform how you work with text:</p>
-                    <ul>
-                        <li><a href="https://www.tool-nest.online/text-case-converter.html" style="color: var(--light-blue);">Text Case Converter</a> - Master text formatting and normalization</li>
-                        <li><a href="https://www.tool-nest.online/character-count.html" style="color: var(--light-blue);">Word & Character Counter</a> - Analyze and optimize content length</li>
-                        <li><a href="https://www.tool-nest.online/remove-dupe-lines.html" style="color: var(--light-blue);">Remove Duplicate Lines</a> - Clean and deduplicate text data</li>
-                        <li><a href="https://www.tool-nest.online/text-shorter.html" style="color: var(--light-blue);">Text Sorter</a> - Organize text with intelligent sorting</li>
-                        <li><a href="https://www.tool-nest.online/text-reverse.html" style="color: var(--light-blue);">Text Reverser</a> - Analyze patterns and create unique text</li>
-                        <li><a href="https://www.tool-nest.online/text-encryptor.html" style="color: var(--light-blue);">Text Encryptor/Decryptor</a> - Secure sensitive information</li>
-                    </ul>
-                    <p style="margin-top: 1rem;">Visit Tool Nest today and discover how professional text tools can transform your writing, coding, and data processing workflows.</p>
-                </div>
-            </section>
+
+        .tool-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        footer {
+            background: #051225;
+            border-top: 1px solid var(--border);
+            padding: 55px 20px;
+        }
+
+        .footer-wrap {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 35px;
+        }
+
+        footer h4 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Professional Developer Tools Online</h1>
+    <p>
+        A complete collection of professional developer tools designed to simplify web development,
+        improve performance, validate data, and boost productivity. Fast, free, and secure tools by Tool Nest.
+    </p>
+</header>
+
+<div class="container">
+
+    <h2>Introduction to Professional Developer Tools</h2>
+    <p>
+        Modern software development demands speed, accuracy, and efficiency. Developers work with
+        complex codebases, structured data formats, APIs, URLs, regular expressions, and color systems
+        on a daily basis. To manage these tasks efficiently, <strong>professional developer tools</strong>
+        are essential.
+    </p>
+    <p>
+        Tool Nest provides a powerful suite of <strong>online developer tools</strong> that help developers
+        clean code, validate JSON, encode and decode data, test regular expressions, optimize web assets,
+        and manage colors effortlessly. These tools are built to support frontend developers,
+        backend developers, full-stack engineers, DevOps professionals, and students.
+    </p>
+
+    <h2>All Professional Developer Tools by Tool Nest</h2>
+
+    <div class="tools-grid">
+
+        <div class="tool-card">
+            <h3><a href="https://www.tool-nest.online/html-minifier.html">HTML / CSS / JavaScript Minifier</a></h3>
+            <p>
+                Minify HTML, CSS, and JavaScript files to reduce file size, improve page load speed,
+                and optimize performance for production environments.
+            </p>
         </div>
-    </article>
-</main>
+
+        <div class="tool-card">
+            <h3><a href="https://www.tool-nest.online/json-formatter.html">JSON Formatter & Validator</a></h3>
+            <p>
+                Format, beautify, and validate JSON data instantly. Ideal for API testing,
+                debugging, and backend development workflows.
+            </p>
+        </div>
+
+        <div class="tool-card">
+            <h3><a href="https://www.tool-nest.online/base64.html">Base64 Encoder / Decoder</a></h3>
+            <p>
+                Encode or decode Base64 strings for data transmission, authentication,
+                and binary-to-text conversions.
+            </p>
+        </div>
+
+        <div class="tool-card">
+            <h3><a href="https://www.tool-nest.online/url.html">URL Encoder / Decoder</a></h3>
+            <p>
+                Safely encode and decode URLs for web applications, query strings,
+                API requests, and secure data transfer.
+            </p>
+        </div>
+
+        <div class="tool-card">
+            <h3><a href="https://www.tool-nest.online/color-picker.html">Color Picker & Converter</a></h3>
+            <p>
+                Pick colors and convert between HEX, RGB, HSL, and other formats.
+                Essential for UI/UX designers and frontend developers.
+            </p>
+        </div>
+
+        <div class="tool-card">
+            <h3><a href="https://www.tool-nest.online/regex-tester.html">Regex Tester</a></h3>
+            <p>
+                Test, debug, and optimize regular expressions in real time.
+                A powerful tool for validation, parsing, and pattern matching.
+            </p>
+        </div>
+
+    </div>
+
+    <h2>Why Developer Tools Are Critical for Web Development</h2>
+    <p>
+        Professional developer tools play a crucial role in building fast, secure, and scalable
+        web applications. Minified code improves loading speed, formatted JSON reduces errors,
+        and encoded URLs ensure secure communication.
+    </p>
+    <p>
+        Tool Nest developer tools eliminate repetitive manual tasks, reduce bugs,
+        and help developers focus on writing high-quality code.
+    </p>
+
+    <h2>HTML, CSS & JavaScript Minification for Performance</h2>
+    <p>
+        Minification is a key optimization technique used to reduce file sizes by removing
+        unnecessary whitespace, comments, and redundant code.
+        Smaller files mean faster page loads and better SEO rankings.
+    </p>
+    <p>
+        Tool Nest’s HTML, CSS, and JavaScript minifier helps developers prepare
+        production-ready assets without compromising functionality.
+    </p>
+
+    <h2>JSON Formatting, Validation & API Development</h2>
+    <p>
+        JSON is the backbone of modern APIs and data exchange.
+        A single formatting or syntax error can break an entire application.
+        Using a reliable JSON formatter and validator ensures accuracy and readability.
+    </p>
+
+    <h2>Encoding & Decoding Tools for Secure Data Handling</h2>
+    <p>
+        Encoding tools like Base64 and URL encoder/decoder are essential for safely
+        transmitting data over the web. They help prevent errors, data corruption,
+        and security vulnerabilities.
+    </p>
+
+    <h2>Regex Testing & Advanced Pattern Matching</h2>
+    <p>
+        Regular expressions are powerful but complex.
+        A professional regex tester allows developers to test patterns,
+        debug expressions, and validate inputs with confidence.
+    </p>
+
+    <h2>Color Picker Tools for UI & UX Design</h2>
+    <p>
+        Color consistency is vital for branding and user experience.
+        Tool Nest’s color picker and converter enables designers and developers
+        to work seamlessly with multiple color formats.
+    </p>
+
+    <h2>Who Should Use Tool Nest Developer Tools?</h2>
+    <p>
+        Tool Nest is designed for frontend developers, backend developers,
+        full-stack engineers, UI/UX designers, students, educators,
+        and anyone working with web technologies.
+    </p>
+
+    <h2>Security, Privacy & Speed</h2>
+    <p>
+        All Tool Nest developer tools work directly in the browser.
+        No data is stored or logged, ensuring maximum privacy.
+        The platform is optimized for speed, reliability, and accuracy.
+    </p>
+
+    <h2>Final Thoughts</h2>
+    <p>
+        Tool Nest offers a complete ecosystem of professional developer tools
+        designed to simplify workflows and boost productivity.
+        If you are looking for fast, free, and reliable online developer tools,
+        Tool Nest is your ultimate destination.
+    </p>
+
+</div>
 
 <footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Text Tool Categories</h3>
-                <ul class="footer-links">
-                    <li><a href="#text-case-converter">Text Case Converter</a></li>
-                    <li><a href="#word-counter">Word & Character Counter</a></li>
-                    <li><a href="#duplicate-remover">Remove Duplicate Lines</a></li>
-                    <li><a href="#text-sorter">Text Sorter</a></li>
-                    <li><a href="#text-reverser">Text Reverser</a></li>
-                    <li><a href="#text-encryptor">Text Encryptor/Decryptor</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Popular Tools</h3>
-                <ul class="footer-links">
-                    <li><a href="https://www.tool-nest.online/text-case-converter.html">Text Case Converter</a></li>
-                    <li><a href="https://www.tool-nest.online/character-count.html">Word & Character Counter</a></li>
-                    <li><a href="https://www.tool-nest.online/remove-dupe-lines.html">Remove Duplicate Lines</a></li>
-                    <li><a href="https://www.tool-nest.online/text-shorter.html">Text Sorter</a></li>
-                    <li><a href="https://www.tool-nest.online/text-reverse.html">Text Reverser</a></li>
-                    <li><a href="https://www.tool-nest.online/text-encryptor.html">Text Encryptor/Decryptor</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>About Tool Nest</h3>
-                <p style="color: var(--text-gray); margin-bottom: 1rem;">Tool Nest provides a comprehensive collection of free online tools for professionals, students, and everyday users. Our mission is to simplify complex tasks with intuitive, powerful tools that work directly in your browser.</p>
-                <div style="display: flex; gap: 1rem;">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook" style="color: var(--text-gray); font-size: 1.2rem;"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter" style="color: var(--text-gray); font-size: 1.2rem;"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" style="color: var(--text-gray); font-size: 1.2rem;"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github" style="color: var(--text-gray); font-size: 1.2rem;"></i></a>
-                </div>
-            </div>
+    <div class="footer-wrap">
+
+        <div>
+            <h4>Tool Nest</h4>
+            <p>
+                Tool Nest provides professional online tools for developers,
+                designers, SEO experts, and digital professionals.
+            </p>
         </div>
-        <div class="copyright">
-            <p>&copy; 2023 Tool Nest. All rights reserved. | Free Online Tools for Productivity and Creativity</p>
-            <p style="margin-top: 0.5rem; font-size: 0.8rem;">All tools are free to use. No registration required. Data privacy guaranteed.</p>
+
+        <div>
+            <h4>Developer Tools</h4>
+            <ul>
+                <li><a href="https://www.tool-nest.online/html-minifier.html">HTML Minifier</a></li>
+                <li><a href="https://www.tool-nest.online/json-formatter.html">JSON Formatter</a></li>
+                <li><a href="https://www.tool-nest.online/base64.html">Base64 Encoder</a></li>
+                <li><a href="https://www.tool-nest.online/url.html">URL Encoder</a></li>
+                <li><a href="https://www.tool-nest.online/color-picker.html">Color Picker</a></li>
+                <li><a href="https://www.tool-nest.online/regex-tester.html">Regex Tester</a></li>
+            </ul>
         </div>
+
+        <div>
+            <h4>About Tool Nest</h4>
+            <p>
+                Built for developers and professionals who demand speed,
+                accuracy, and reliability from their online tools.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2025 Tool Nest. All Rights Reserved.
     </div>
 </footer>
 
-<script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Add active class to nav links on scroll
-    window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('nav a');
-        
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if(scrollY >= (sectionTop - 100)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if(link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-    
-    // Word count for the blog
-    document.addEventListener('DOMContentLoaded', function() {
-        const articleText = document.querySelector('article').innerText;
-        const wordCount = articleText.split(/\s+/).length;
-        const readTime = Math.ceil(wordCount / 200);
-        
-        // Update the read time in the meta information
-        const readTimeElement = document.querySelector('.blog-meta');
-        if(readTimeElement) {
-            readTimeElement.innerHTML = readTimeElement.innerHTML.replace('12 min', `${readTime} min`);
-        }
-        
-        // Add active class to current section in navigation
-        const currentPage = window.location.pathname;
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            if(link.getAttribute('href') === currentPage) {
-                link.classList.add('active');
-            }
-        });
-    });
-</script>
-</body> </html>
-
-
-
+</body>
+</html>
