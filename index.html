@@ -5,23 +5,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>UrbanOraTech – Smart Urban Life Powered by Technology & AI</title>
     <meta name="description" content="AI-powered tools and tech insights to help you make smarter decisions in modern urban life.">
     
-    <!-- Schema.org markup for Google -->
+    <!-- Schema.org markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "UrbanOraTech",
-      "alternateName": "UrbanOraTech - Smart Urban Solutions",
       "url": "https://urbanoratech.com",
       "description": "AI-powered tools and tech insights for modern urban living",
       "publisher": {
         "@type": "Organization",
         "name": "UrbanOraTech",
-        "logo": "https://urbanoratech.com/logo.png",
         "email": "urbanora.storee@gmail.com",
         "sameAs": [
           "https://twitter.com/urbanoratech",
@@ -32,37 +30,33 @@
     }
     </script>
     
-    <!-- Google Fonts with optimized loading -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* CSS Variables for easy theming */
+        /* CSS Reset and Variables */
         :root {
-            --primary: #0f172a; /* Dark Navy */
+            --primary: #0f172a;
             --primary-dark: #020617;
-            --accent-blue: #00d4ff; /* Electric Blue */
-            --accent-green: #00ff9d; /* Neon Green */
+            --accent-blue: #00d4ff;
+            --accent-green: #00ff9d;
             --light-bg: #f8fafc;
             --white: #ffffff;
             --gray: #64748b;
             --light-gray: #e2e8f0;
-            --dark-gray: #334155;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-            --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
             --transition: all 0.25s ease;
             --border-radius: 12px;
-            --border-radius-sm: 8px;
-            --safe-area-top: env(safe-area-inset-top);
-            --safe-area-bottom: env(safe-area-inset-bottom);
+            --safe-top: env(safe-area-inset-top);
+            --safe-bottom: env(safe-area-inset-bottom);
         }
         
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -73,31 +67,26 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
-            -webkit-text-size-adjust: 100%;
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--dark-gray);
-            background-color: var(--white);
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: #334155;
+            background: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
-            text-rendering: optimizeLegibility;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Typography for Mobile */
+        /* Typography */
         h1, h2, h3, h4 {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 700;
             color: var(--primary);
             line-height: 1.2;
-            letter-spacing: -0.02em;
         }
         
         h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(2rem, 6vw, 3.2rem);
             margin-bottom: 1.25rem;
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
             -webkit-background-clip: text;
@@ -106,137 +95,106 @@
         }
         
         h2 {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
             margin-bottom: 1rem;
+            text-align: center;
         }
         
         h3 {
-            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
             margin-bottom: 0.75rem;
         }
         
         p {
             margin-bottom: 1.25rem;
             color: var(--gray);
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
         }
         
-        /* Layout */
+        /* Container */
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 clamp(16px, 4vw, 24px);
+            padding: 0 20px;
         }
         
         section {
-            padding: clamp(50px, 10vw, 80px) 0;
+            padding: clamp(60px, 10vw, 80px) 0;
         }
         
-        .section-subtitle {
-            text-align: center;
-            font-size: clamp(1rem, 2vw, 1.1rem);
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto clamp(2rem, 5vw, 3rem);
-            line-height: 1.5;
-        }
-        
-        /* Buttons - Touch Friendly */
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: clamp(14px, 3vw, 16px) clamp(24px, 4vw, 32px);
+            padding: 14px 28px;
             border-radius: var(--border-radius);
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            font-size: clamp(0.95rem, 2vw, 1rem);
+            font-size: 1rem;
             text-decoration: none;
+            border: none;
             cursor: pointer;
             transition: var(--transition);
-            border: none;
             gap: 10px;
-            min-height: 48px; /* Minimum touch target size */
-            min-width: 48px;
-            position: relative;
-            touch-action: manipulation;
-        }
-        
-        .btn:active {
-            transform: scale(0.98);
+            min-height: 48px;
         }
         
         .btn-primary {
-            background-color: var(--accent-blue);
+            background: var(--accent-blue);
             color: var(--primary);
             box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
         }
         
-        .btn-primary:hover, .btn-primary:focus {
+        .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(0, 212, 255, 0.4);
         }
         
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-secondary:hover, .btn-secondary:focus {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: var(--white);
-        }
-        
         .btn-light {
-            background-color: var(--white);
+            background: var(--white);
             color: var(--primary);
             box-shadow: var(--shadow);
         }
         
-        .btn-light:hover, .btn-light:focus {
+        .btn-light:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
         
-        /* Header - Mobile Optimized */
+        /* Header with Mobile Dropdown Menu */
         header {
-            background-color: var(--white);
+            background: var(--white);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
             position: fixed;
             width: 100%;
-            top: var(--safe-area-top);
+            top: 0;
             z-index: 1000;
-            padding-top: calc(10px + var(--safe-area-top));
-            padding-bottom: 10px;
-            transition: var(--transition);
+            padding-top: var(--safe-top);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 clamp(16px, 4vw, 24px);
+            padding: 16px 20px;
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
             font-family: 'Poppins', sans-serif;
             font-weight: 800;
-            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            font-size: 1.5rem;
             color: var(--primary);
             text-decoration: none;
         }
         
-        .logo-accent {
+        .logo span {
             color: var(--accent-blue);
         }
         
-        /* Mobile Navigation */
-        .mobile-menu-btn {
+        /* Mobile Menu Button */
+        .menu-toggle {
             display: none;
             background: none;
             border: none;
@@ -247,23 +205,19 @@
             z-index: 1001;
         }
         
+        /* Desktop Navigation */
         .nav-links {
             display: flex;
-            gap: clamp(16px, 3vw, 32px);
+            gap: 32px;
         }
         
         .nav-links a {
             font-weight: 500;
-            color: var(--dark-gray);
+            color: #334155;
             text-decoration: none;
             transition: var(--transition);
+            padding: 8px 0;
             position: relative;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            padding: 4px 0;
-        }
-        
-        .nav-links a:hover, .nav-links a:focus {
-            color: var(--accent-blue);
         }
         
         .nav-links a::after {
@@ -273,236 +227,243 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--accent-blue);
+            background: var(--accent-blue);
             transition: var(--transition);
         }
         
-        .nav-links a:hover::after, .nav-links a:focus::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
         
-        /* Hero Section - Mobile First */
-        .hero {
-            padding-top: calc(120px + var(--safe-area-top));
-            background-color: var(--light-bg);
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
+        /* Mobile Dropdown Menu */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--white);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+            z-index: 1002;
+            transition: right 0.3s ease;
+            padding: 80px 30px 40px;
+            overflow-y: auto;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
+        .mobile-nav.active {
             right: 0;
-            width: 70%;
+        }
+        
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(0, 255, 157, 0.05) 100%);
-            z-index: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .mobile-nav-links a {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .mobile-nav-links a:hover {
+            color: var(--accent-blue);
+            padding-left: 10px;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: calc(80px + var(--safe-top));
+            background: var(--light-bg);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
         
         .hero-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: clamp(40px, 8vw, 60px);
-            position: relative;
-            z-index: 1;
+            gap: 50px;
         }
         
         .hero-content {
-            width: 100%;
-            max-width: 600px;
             text-align: center;
         }
         
         .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            margin-bottom: clamp(2rem, 5vw, 2.5rem);
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            margin-bottom: 2.5rem;
             color: var(--gray);
-            line-height: 1.5;
         }
         
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 15px;
             justify-content: center;
         }
         
         .hero-visual {
-            width: 100%;
-            max-width: 600px;
             position: relative;
+            margin-top: 30px;
         }
         
         .city-illustration {
             width: 100%;
-            height: auto;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            z-index: 2;
-            aspect-ratio: 16/9;
+            height: 300px;
             background: linear-gradient(135deg, #1e293b, #475569);
+            border-radius: var(--border-radius);
+            position: relative;
             overflow: hidden;
+        }
+        
+        .ai-bubble {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 20px 20px 20px 5px;
+            font-size: 0.9rem;
+            max-width: 70%;
+            box-shadow: var(--shadow);
+            z-index: 2;
         }
         
         .dashboard-mockup {
             position: absolute;
             bottom: -20px;
-            right: clamp(10px, 3vw, 20px);
-            width: clamp(180px, 40vw, 250px);
-            height: clamp(130px, 25vw, 180px);
-            background-color: var(--white);
-            border-radius: var(--border-radius-sm);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            padding: clamp(10px, 2vw, 15px);
-            z-index: 3;
+            right: 20px;
+            width: 200px;
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 2;
         }
         
-        .ai-bubble {
-            position: absolute;
-            top: clamp(10px, 3vw, 20px);
-            left: clamp(10px, 3vw, 20px);
-            background-color: var(--primary);
-            color: var(--white);
-            padding: clamp(10px, 2vw, 12px) clamp(12px, 3vw, 18px);
-            border-radius: 20px 20px 20px 0;
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
-            max-width: 60%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 3;
-            line-height: 1.4;
-        }
-        
-        /* Trust Indicators - Mobile Grid */
+        /* Trust Indicators */
         .trust-section {
-            padding: clamp(40px, 8vw, 60px) 0;
-            background-color: var(--white);
+            padding: 40px 0;
+            background: white;
         }
         
         .trust-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: clamp(20px, 4vw, 30px);
+            gap: 20px;
         }
         
         .trust-item {
             text-align: center;
-            padding: clamp(20px, 4vw, 25px);
+            padding: 20px;
+            background: var(--light-bg);
             border-radius: var(--border-radius);
             transition: var(--transition);
-            background-color: var(--light-bg);
         }
         
-        .trust-item:active {
-            transform: scale(0.98);
+        .trust-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
         }
         
         .trust-icon {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            margin-bottom: clamp(12px, 3vw, 15px);
-        }
-        
-        .trust-icon.blue {
+            font-size: 2rem;
+            margin-bottom: 10px;
             color: var(--accent-blue);
-        }
-        
-        .trust-icon.green {
-            color: var(--accent-green);
         }
         
         .trust-text {
             font-weight: 600;
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
             color: var(--primary);
         }
         
-        /* Features Section - Mobile Cards */
+        /* Features */
         .features-section {
-            background-color: var(--light-bg);
+            background: var(--light-bg);
         }
         
         .features-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: clamp(24px, 5vw, 30px);
+            gap: 25px;
         }
         
         .feature-card {
-            background-color: var(--white);
+            background: white;
+            padding: 30px;
             border-radius: var(--border-radius);
-            padding: clamp(30px, 5vw, 40px) clamp(24px, 4vw, 30px);
             box-shadow: var(--shadow);
             transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
+            border-top: 4px solid var(--accent-blue);
         }
         
-        .feature-card:active {
-            transform: scale(0.99);
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
         
         .feature-icon {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            margin-bottom: clamp(16px, 4vw, 20px);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             color: var(--accent-blue);
-        }
-        
-        .feature-description {
-            margin-bottom: clamp(20px, 4vw, 25px);
-            flex-grow: 1;
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
         }
         
         .feature-link {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            font-weight: 600;
+            gap: 8px;
             color: var(--accent-blue);
+            font-weight: 600;
             text-decoration: none;
-            transition: var(--transition);
-            font-size: clamp(0.95rem, 2vw, 1rem);
-            padding: 8px 0;
+            margin-top: 15px;
         }
         
-        .feature-link:active {
-            transform: translateX(5px);
-        }
-        
-        /* AI Interactive Section - Mobile Friendly */
+        /* AI Section */
         .ai-section {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-            padding: clamp(60px, 10vw, 80px) 0;
-        }
-        
-        .ai-container {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary), #1e293b);
+            color: white;
             text-align: center;
         }
         
         .ai-section h2 {
-            color: var(--white);
+            color: white;
         }
         
         .ai-section .section-subtitle {
@@ -510,199 +471,154 @@
         }
         
         .ai-input-container {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius);
-            padding: clamp(24px, 5vw, 30px);
-            margin-top: clamp(30px, 6vw, 40px);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            margin: 40px auto 0;
         }
         
         .ai-input {
             width: 100%;
-            padding: clamp(16px, 3vw, 20px);
-            border-radius: var(--border-radius-sm);
+            padding: 18px;
+            border-radius: var(--border-radius);
             border: none;
-            background-color: rgba(255, 255, 255, 0.95);
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-            margin-bottom: clamp(16px, 3vw, 20px);
+            font-size: 1rem;
+            margin-bottom: 20px;
             font-family: 'Inter', sans-serif;
-            line-height: 1.5;
-        }
-        
-        .ai-input:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3);
         }
         
         .ai-btn {
             background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
             color: var(--primary);
             font-weight: 700;
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-            padding: clamp(16px, 3vw, 18px) clamp(24px, 5vw, 40px);
+            padding: 18px 40px;
             width: 100%;
-            max-width: 100%;
+            max-width: 300px;
         }
         
-        /* Popular Tools - Mobile Scrollable */
+        /* Popular Tools */
         .tools-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-            gap: clamp(20px, 4vw, 30px);
-            overflow-x: auto;
-            scroll-snap-type: x proximity;
-            padding-bottom: 10px;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
         
         .tool-card {
-            background-color: var(--white);
+            background: white;
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            scroll-snap-align: start;
         }
         
-        .tool-card:active {
-            transform: scale(0.98);
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
         
         .tool-thumbnail {
-            height: clamp(140px, 30vw, 180px);
-            background-color: var(--light-gray);
+            height: 160px;
+            background: var(--light-bg);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: 3rem;
             color: var(--primary);
         }
         
         .tool-content {
-            padding: clamp(20px, 4vw, 25px);
+            padding: 25px;
         }
         
-        /* Brand Section - Mobile Stack */
-        .brand-section {
-            background-color: var(--light-bg);
-        }
-        
+        /* Brand Section */
         .brand-container {
             display: flex;
             flex-direction: column;
-            gap: clamp(40px, 8vw, 60px);
+            gap: 40px;
         }
         
         .brand-visual {
-            flex: 1;
+            height: 300px;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
             border-radius: var(--border-radius);
-            height: clamp(250px, 50vw, 350px);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .brand-content {
-            flex: 1;
         }
         
         .brand-features {
-            margin-top: clamp(20px, 5vw, 25px);
+            margin-top: 25px;
         }
         
         .brand-feature {
             display: flex;
             align-items: center;
-            margin-bottom: clamp(12px, 3vw, 15px);
-            font-weight: 500;
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            gap: 10px;
+            margin-bottom: 15px;
         }
         
         .brand-feature i {
             color: var(--accent-green);
-            margin-right: 12px;
-            font-size: 1.2rem;
         }
         
-        /* Monetization Section */
-        .monetization-section {
-            padding: clamp(40px, 8vw, 60px) 0;
-            background-color: var(--white);
+        /* Ads Section */
+        .ad-section {
+            padding: 40px 0;
+            background: var(--light-bg);
         }
         
         .ad-container {
-            max-width: 800px;
-            margin: 0 auto;
             text-align: center;
         }
         
         .ad-placeholder {
-            background-color: var(--light-bg);
-            border-radius: var(--border-radius);
-            padding: clamp(30px, 6vw, 40px);
-            margin: clamp(16px, 4vw, 20px) 0;
-            color: var(--gray);
+            background: white;
             border: 2px dashed var(--light-gray);
-            text-align: center;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin: 20px 0;
         }
         
-        /* Newsletter Section - Mobile Form */
+        /* Newsletter */
         .newsletter-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: var(--white);
-        }
-        
-        .newsletter-container {
-            max-width: 700px;
-            margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary), #1e293b);
+            color: white;
             text-align: center;
         }
         
         .newsletter-section h2 {
-            color: var(--white);
+            color: white;
         }
         
         .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: clamp(30px, 6vw, 40px);
+            max-width: 500px;
+            margin: 40px auto 0;
         }
         
         .newsletter-input {
             width: 100%;
-            padding: clamp(16px, 3vw, 18px) clamp(20px, 4vw, 25px);
+            padding: 16px;
             border-radius: var(--border-radius);
             border: none;
-            font-size: clamp(1rem, 2.5vw, 1.05rem);
+            margin-bottom: 15px;
             font-family: 'Inter', sans-serif;
-            line-height: 1.5;
         }
         
-        .newsletter-input:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3);
-        }
-        
-        /* Footer - Mobile Optimized */
+        /* Footer */
         footer {
-            background-color: var(--primary-dark);
-            color: var(--white);
-            padding: clamp(50px, 10vw, 80px) 0 clamp(30px, 8vw, 40px);
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
         }
         
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: clamp(30px, 6vw, 40px);
+            grid-template-columns: 1fr;
+            gap: 40px;
         }
         
         .footer-column h3 {
-            color: var(--white);
-            font-size: clamp(1.1rem, 3vw, 1.3rem);
-            margin-bottom: clamp(20px, 4vw, 25px);
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
         
         .footer-links {
@@ -710,122 +626,67 @@
         }
         
         .footer-links li {
-            margin-bottom: clamp(10px, 2vw, 12px);
+            margin-bottom: 12px;
         }
         
         .footer-links a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: var(--transition);
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            display: inline-block;
-            padding: 4px 0;
         }
         
-        .footer-links a:active {
-            transform: translateX(5px);
+        .footer-links a:hover {
             color: var(--accent-blue);
         }
         
         .social-links {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             margin-top: 20px;
         }
         
         .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--white);
+            color: white;
             transition: var(--transition);
-            font-size: 1.2rem;
         }
         
-        .social-icon:active {
-            transform: scale(0.9);
-            background-color: var(--accent-blue);
+        .social-icon:hover {
+            background: var(--accent-blue);
+            transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
-            margin-top: clamp(40px, 8vw, 60px);
-            padding-top: clamp(20px, 5vw, 30px);
+            margin-top: 60px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
-            font-size: clamp(0.85rem, 2vw, 0.9rem);
+            font-size: 0.9rem;
         }
         
-        /* Mobile Menu Overlay */
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .mobile-menu-links {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            text-align: center;
-        }
-        
-        .mobile-menu-links a {
-            color: var(--white);
-            font-size: 1.5rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 12px 24px;
-            transition: var(--transition);
-        }
-        
-        .mobile-menu-links a:active {
-            color: var(--accent-blue);
-            transform: scale(1.05);
-        }
-        
-        .close-menu-btn {
-            position: absolute;
-            top: 40px;
-            right: 24px;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
-        
-        /* Responsive Breakpoints */
+        /* Responsive Design */
         @media (min-width: 768px) {
             .hero-container {
                 flex-direction: row;
                 align-items: center;
-                text-align: left;
+                gap: 80px;
             }
             
             .hero-content {
                 text-align: left;
+                flex: 1;
+            }
+            
+            .hero-visual {
+                flex: 1;
+                margin-top: 0;
             }
             
             .hero-buttons {
@@ -840,24 +701,26 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .footer-container {
-                grid-template-columns: repeat(4, 1fr);
+            .tools-container {
+                grid-template-columns: repeat(3, 1fr);
             }
             
-            .mobile-menu-btn {
-                display: none;
+            .brand-container {
+                flex-direction: row;
+                align-items: center;
+                gap: 60px;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(4, 1fr);
             }
             
             .nav-links {
                 display: flex;
             }
             
-            .newsletter-form {
-                flex-direction: row;
-            }
-            
-            .newsletter-input {
-                min-width: 250px;
+            .menu-toggle {
+                display: none;
             }
         }
         
@@ -865,69 +728,139 @@
             .features-container {
                 grid-template-columns: repeat(4, 1fr);
             }
-            
-            .brand-container {
-                flex-direction: row;
-                align-items: center;
-            }
-            
-            .tools-container {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
         
-        /* iOS Safari Specific Fixes */
-        @supports (-webkit-touch-callout: none) {
+        /* Mobile Menu Button Styles */
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .header-container {
+                padding: 12px 20px;
+            }
+            
             .hero {
-                min-height: -webkit-fill-available;
+                padding-top: calc(70px + var(--safe-top));
+            }
+            
+            .city-illustration {
+                height: 250px;
+            }
+            
+            .dashboard-mockup {
+                width: 160px;
+                padding: 12px;
+                right: 10px;
+                bottom: -15px;
+            }
+            
+            .ai-bubble {
+                font-size: 0.8rem;
+                padding: 10px 14px;
             }
         }
         
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
+        /* Small Phones */
+        @media (max-width: 375px) {
+            .container {
+                padding: 0 15px;
             }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            
+            .trust-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+            
+            .tool-thumbnail {
+                height: 140px;
+            }
+        }
+        
+        /* Animation for mobile menu */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 16px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <!-- Header with Mobile Menu -->
+    <!-- Header -->
     <header>
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <span>Urban<span class="logo-accent">Ora</span>Tech</span>
-            </a>
+        <div class="header-container">
+            <a href="#" class="logo">Urban<span>Ora</span>Tech</a>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            
+            <!-- Desktop Navigation -->
             <nav class="nav-links">
                 <a href="#features">Tools</a>
                 <a href="#ai">Urban AI</a>
                 <a href="#tools">Insights</a>
                 <a href="#newsletter">Updates</a>
             </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+        <div class="mobile-nav" id="mobileNav">
+            <button class="close-menu" id="closeMenu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="#features" class="mobile-nav-link">Tools</a>
+                <a href="#ai" class="mobile-nav-link">Urban AI</a>
+                <a href="#tools" class="mobile-nav-link">Insights</a>
+                <a href="#newsletter" class="mobile-nav-link">Updates</a>
+                <a href="#about" class="mobile-nav-link">About Us</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+            </nav>
         </div>
     </header>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenu">
-        <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close menu">
-            <i class="fas fa-times"></i>
-        </button>
-        <nav class="mobile-menu-links">
-            <a href="#features" class="mobile-menu-link">Tools</a>
-            <a href="#ai" class="mobile-menu-link">Urban AI</a>
-            <a href="#tools" class="mobile-menu-link">Insights</a>
-            <a href="#newsletter" class="mobile-menu-link">Updates</a>
-            <a href="#about" class="mobile-menu-link">About</a>
-        </nav>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -948,34 +881,14 @@
                 <div class="ai-bubble">
                     Hi! I can help you optimize your urban lifestyle.
                 </div>
-                <div class="city-illustration">
-                    <!-- City skyline illustration -->
-                    <div style="position:relative; width:100%; height:100%; background:linear-gradient(to bottom, #1e293b, #475569);">
-                        <div style="position:absolute; bottom:0; width:100%; height:40%; background:#0f172a;"></div>
-                        <!-- Buildings -->
-                        <div style="position:absolute; bottom:0; left:5%; width:8%; height:60%; background:#334155;"></div>
-                        <div style="position:absolute; bottom:0; left:15%; width:10%; height:80%; background:#475569;"></div>
-                        <div style="position:absolute; bottom:0; left:28%; width:12%; height:70%; background:#334155;"></div>
-                        <div style="position:absolute; bottom:0; left:43%; width:9%; height:90%; background:#1e293b;"></div>
-                        <div style="position:absolute; bottom:0; left:55%; width:7%; height:55%; background:#475569;"></div>
-                        <div style="position:absolute; bottom:0; left:65%; width:11%; height:75%; background:#334155;"></div>
-                        <div style="position:absolute; bottom:0; left:79%; width:8%; height:65%; background:#475569;"></div>
-                        <!-- Windows -->
-                        <div style="position:absolute; bottom:20px; left:6%; width:4%; height:12px; background:#00d4ff; border-radius:2px;"></div>
-                        <div style="position:absolute; bottom:50px; left:16%; width:6%; height:12px; background:#00ff9d; border-radius:2px;"></div>
-                        <div style="position:absolute; bottom:80px; left:30%; width:4%; height:12px; background:#00d4ff; border-radius:2px;"></div>
-                        <div style="position:absolute; bottom:120px; left:45%; width:5%; height:12px; background:#00ff9d; border-radius:2px;"></div>
-                    </div>
-                </div>
+                <div class="city-illustration"></div>
                 <div class="dashboard-mockup">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                        <div style="font-size:0.9rem; font-weight:600; color:var(--primary);">Monthly Budget</div>
-                        <div style="font-size:0.8rem; color:#00d4ff; font-weight:600;">+12%</div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="font-weight: 600; color: var(--primary);">Monthly Budget</div>
+                        <div style="color: var(--accent-blue); font-weight: 600;">+12%</div>
                     </div>
-                    <div style="height:60px; background:linear-gradient(90deg, #00d4ff, #00ff9d); border-radius:6px; margin-bottom:10px; position:relative; overflow:hidden;">
-                        <div style="position:absolute; width:100%; height:2px; background-color:white; opacity:0.3; top:50%;"></div>
-                    </div>
-                    <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--gray);">
+                    <div style="height: 60px; background: linear-gradient(90deg, var(--accent-blue), var(--accent-green)); border-radius: 6px; margin-bottom: 10px;"></div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray);">
                         <span>Expenses</span>
                         <span>Savings</span>
                         <span>Investment</span>
@@ -988,26 +901,26 @@
     <!-- Trust Indicators -->
     <section class="trust-section">
         <div class="container trust-container">
-            <div class="trust-item" tabindex="0">
-                <div class="trust-icon blue">
+            <div class="trust-item">
+                <div class="trust-icon">
                     <i class="fas fa-bolt"></i>
                 </div>
                 <div class="trust-text">AI-Powered Insights</div>
             </div>
-            <div class="trust-item" tabindex="0">
-                <div class="trust-icon green">
+            <div class="trust-item">
+                <div class="trust-icon">
                     <i class="fas fa-city"></i>
                 </div>
                 <div class="trust-text">Built for Urban Life</div>
             </div>
-            <div class="trust-item" tabindex="0">
-                <div class="trust-icon blue">
+            <div class="trust-item">
+                <div class="trust-icon">
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="trust-text">Privacy First</div>
             </div>
-            <div class="trust-item" tabindex="0">
-                <div class="trust-icon green">
+            <div class="trust-item">
+                <div class="trust-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
                 <div class="trust-text">Data-Driven Decisions</div>
@@ -1015,53 +928,53 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features -->
     <section id="features" class="features-section">
         <div class="container">
             <h2>What Can UrbanOraTech Help You With?</h2>
             <p class="section-subtitle">Our AI-powered tools are designed to tackle the unique challenges of modern urban living</p>
             
             <div class="features-container">
-                <div class="feature-card" tabindex="0">
+                <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-calculator"></i>
                     </div>
                     <h3>Smart Cost of Living</h3>
-                    <p class="feature-description">Estimate monthly expenses by city & lifestyle with our AI-powered calculator.</p>
-                    <a href="#" class="feature-link" aria-label="Try Smart Cost of Living tool">
+                    <p>Estimate monthly expenses by city & lifestyle with our AI-powered calculator.</p>
+                    <a href="#" class="feature-link">
                         Try Now <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
-                <div class="feature-card" tabindex="0">
+                <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3>Urban AI Assistant</h3>
-                    <p class="feature-description">Ask questions about money, career, tech & city life and get personalized advice.</p>
-                    <a href="#ai" class="feature-link" aria-label="Try Urban AI Assistant">
+                    <p>Ask questions about money, career, tech & city life and get personalized advice.</p>
+                    <a href="#ai" class="feature-link">
                         Try Now <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
-                <div class="feature-card" tabindex="0">
+                <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>Urban Tech Finder</h3>
-                    <p class="feature-description">Discover the best apps & tools for city living, from transportation to food delivery.</p>
-                    <a href="#" class="feature-link" aria-label="Try Urban Tech Finder">
+                    <p>Discover the best apps & tools for city living, from transportation to food delivery.</p>
+                    <a href="#" class="feature-link">
                         Try Now <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
-                <div class="feature-card" tabindex="0">
+                <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <h3>Jobs & Side Hustles</h3>
-                    <p class="feature-description">Find tech-driven income ideas and opportunities tailored for urban youth.</p>
-                    <a href="#" class="feature-link" aria-label="Try Jobs & Side Hustles">
+                    <p>Find tech-driven income ideas and opportunities tailored for urban youth.</p>
+                    <a href="#" class="feature-link">
                         Try Now <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -1069,29 +982,29 @@
         </div>
     </section>
 
-    <!-- Interactive AI Section -->
+    <!-- AI Section -->
     <section id="ai" class="ai-section">
-        <div class="container ai-container">
+        <div class="container">
             <h2>Ask Urban AI Anything</h2>
             <p class="section-subtitle">Get instant, personalized advice for your urban life challenges</p>
             
             <div class="ai-input-container">
-                <input type="text" class="ai-input" placeholder="I live in Islamabad and earn 70k PKR, how can I save money?" id="ai-question" aria-label="Ask Urban AI a question">
-                <button class="btn ai-btn" id="ask-ai-btn">
+                <input type="text" class="ai-input" placeholder="I live in Islamabad and earn 70k PKR, how can I save money?" id="aiQuestion">
+                <button class="btn ai-btn" id="askAI">
                     <i class="fas fa-brain"></i> Get Smart Advice
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Popular Tools Section -->
+    <!-- Popular Tools -->
     <section id="tools" class="tools-section">
         <div class="container">
             <h2>Popular Right Now</h2>
             <p class="section-subtitle">Discover the most helpful tools and insights for urban living</p>
             
             <div class="tools-container">
-                <div class="tool-card" tabindex="0">
+                <div class="tool-card">
                     <div class="tool-thumbnail">
                         <i class="fas fa-chart-pie"></i>
                     </div>
@@ -1101,7 +1014,7 @@
                     </div>
                 </div>
                 
-                <div class="tool-card" tabindex="0">
+                <div class="tool-card">
                     <div class="tool-thumbnail">
                         <i class="fas fa-robot"></i>
                     </div>
@@ -1111,7 +1024,7 @@
                     </div>
                 </div>
                 
-                <div class="tool-card" tabindex="0">
+                <div class="tool-card">
                     <div class="tool-thumbnail">
                         <i class="fas fa-piggy-bank"></i>
                     </div>
@@ -1124,26 +1037,13 @@
         </div>
     </section>
 
-    <!-- Monetization Section -->
-    <section class="monetization-section">
-        <div class="container ad-container">
-            <h3>Recommended Tools & Resources</h3>
-            <p class="section-subtitle">Carefully selected solutions to enhance your urban tech experience</p>
-            
-            <div class="ad-placeholder">
-                <p style="margin-bottom:10px;">📱 Responsive Ad Space</p>
-                <p style="font-size:0.9rem;">Advertisements help us keep UrbanOraTech free for everyone</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Brand Section -->
     <section class="brand-section">
         <div class="container brand-container">
             <div class="brand-visual">
-                <div style="color:white; text-align:center; padding:20px;">
-                    <i class="fas fa-city" style="font-size:clamp(4rem, 10vw, 6rem); opacity:0.8;"></i>
-                    <h3 style="color:white; margin-top:20px; font-size:clamp(1.2rem, 3vw, 1.5rem);">Urban Tech Ecosystem</h3>
+                <div style="text-align: center; color: white;">
+                    <i class="fas fa-city" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                    <h3>Urban Tech Ecosystem</h3>
                 </div>
             </div>
             <div class="brand-content">
@@ -1168,18 +1068,31 @@
         </div>
     </section>
 
-    <!-- Newsletter Section -->
+    <!-- Ads Section -->
+    <section class="ad-section">
+        <div class="container ad-container">
+            <h3>Recommended Tools & Resources</h3>
+            <p class="section-subtitle">Carefully selected solutions to enhance your urban tech experience</p>
+            
+            <div class="ad-placeholder">
+                <p>📱 Responsive Ad Space</p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Advertisements help us keep UrbanOraTech free for everyone</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
     <section id="newsletter" class="newsletter-section">
-        <div class="container newsletter-container">
+        <div class="container">
             <h2>Stay Ahead of Urban Tech</h2>
             <p class="section-subtitle">Get the latest tools, insights, and AI updates delivered directly to you</p>
             
             <div class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Enter your email address" aria-label="Email address for newsletter">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address">
                 <button class="btn btn-primary">Get Smart Updates</button>
             </div>
             
-            <p style="margin-top:20px; font-size:0.9rem; opacity:0.8;">
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">
                 <i class="fas fa-shield-alt"></i> We respect your privacy. Unsubscribe at any time.
             </p>
         </div>
@@ -1193,10 +1106,9 @@
                     <h3>UrbanOraTech</h3>
                     <ul class="footer-links">
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="mailto:urbanora.storee@gmail.com">Email Us</a></li>
+                        <li><a href="mailto:urbanora.storee@gmail.com">Contact</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms</a></li>
                     </ul>
                 </div>
                 
@@ -1206,7 +1118,7 @@
                         <li><a href="#features">Smart Tools</a></li>
                         <li><a href="#ai">Urban AI</a></li>
                         <li><a href="#tools">Tech Finder</a></li>
-                        <li><a href="#">Blogs & Insights</a></li>
+                        <li><a href="#">Blogs</a></li>
                     </ul>
                 </div>
                 
@@ -1214,292 +1126,206 @@
                     <h3>Resources</h3>
                     <ul class="footer-links">
                         <li><a href="#">City Guides</a></li>
-                        <li><a href="#">Career Resources</a></li>
-                        <li><a href="#">Financial Tools</a></li>
+                        <li><a href="#">Career Tips</a></li>
+                        <li><a href="#">Budget Templates</a></li>
                         <li><a href="#">Tech Reviews</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Connect</h3>
-                    <p style="color:rgba(255,255,255,0.8); margin-bottom:20px;">Follow us for updates</p>
+                    <p style="margin-bottom: 20px; opacity: 0.8;">Follow us for updates</p>
                     <div class="social-links">
-                        <a href="#" class="social-icon" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
             
             <div class="copyright">
                 <p>&copy; 2025 UrbanOraTech. All rights reserved.</p>
-                <p style="margin-top:10px;">Contact: urbanora.storee@gmail.com</p>
+                <p style="margin-top: 10px;">Email: urbanora.storee@gmail.com</p>
             </div>
         </div>
     </footer>
 
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
+        // Mobile Menu Functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        // Open mobile menu
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            mobileNavOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
-        
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
+
+        // Close mobile menu
+        function closeMobileMenu() {
+            mobileNav.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
             document.body.style.overflow = '';
+        }
+
+        closeMenu.addEventListener('click', closeMobileMenu);
+        mobileNavOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking on links
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
-        
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Close menu on escape key
+
+        // Close menu with Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
             }
         });
-        
-        // Interactive AI functionality
-        const aiBtn = document.getElementById('ask-ai-btn');
-        const aiInput = document.getElementById('ai-question');
-        
-        aiBtn.addEventListener('click', askAI);
-        aiInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') askAI();
-        });
-        
-        function askAI() {
-            const question = aiInput.value.trim();
+
+        // AI Assistant Functionality
+        const askAI = document.getElementById('askAI');
+        const aiQuestion = document.getElementById('aiQuestion');
+        const toast = document.getElementById('toast');
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+
+        askAI.addEventListener('click', () => {
+            const question = aiQuestion.value.trim();
             
             if (!question) {
-                showToast('Please enter a question for Urban AI', 'info');
-                aiInput.focus();
+                showToast('Please enter a question for Urban AI');
+                aiQuestion.focus();
                 return;
             }
-            
+
             // Show loading state
-            const originalText = aiBtn.innerHTML;
-            aiBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            aiBtn.disabled = true;
-            
-            // Simulate AI processing with realistic delay
+            const originalText = askAI.innerHTML;
+            askAI.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            askAI.disabled = true;
+
+            // Simulate AI response
             setTimeout(() => {
-                // Restore button
-                aiBtn.innerHTML = originalText;
-                aiBtn.disabled = false;
-                
-                // Show response based on question content
+                askAI.innerHTML = originalText;
+                askAI.disabled = false;
+
                 let response = '';
                 
                 if (question.toLowerCase().includes('islamabad') && question.toLowerCase().includes('save')) {
-                    response = `For someone earning 70k PKR in Islamabad:\n\n🏠 Housing: 25-35% (Consider shared accommodation)\n🚗 Transport: 10-15% (Use ride-sharing apps)\n🍔 Food: 20-25% (Cook at home more)\n💰 Savings Goal: 15-20% monthly\n💡 Side Hustle: Freelance work online\n\nPro tip: Use budgeting apps to track expenses!`;
+                    response = "For 70k PKR in Islamabad: 1) Housing: 25-35k (shared accommodation), 2) Food: 15-20k (cook at home), 3) Transport: 5-8k (use ride-sharing), 4) Save 10-15k monthly. Consider freelance work for extra income!";
                 } else if (question.toLowerCase().includes('job') || question.toLowerCase().includes('career')) {
-                    response = `Top urban tech jobs for 2025:\n\n1. 🤖 AI/ML Specialist\n2. 📊 Urban Data Analyst\n3. 🌱 Sustainability Tech Consultant\n4. 🏙️ Smart City Solutions Architect\n5. 🚗 Digital Mobility Planner\n\nNeed help with skill development paths?`;
+                    response = "Top urban tech jobs: AI Specialist, Data Analyst, Smart City Consultant, Digital Mobility Planner. Start with online courses on Coursera or Udemy!";
                 } else if (question.toLowerCase().includes('app') || question.toLowerCase().includes('tool')) {
-                    response = `Top urban living apps:\n\n• 🚗 Transportation: Uber, Careem\n• 🍔 Food Delivery: Foodpanda, Cheetay\n• 💰 Budgeting: Money Manager, Expense IQ\n• 🏠 Housing: Zameen, OLX\n• 🛒 Shopping: Daraz, Amazon\n\nWhich category interests you most?`;
+                    response = "Essential urban apps: Careem/Über (transport), Foodpanda (food), Money Manager (budget), Zameen (housing), Daraz (shopping). Need recommendations for a specific category?";
                 } else {
-                    response = `Urban AI can help with:\n\n• 💰 Budget planning for city living\n• 🎯 Career advice in tech fields\n• 📱 Finding the best urban apps\n• 💼 Side hustle opportunities\n• 🛠️ Tech skill development\n\nTry asking about a specific urban challenge!`;
+                    response = "Urban AI can help with budget planning, career advice, app recommendations, and tech skill development. Try asking something specific!";
                 }
-                
-                showToast(response, 'success');
-                
-                // Clear input after successful submission
-                aiInput.value = '';
+
+                showToast(response);
+                aiQuestion.value = '';
             }, 1500);
-        }
-        
-        // Toast notification for mobile
-        function showToast(message, type = 'info') {
-            // Remove existing toast
-            const existingToast = document.querySelector('.toast-notification');
-            if (existingToast) existingToast.remove();
-            
-            // Create toast element
-            const toast = document.createElement('div');
-            toast.className = `toast-notification toast-${type}`;
-            toast.innerHTML = `
-                <div class="toast-content">
-                    <p>${message.replace(/\n/g, '<br>')}</p>
-                </div>
-                <button class="toast-close" aria-label="Close notification">×</button>
-            `;
-            
-            // Add styles
-            toast.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                left: 20px;
-                right: 20px;
-                background: var(--primary);
-                color: white;
-                padding: 16px;
-                border-radius: var(--border-radius);
-                box-shadow: var(--shadow-lg);
-                z-index: 10000;
-                display: flex;
-                align-items: flex-start;
-                gap: 12px;
-                animation: slideUp 0.3s ease;
-                border-left: 4px solid ${type === 'success' ? 'var(--accent-green)' : 'var(--accent-blue)'};
-            `;
-            
-            // Add close button styles
-            const closeBtn = toast.querySelector('.toast-close');
-            closeBtn.style.cssText = `
-                background: none;
-                border: none;
-                color: white;
-                font-size: 1.5rem;
-                cursor: pointer;
-                padding: 0;
-                margin-left: auto;
-                flex-shrink: 0;
-            `;
-            
-            // Add animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideUp {
-                    from { transform: translateY(100px); opacity: 0; }
-                    to { transform: translateY(0); opacity: 1; }
-                }
-            `;
-            document.head.appendChild(style);
-            
-            // Add to page
-            document.body.appendChild(toast);
-            
-            // Close functionality
-            closeBtn.addEventListener('click', () => {
-                toast.style.animation = 'slideDown 0.3s ease';
-                setTimeout(() => toast.remove(), 300);
-            });
-            
-            // Auto-remove after 8 seconds
-            setTimeout(() => {
-                if (toast.parentNode) {
-                    toast.style.animation = 'slideDown 0.3s ease';
-                    setTimeout(() => toast.remove(), 300);
-                }
-            }, 8000);
-        }
-        
+        });
+
+        // Enter key support for AI input
+        aiQuestion.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                askAI.click();
+            }
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 if (href === '#') return;
-                
+
                 e.preventDefault();
                 const targetElement = document.querySelector(href);
                 if (!targetElement) return;
-                
+
                 const headerHeight = document.querySelector('header').offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
-                // Update URL without jumping
+
+                // Update URL
                 history.pushState(null, null, href);
             });
         });
-        
+
         // Header scroll effect
         let lastScrollTop = 0;
         const header = document.querySelector('header');
-        
+
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollTop > 100) {
-                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
                 
-                // Hide/show header on scroll
+                // Hide header on scroll down, show on scroll up
                 if (scrollTop > lastScrollTop && scrollTop > 200) {
-                    // Scrolling down
                     header.style.transform = 'translateY(-100%)';
                 } else {
-                    // Scrolling up
                     header.style.transform = 'translateY(0)';
                 }
             } else {
                 header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
-                header.style.backgroundColor = 'var(--white)';
-                header.style.backdropFilter = 'none';
                 header.style.transform = 'translateY(0)';
             }
             
             lastScrollTop = scrollTop;
         });
-        
-        // Touch feedback for interactive elements
-        document.querySelectorAll('.trust-item, .feature-card, .tool-card').forEach(element => {
-            element.addEventListener('touchstart', function() {
+
+        // Prevent form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast('Thank you for subscribing! Updates coming soon.');
+            e.target.querySelector('input').value = '';
+        });
+
+        // Touch feedback for mobile
+        document.querySelectorAll('.trust-item, .feature-card, .tool-card').forEach(item => {
+            item.addEventListener('touchstart', function() {
                 this.style.opacity = '0.8';
             });
             
-            element.addEventListener('touchend', function() {
+            item.addEventListener('touchend', function() {
                 this.style.opacity = '1';
             });
         });
-        
-        // Prevent zoom on double-tap for iOS
+
+        // Prevent zoom on double-tap (iOS)
         let lastTouchEnd = 0;
-        document.addEventListener('touchend', (event) => {
-            const now = Date.now();
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
             if (now - lastTouchEnd <= 300) {
                 event.preventDefault();
             }
             lastTouchEnd = now;
         }, false);
-        
-        // Load optimization
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mark page as loaded
-            document.body.classList.add('loaded');
-            
-            // Lazy load images (if any)
-            const images = document.querySelectorAll('img[data-src]');
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            
-            images.forEach(img => imageObserver.observe(img));
-        });
     </script>
 </body>
 </html>
+
 
 
 
