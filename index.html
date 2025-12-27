@@ -5,618 +5,872 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>UrbanOraTech – Smart Urban Life Powered by Technology & AI</title>
-    <meta name="description" content="AI-powered tools and tech insights to help people make smarter decisions in modern urban life around the world.">    
-    <!-- Schema.org markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "UrbanOraTech",
-      "url": "https://urbanoratech.com",
-       "description": "Smart urban living solutions powered by AI and technology for global cities",      "publisher": {
-        "@type": "Organization",
-        "name": "UrbanOraTech",
-        "email": "urbanora.storee@gmail.com",
-        "sameAs": [
-          "https://twitter.com/urbanoratech",
-          "https://linkedin.com/company/urbanoratech",
-          "https://github.com/urbanoratech"
-        ]
-      }
-    }
-    </script>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanOraTech | Future Skills & High-Paying Careers</title>
     <style>
-        /* CSS Reset and Variables */
+        /* === CSS RESET & VARIABLES === */
         :root {
-            --primary: #0f172a;
-            --primary-dark: #020617;
-            --accent-blue: #00d4ff;
-            --accent-green: #00ff9d;
-            --light-bg: #f8fafc;
-            --white: #ffffff;
-            --gray: #64748b;
-            --light-gray: #e2e8f0;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
-            --transition: all 0.25s ease;
-            --border-radius: 12px;
-            --safe-top: env(safe-area-inset-top);
-            --safe-bottom: env(safe-area-inset-bottom);
+            --primary: #0A192F;       /* Dark Navy */
+            --secondary: #1E293B;     /* Charcoal */
+            --accent: #3B82F6;        /* Electric Blue */
+            --accent-green: #10B981;  /* Neon Green */
+            --light: #F8FAFC;
+            --gray: #94A3B8;
+            --radius: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --glow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
         
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
         }
         
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            color: #334155;
-            background: var(--white);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--light);
+            color: var(--primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
         
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.2;
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
         
-        h1 {
-            font-size: clamp(2rem, 6vw, 3.2rem);
-            margin-bottom: 1.25rem;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+        /* === HEADER === */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-green));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link.active {
+            color: var(--accent);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-green));
+            border-radius: 2px;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .search-btn {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            padding: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .newsletter-btn {
+            background: linear-gradient(135deg, var(--accent), #2563EB);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* === HERO SECTION === */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #0A192F 0%, #1E293B 100%);
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-green) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        h2 {
-            font-size: clamp(1.75rem, 5vw, 2.5rem);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        h3 {
-            font-size: clamp(1.25rem, 4vw, 1.5rem);
-            margin-bottom: 0.75rem;
-        }
-        
-        p {
-            margin-bottom: 1.25rem;
+        .hero-subtitle {
+            font-size: 1.25rem;
             color: var(--gray);
-            font-size: clamp(0.95rem, 3vw, 1.05rem);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
         }
         
-        /* Container */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
         
-        section {
-            padding: clamp(60px, 10vw, 80px) 0;
-        }
-        
-        /* Buttons */
-        .btn {
+        .btn-primary,
+        .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            padding: 14px 28px;
-            border-radius: var(--border-radius);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+            gap: 0.5rem;
             font-size: 1rem;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            gap: 10px;
-            min-height: 48px;
         }
         
         .btn-primary {
-            background: var(--accent-blue);
-            color: var(--primary);
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+            background: linear-gradient(135deg, var(--accent), #2563EB);
+            color: white;
+            border: none;
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 212, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
         }
         
-        .btn-light {
-            background: var(--white);
-            color: var(--primary);
-            box-shadow: var(--shadow);
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
         
-        .btn-light:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* Header with Mobile Dropdown Menu */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            padding-top: var(--safe-top);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 20px;
-        }
-        
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: var(--accent-blue);
-        }
-        
-        /* Mobile Menu Button */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1001;
-        }
-        
-        /* Desktop Navigation */
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
-        
-        .nav-links a {
-            font-weight: 500;
-            color: #334155;
-            text-decoration: none;
-            transition: var(--transition);
-            padding: 8px 0;
-            position: relative;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: var(--accent-blue);
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Mobile Dropdown Menu */
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 85%;
-            max-width: 320px;
-            height: 100vh;
-            background: var(--white);
-            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-            z-index: 1002;
-            transition: right 0.3s ease;
-            padding: 80px 30px 40px;
-            overflow-y: auto;
-        }
-        
-        .mobile-nav.active {
-            right: 0;
-        }
-        
-        .mobile-nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-nav-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .mobile-nav-links a {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--primary);
-            text-decoration: none;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--light-gray);
-            transition: var(--transition);
-        }
-        
-        .mobile-nav-links a:hover {
-            color: var(--accent-blue);
-            padding-left: 10px;
-        }
-        
-        .close-menu {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            padding: 5px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding-top: calc(80px + var(--safe-top));
-            background: var(--light-bg);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-        
-        .hero-container {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-        
-        .hero-content {
-            text-align: center;
-        }
-        
-        .hero-subtitle {
-            font-size: clamp(1rem, 4vw, 1.2rem);
-            margin-bottom: 2.5rem;
-            color: var(--gray);
-        }
-        
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent-green);
         }
         
         .hero-visual {
             position: relative;
-            margin-top: 30px;
         }
         
         .city-illustration {
             width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #1e293b, #475569);
-            border-radius: var(--border-radius);
+            height: 400px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+            border-radius: 20px;
             position: relative;
             overflow: hidden;
         }
         
-        .ai-bubble {
+        .floating-icons {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
-            padding: 12px 18px;
-            border-radius: 20px 20px 20px 5px;
-            font-size: 0.9rem;
-            max-width: 70%;
-            box-shadow: var(--shadow);
-            z-index: 2;
+            width: 100%;
+            height: 100%;
         }
         
-        .dashboard-mockup {
+        .floating-icon {
             position: absolute;
-            bottom: -20px;
-            right: 20px;
-            width: 200px;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            animation: float 6s ease-in-out infinite;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .icon1 { top: 20%; left: 10%; animation-delay: 0s; background: rgba(59, 130, 246, 0.2); }
+        .icon2 { top: 60%; right: 15%; animation-delay: 2s; background: rgba(16, 185, 129, 0.2); }
+        .icon3 { bottom: 30%; left: 40%; animation-delay: 4s; background: rgba(139, 92, 246, 0.2); }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        /* === CORE PILLARS === */
+        .pillars {
+            padding: 6rem 0;
             background: white;
-            padding: 15px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            z-index: 2;
         }
         
-        /* Trust Indicators */
-        .trust-section {
-            padding: 40px 0;
-            background: white;
-        }
-        
-        .trust-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        
-        .trust-item {
+        .section-title {
             text-align: center;
-            padding: 20px;
-            background: var(--light-bg);
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-        
-        .trust-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-        
-        .trust-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: var(--accent-blue);
-        }
-        
-        .trust-text {
-            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
             color: var(--primary);
         }
         
-        /* Features */
-        .features-section {
-            background: var(--light-bg);
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
         }
         
-        .features-container {
+        .pillars-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
         }
         
-        .feature-card {
+        .pillar-card {
             background: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border-top: 4px solid var(--accent-blue);
+            border: 1px solid #E2E8F0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .feature-card:hover {
+        .pillar-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent);
         }
         
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-blue);
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-green));
         }
         
-        .feature-link {
+        .pillar-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-green));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .pillar-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .pillar-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .pillar-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: var(--accent-blue);
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 15px;
+            gap: 0.5rem;
+            transition: var(--transition);
         }
         
-        /* AI Section */
-        .ai-section {
-            background: linear-gradient(135deg, var(--primary), #1e293b);
-            color: white;
-            text-align: center;
+        .pillar-link:hover {
+            gap: 1rem;
+            color: var(--accent-green);
         }
         
-        .ai-section h2 {
-            color: white;
+        /* === FEATURED INSIGHTS === */
+        .featured {
+            padding: 6rem 0;
+            background: #F8FAFC;
         }
         
-        .ai-section .section-subtitle {
-            color: rgba(255, 255, 255, 0.9);
+        .featured-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
         }
         
-        .ai-input-container {
-            max-width: 600px;
-            margin: 40px auto 0;
-        }
-        
-        .ai-input {
-            width: 100%;
-            padding: 18px;
-            border-radius: var(--border-radius);
-            border: none;
-            font-size: 1rem;
-            margin-bottom: 20px;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .ai-btn {
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
-            color: var(--primary);
-            font-weight: 700;
-            padding: 18px 40px;
-            width: 100%;
-            max-width: 300px;
-        }
-        
-        /* Popular Tools */
-        .tools-container {
+        .featured-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
         }
         
-        .tool-card {
+        .main-feature {
             background: white;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
         
-        .tool-card:hover {
+        .main-feature:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
         
-        .tool-thumbnail {
-            height: 160px;
-            background: var(--light-bg);
+        .feature-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-green));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .feature-content {
+            padding: 2rem;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .feature-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .side-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .side-feature {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .side-feature:hover {
+            transform: translateX(5px);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .side-feature h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* === SKILL CATEGORIES === */
+        .skill-categories {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 2px solid #E2E8F0;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .category-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        .category-card h4 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .category-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-link {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .category-link:hover {
+            background: var(--accent-green);
+            transform: translateY(-2px);
+        }
+        
+        /* === CAREER SPOTLIGHT === */
+        .career-spotlight {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+        }
+        
+        .careers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .career-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .career-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+        
+        .career-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, var(--accent-green), #059669);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .career-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .salary {
+            color: var(--accent-green);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .career-link {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+        
+        .career-link:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* === ROADMAP SECTION === */
+        .roadmap {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 4rem auto 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-green));
+            transform: translateX(-50%);
+        }
+        
+        .timeline-step {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .step-content {
+            width: 45%;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #E2E8F0;
+        }
+        
+        .timeline-step:nth-child(odd) .step-content {
+            margin-right: auto;
+            margin-left: 0;
+        }
+        
+        .timeline-step:nth-child(even) .step-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--primary);
         }
         
-        .tool-content {
-            padding: 25px;
+        /* === GLOBAL INSIGHTS === */
+        .global-insights {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0A192F 0%, #1E293B 100%);
+            color: white;
         }
         
-        /* Brand Section */
-        .brand-container {
+        .global-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        
+        .world-map {
+            width: 100%;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-marker {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent-green);
+        }
+        
+        .marker-1 { top: 35%; left: 25%; }
+        .marker-2 { top: 45%; left: 52%; }
+        .marker-3 { top: 65%; left: 78%; }
+        
+        .global-cities {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 1.5rem;
         }
         
-        .brand-visual {
-            height: 300px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
-            border-radius: var(--border-radius);
+        .city-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-green);
+            transition: var(--transition);
+        }
+        
+        .city-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .city-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+            margin-bottom: 0.5rem;
         }
         
-        .brand-features {
-            margin-top: 25px;
+        .city-name {
+            font-size: 1.25rem;
+            font-weight: 600;
         }
         
-        .brand-feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
+        .city-tag {
+            background: var(--accent-green);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            font-weight: 600;
         }
         
-        .brand-feature i {
-            color: var(--accent-green);
-        }
-        
-        /* Ads Section */
-        .ad-section {
-            padding: 40px 0;
-            background: var(--light-bg);
-        }
-        
-        .ad-container {
-            text-align: center;
-        }
-        
-        .ad-placeholder {
-            background: white;
-            border: 2px dashed var(--light-gray);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            margin: 20px 0;
-        }
-        
-        /* Newsletter */
+        /* === NEWSLETTER === */
         .newsletter-section {
-            background: linear-gradient(135deg, var(--primary), #1e293b);
-            color: white;
+            padding: 6rem 0;
+            background: white;
             text-align: center;
         }
         
-        .newsletter-section h2 {
-            color: white;
+        .newsletter-box {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            border-radius: 20px;
+            border: 2px solid #E2E8F0;
         }
         
         .newsletter-form {
-            max-width: 500px;
-            margin: 40px auto 0;
+            margin: 2rem 0;
         }
         
-        .newsletter-input {
+        .email-input {
             width: 100%;
-            padding: 16px;
-            border-radius: var(--border-radius);
-            border: none;
-            margin-bottom: 15px;
-            font-family: 'Inter', sans-serif;
+            padding: 1rem 1.5rem;
+            border: 2px solid #E2E8F0;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
         }
         
-        /* Footer */
+        .email-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .newsletter-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            color: var(--gray);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        /* === FOOTER === */
         footer {
-            background: var(--primary-dark);
+            background: var(--primary);
             color: white;
-            padding: 60px 0 30px;
+            padding: 4rem 0 2rem;
         }
         
-        .footer-container {
+        .footer-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         
-        .footer-column h3 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
+        .footer-column h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .footer-links {
@@ -624,26 +878,36 @@
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
         }
         
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--light);
             text-decoration: none;
             transition: var(--transition);
         }
         
         .footer-links a:hover {
-            color: var(--accent-blue);
+            color: var(--accent-green);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
         }
         
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
         }
         
-        .social-icon {
+        .social-link {
             width: 40px;
             height: 40px;
             background: rgba(255, 255, 255, 0.1);
@@ -652,686 +916,728 @@
             align-items: center;
             justify-content: center;
             color: white;
+            text-decoration: none;
             transition: var(--transition);
         }
         
-        .social-icon:hover {
-            background: var(--accent-blue);
+        .social-link:hover {
+            background: var(--accent);
             transform: translateY(-3px);
         }
         
-        .copyright {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .hero-container {
-                flex-direction: row;
-                align-items: center;
-                gap: 80px;
-            }
-            
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 1024px) {
             .hero-content {
-                text-align: left;
-                flex: 1;
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
             }
             
-            .hero-visual {
-                flex: 1;
-                margin-top: 0;
-            }
-            
-            .hero-buttons {
-                justify-content: flex-start;
-            }
-            
-            .trust-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .features-container {
+            .pillars-grid,
+            .categories-grid,
+            .careers-grid,
+            .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .tools-container {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .brand-container {
-                flex-direction: row;
-                align-items: center;
-                gap: 60px;
-            }
-            
-            .footer-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .nav-links {
-                display: flex;
-            }
-            
-            .menu-toggle {
-                display: none;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .features-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
-        /* Mobile Menu Button Styles */
-        @media (max-width: 767px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            .header-container {
-                padding: 12px 20px;
-            }
-            
-            .hero {
-                padding-top: calc(70px + var(--safe-top));
-            }
-            
-            .city-illustration {
-                height: 250px;
-            }
-            
-            .dashboard-mockup {
-                width: 160px;
-                padding: 12px;
-                right: 10px;
-                bottom: -15px;
-            }
-            
-            .ai-bubble {
-                font-size: 0.8rem;
-                padding: 10px 14px;
-            }
-        }
-        
-        /* Small Phones */
-        @media (max-width: 375px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .hero-buttons .btn {
-                width: 100%;
-            }
-            
-            .trust-container {
+            .featured-grid {
                 grid-template-columns: 1fr;
             }
             
-            .feature-card {
-                padding: 20px;
+            .global-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
             
-            .tool-thumbnail {
-                height: 140px;
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .step-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+                margin-right: 0 !important;
+            }
+            
+            .step-number {
+                left: 30px;
+                transform: translateY(-50%);
             }
         }
         
-        /* Animation for mobile menu */
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
             }
-            to {
-                transform: translateX(0);
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-actions .newsletter-btn {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .pillars-grid,
+            .categories-grid,
+            .careers-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .step-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .step-number {
+                left: 20px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
             }
         }
         
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: var(--primary);
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .pillar-card,
+            .category-card,
+            .career-card {
+                padding: 1.5rem;
+            }
+            
+            .newsletter-box {
+                padding: 2rem 1rem;
+            }
+        }
+        
+        /* === UTILITY CLASSES === */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 4rem;
+        }
+        
+        .mt-4 {
+            margin-top: 4rem;
+        }
+        
+        .cta-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-green));
             color: white;
-            padding: 16px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            z-index: 10000;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
         }
         
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
+        .cta-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
-        <div class="header-container">
-            <a href="#" class="logo">Urban<span>Ora</span>Tech</a>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">U</div>
+                UrbanOraTech
+            </a>
             
-            <!-- Desktop Navigation -->
-            <nav class="nav-links">
-                <a href="#features">Tools</a>
-                <a href="#ai">Urban AI</a>
-                <a href="#tools">Insights</a>
-                <a href="#newsletter">Updates</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link active">Future Skills</a></li>
+                    <li><a href="#" class="nav-link">High-Paying Careers</a></li>
+                    <li><a href="#" class="nav-link">Roadmaps</a></li>
+                    <li><a href="#" class="nav-link">Global Career Paths</a></li>
+                    <li><a href="#" class="nav-link">Blog</a></li>
+                </ul>
             </nav>
             
-            <!-- Mobile Menu Button -->
-            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        
-        <!-- Mobile Dropdown Menu -->
-        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
-        <div class="mobile-nav" id="mobileNav">
-            <button class="close-menu" id="closeMenu" aria-label="Close menu">
-                <i class="fas fa-times"></i>
-            </button>
-            <nav class="mobile-nav-links">
-                <a href="#features" class="mobile-nav-link">Tools</a>
-                <a href="#ai" class="mobile-nav-link">Urban AI</a>
-                <a href="#tools" class="mobile-nav-link">Insights</a>
-                <a href="#newsletter" class="mobile-nav-link">Updates</a>
-                <a href="#about" class="mobile-nav-link">About Us</a>
-                <a href="#contact" class="mobile-nav-link">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h1>Smart Urban Living, Powered by Technology & AI</h1>
-                <p class="subtitle">AI-powered tools, tech insights, and smart solutions designed for city life across the world.</p>
-                <div class="hero-buttons">
-                    <a href="#features" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Explore Smart Tools
-                    </a>
-                    <a href="#ai" class="btn btn-light">
-                        <i class="fas fa-robot"></i> Ask Urban AI
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="ai-bubble">
-                    Hi! I can help you optimize your urban lifestyle.
-                </div>
-                <div class="city-illustration"></div>
-                <div class="dashboard-mockup">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <div style="font-weight: 600; color: var(--primary);">Monthly Budget</div>
-                        <div style="color: var(--accent-blue); font-weight: 600;">+12%</div>
-                    </div>
-                    <div style="height: 60px; background: linear-gradient(90deg, var(--accent-blue), var(--accent-green)); border-radius: 6px; margin-bottom: 10px;"></div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray);">
-                        <span>Expenses</span>
-                        <span>Savings</span>
-                        <span>Investment</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Indicators -->
-    <section class="trust-section">
-        <div class="container trust-container">
-            <div class="trust-item">
-                <div class="trust-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <div class="trust-text">AI-Powered Insights</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">
-                    <i class="fas fa-city"></i>
-                </div>
-                <div class="trust-text">Built for Urban Life</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <div class="trust-text">Privacy First</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="trust-text">Data-Driven Decisions</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="features-section">
-        <div class="container">
-            <h2>What Can UrbanOraTech Help You With?</h2>
-            <p class="section-subtitle">Our AI-powered tools are designed to tackle the unique challenges of modern urban living</p>
-            
-            <div class="features-container">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Smart Cost of Living</h3>
-                    <p>Estimate monthly expenses by city & lifestyle with our AI-powered calculator.</p>
-                    <a href="living-calculator.html" class="feature-link">
-                        Try Now <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Urban AI Assistant</h3>
-                    <p>Ask questions about money, career, tech & city life and get personalized advice.</p>
-                    <a href="#ai" class="feature-link">
-                        Try Now <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Urban Tech Finder</h3>
-                    <p>Discover the best apps & tools for city living, from transportation to food delivery.</p>
-                    <a href="#" class="feature-link">
-                        Try Now <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Jobs & Side Hustles</h3>
-                    <p>Find tech-driven income ideas and opportunities tailored for urban youth.</p>
-                    <a href="#" class="feature-link">
-                        Try Now <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Section -->
-    <section id="ai" class="ai-section">
-        <div class="container">
-            <h2>Ask Urban AI Anything</h2>
-            <p class="section-subtitle">Get instant, personalized advice for your urban life challenges</p>
-            
-            <div class="ai-input-container">
-               <input type="text" placeholder="I live in a major city and earn $1,200/month — how can I save more money?">
-                 <button class="btn ai-btn" id="askAI">
-                    <i class="fas fa-brain"></i> Get Smart Advice
+            <div class="nav-actions">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="newsletter-btn">
+                    <i class="fas fa-envelope"></i>
+                    Newsletter
+                </button>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Popular Tools -->
-    <section id="tools" class="tools-section">
+    <!-- HERO SECTION -->
+    <section class="hero">
         <div class="container">
-            <h2>Popular Right Now</h2>
-            <p class="section-subtitle">Discover the most helpful tools and insights for urban living</p>
-            
-            <div class="tools-container">
-                <div class="tool-card">
-                    <div class="tool-thumbnail">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Cost of Living in Pakistani Cities</h3>
-                        <p>Compare expenses across major cities and plan your budget effectively with real-time data.</p>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Future Skills That Pay. Careers That Last.</h1>
+                    <p class="hero-subtitle">
+                        Discover the highest-paying skills, learn step-by-step roadmaps, and thrive globally.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#skills" class="btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            Explore Skills
+                        </a>
+                        <a href="#careers" class="btn-secondary">
+                            <i class="fas fa-chart-line"></i>
+                            Find Careers
+                        </a>
                     </div>
                 </div>
+                <div class="hero-visual">
+                    <div class="city-illustration">
+                        <div class="floating-icons">
+                            <div class="floating-icon icon1">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="floating-icon icon2">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="floating-icon icon3">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE PILLARS -->
+    <section class="pillars">
+        <div class="container">
+            <h2 class="section-title">Explore Your Path</h2>
+            <p class="section-subtitle">Choose your journey to future-proof success</p>
+            
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Future Skills</h3>
+                    <p>Top skills to thrive in AI, Automation & Remote Work.</p>
+                    <a href="#" class="pillar-link">
+                        Explore Skills
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
                 
-                <div class="tool-card">
-                    <div class="tool-thumbnail">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>High-Paying Careers</h3>
+                    <p>Careers that pay well globally, with or without a degree.</p>
+                    <a href="#" class="pillar-link">
+                        Discover Careers
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-map-signs"></i>
+                    </div>
+                    <h3>Skill Roadmaps</h3>
+                    <p>Step-by-step learning guides to achieve your dream job.</p>
+                    <a href="#" class="pillar-link">
+                        View Roadmaps
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED INSIGHTS -->
+    <section class="featured" id="skills">
+        <div class="container">
+            <div class="featured-header">
+                <h2 class="section-title">Trending Articles & Guides</h2>
+                <a href="#" class="cta-link">View All Articles</a>
+            </div>
+            
+            <div class="featured-grid">
+                <article class="main-feature">
+                    <div class="feature-image">
+                        <span class="feature-badge">FEATURED</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Top Future Skills That Will Pay Well by 2030</h3>
+                        <p>Discover the 10 most valuable skills for the next decade and learn how to acquire them starting today.</p>
+                        <a href="#" class="feature-link">
+                            Read Article
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <div class="side-features">
+                    <article class="side-feature">
+                        <h4>AI Skills Companies Are Hiring For</h4>
+                        <p>Essential AI and machine learning skills that are in high demand across industries.</p>
+                        <a href="#" class="feature-link">Read →</a>
+                    </article>
+                    
+                    <article class="side-feature">
+                        <h4>Best High-Income Skills Without a Degree</h4>
+                        <p>Learn how to build a six-figure career without traditional college education.</p>
+                        <a href="#" class="feature-link">Read →</a>
+                    </article>
+                    
+                    <article class="side-feature">
+                        <h4>Highest Paying Careers You Can Start Now</h4>
+                        <p>Global career opportunities with massive growth potential and high salaries.</p>
+                        <a href="#" class="feature-link">Read →</a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILL CATEGORIES -->
+    <section class="skill-categories">
+        <div class="container">
+            <h2 class="section-title">Discover Future Skills</h2>
+            <p class="section-subtitle">Master the skills that will dominate tomorrow's job market</p>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <div class="tool-content">
-                        <h3>Best AI Tools for Students</h3>
-                        <p>Discover AI-powered tools that can help students with research, writing, and productivity.</p>
-                    </div>
+                    <h4>AI & Automation</h4>
+                    <p>Machine Learning, Prompt Engineering, AI Development</p>
+                    <a href="#" class="category-link">Learn More</a>
                 </div>
                 
-                <div class="tool-card">
-                    <div class="tool-thumbnail">
-                        <i class="fas fa-piggy-bank"></i>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
                     </div>
-                    <div class="tool-content">
-                        <h3>How to Save Money in Cities</h3>
-                        <p>Practical tips and strategies to reduce expenses and increase savings in urban environments.</p>
-                    </div>
+                    <h4>Remote Work Skills</h4>
+                    <p>Digital Collaboration, Time Management, Virtual Leadership</p>
+                    <a href="#" class="category-link">Learn More</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Brand Section -->
-    <section class="brand-section">
-        <div class="container brand-container">
-            <div class="brand-visual">
-                <div style="text-align: center; color: white;">
-                    <i class="fas fa-city" style="font-size: 4rem; margin-bottom: 20px;"></i>
-                    <h3>Urban Tech Ecosystem</h3>
-                </div>
-            </div>
-            <div class="brand-content">
-               <h2>Built for the Global Urban Generation</h2>
-                <p>UrbanOraTech helps students, professionals, and entrepreneurs navigate modern city life using technology, AI, and real-world data — no matter where they live.</p>
                 
-                <div class="brand-features">
-                    <div class="brand-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Practical & actionable insights</span>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <div class="brand-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Local + global perspectives</span>
+                    <h4>Tech Skills Without Degree</h4>
+                    <p>Web Development, Data Analysis, Cybersecurity Basics</p>
+                    <a href="#" class="category-link">Learn More</a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bullhorn"></i>
                     </div>
-                    <div class="brand-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Future-focused approach</span>
+                    <h4>Digital Marketing & Business</h4>
+                    <p>SEO, E-commerce, Social Media Strategy, Analytics</p>
+                    <a href="#" class="category-link">Learn More</a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
+                    <h4>Cybersecurity & Data</h4>
+                    <p>Network Security, Data Privacy, Cloud Security</p>
+                    <a href="#" class="category-link">Learn More</a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h4>Freelancing & Online Earning</h4>
+                    <p>Platform Skills, Client Management, Portfolio Building</p>
+                    <a href="#" class="category-link">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Ads Section -->
-    <section class="ad-section">
-        <div class="container ad-container">
-            <h3>Recommended Tools & Resources</h3>
-            <p class="section-subtitle">Carefully selected solutions to enhance your urban tech experience</p>
-            
-            <div class="ad-placeholder">
-                <p>📱 Responsive Ad Space</p>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Advertisements help us keep UrbanOraTech free for everyone</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section id="newsletter" class="newsletter-section">
+    <!-- CAREER SPOTLIGHT -->
+    <section class="career-spotlight" id="careers">
         <div class="container">
-           <h2>Stay Ahead of Urban Tech — Globally</h2>
-            <button>Get Smart Updates</button>
+            <h2 class="section-title">High-Paying Careers Around the World</h2>
+            <p class="section-subtitle">Global opportunities with exceptional earning potential</p>
             
-            <div class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Enter your email address">
-                <button class="btn btn-primary">Get Smart Updates</button>
+            <div class="careers-grid">
+                <div class="career-card">
+                    <span class="career-badge">HIGH DEMAND</span>
+                    <h3>AI/ML Engineer</h3>
+                    <div class="salary">$120,000 - $250,000</div>
+                    <p>Design and implement AI solutions for businesses worldwide.</p>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Deep Learning</span>
+                    </div>
+                    
+                    <a href="#" class="career-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        Learn How to Get This Career
+                    </a>
+                </div>
+                
+                <div class="career-card">
+                    <span class="career-badge">REMOTE</span>
+                    <h3>Cloud Architect</h3>
+                    <div class="salary">$140,000 - $220,000</div>
+                    <p>Design and manage cloud infrastructure for global enterprises.</p>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">AWS/Azure</span>
+                        <span class="skill-tag">DevOps</span>
+                        <span class="skill-tag">Security</span>
+                    </div>
+                    
+                    <a href="#" class="career-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        Learn How to Get This Career
+                    </a>
+                </div>
+                
+                <div class="career-card">
+                    <span class="career-badge">GLOBAL</span>
+                    <h3>Cybersecurity Analyst</h3>
+                    <div class="salary">$90,000 - $180,000</div>
+                    <p>Protect organizations from digital threats and data breaches.</p>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Security+</span>
+                        <span class="skill-tag">Network</span>
+                        <span class="skill-tag">Incident Response</span>
+                    </div>
+                    
+                    <a href="#" class="career-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        Learn How to Get This Career
+                    </a>
+                </div>
             </div>
             
-            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">
-                <i class="fas fa-shield-alt"></i> We respect your privacy. Unsubscribe at any time.
-            </p>
+            <div class="text-center mt-4">
+                <a href="#" class="cta-link">View All Careers</a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ROADMAP -->
+    <section class="roadmap">
+        <div class="container">
+            <h2 class="section-title">Your Path to Success</h2>
+            <p class="section-subtitle">Follow this proven 5-step roadmap to achieve your career goals</p>
+            
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Choose Your Skill</h3>
+                        <p>Identify high-demand skills that match your interests and market needs. We'll help you analyze opportunities and growth potential.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Learn & Practice</h3>
+                        <p>Access curated learning resources, hands-on projects, and expert guidance. Build real-world skills through practical application.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Build Portfolio</h3>
+                        <p>Create impressive projects that demonstrate your expertise. Develop a professional portfolio that stands out to employers.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Apply to Global Careers</h3>
+                        <p>Learn job search strategies, resume building, and interview techniques for remote and global opportunities.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Scale & Earn</h3>
+                        <p>Advance your career, increase your income, and build long-term success in your chosen field.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLOBAL INSIGHTS -->
+    <section class="global-insights">
+        <div class="container">
+            <h2 class="section-title">Where Your Skills Pay the Most</h2>
+            <p class="section-subtitle mb-4">Global hotspots for tech talent and high salaries</p>
+            
+            <div class="global-content">
+                <div class="world-map">
+                    <div class="map-marker marker-1" title="Toronto - AI & Tech Hub"></div>
+                    <div class="map-marker marker-2" title="Berlin - Remote Work Capital"></div>
+                    <div class="map-marker marker-3" title="Singapore - High-Tech Careers"></div>
+                </div>
+                
+                <div class="global-cities">
+                    <div class="city-card">
+                        <div class="city-header">
+                            <div class="city-name">Toronto, Canada</div>
+                            <span class="city-tag">AI Hub</span>
+                        </div>
+                        <p>Leading center for artificial intelligence research and tech careers with competitive salaries and excellent quality of life.</p>
+                    </div>
+                    
+                    <div class="city-card">
+                        <div class="city-header">
+                            <div class="city-name">Berlin, Germany</div>
+                            <span class="city-tag">Remote Work</span>
+                        </div>
+                        <p>Europe's startup capital with thriving remote work culture and high demand for tech talent across all industries.</p>
+                    </div>
+                    
+                    <div class="city-card">
+                        <div class="city-header">
+                            <div class="city-name">Singapore</div>
+                            <span class="city-tag">High-Tech</span>
+                        </div>
+                        <p>Global financial and tech hub with exceptional career opportunities and some of Asia's highest tech salaries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-box">
+                <h2 class="section-title">Stay Ahead of the Future</h2>
+                <p class="section-subtitle">Weekly insights on high-paying skills, emerging tech careers, and global job opportunities.</p>
+                
+                <form class="newsletter-form">
+                    <input type="email" class="email-input" placeholder="Your email address" required>
+                    <button type="submit" class="btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i>
+                        Subscribe to Newsletter
+                    </button>
+                </form>
+                
+                <div class="newsletter-stats">
+                    <div class="stat">
+                        <span class="stat-number">15K+</span>
+                        <span>Future-Focused Readers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span>Countries</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">0%</span>
+                        <span>Spam, Ever</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="footer-container">
-                    <div style="margin-bottom: 20px;">
-                    <span>🌍</span>
-                     <a href="#">English</a> | 
-                    <a href="#">Español</a> | 
-                            <a href="#">Français</a>
-                        <small>(coming soon)</small>
-                </div>
-                    <div class="footer-column">
-                    <h3>UrbanOraTech</h3>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>About UrbanOraTech</h4>
                     <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="mailto:urbanora.storee@gmail.com">Contact</a></li>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Future Skills</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI & Automation</a></li>
+                        <li><a href="#">Remote Work</a></li>
+                        <li><a href="#">Tech Skills</a></li>
+                        <li><a href="#">Digital Business</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>High-Paying Careers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI/ML Engineer</a></li>
+                        <li><a href="#">Cloud Architect</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                        <li><a href="#">Data Scientist</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Roadmaps</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Beginner Paths</a></li>
+                        <li><a href="#">Advanced Tracks</a></li>
+                        <li><a href="#">Career Switch</a></li>
+                        <li><a href="#">Skill Assessment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
                     </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Explore</h3>
-                    <ul class="footer-links">
-                        <li><a href="#features">Smart Tools</a></li>
-                        <li><a href="#ai">Urban AI</a></li>
-                        <li><a href="#tools">Tech Finder</a></li>
-                        <li><a href="#">Blogs</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">City Guides</a></li>
-                        <li><a href="#">Career Tips</a></li>
-                        <li><a href="#">Budget Templates</a></li>
-                        <li><a href="#">Tech Reviews</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <p style="margin-bottom: 20px; opacity: 0.8;">Follow us for updates</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    </div>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2025 UrbanOraTech. All rights reserved.</p>
-                <p style="margin-top: 10px;">Email: urbanora.storee@gmail.com</p>
+            <div class="footer-bottom">
+                <p>© 2025 UrbanOraTech. All rights reserved.</p>
+                <p>Future Skills × High-Paying Careers × Global Success</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
-
     <script>
-        // Mobile Menu Functionality
-        const menuToggle = document.getElementById('menuToggle');
-        const closeMenu = document.getElementById('closeMenu');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-        // Open mobile menu
-        menuToggle.addEventListener('click', () => {
-            mobileNav.classList.add('active');
-            mobileNavOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
         });
-
-        // Close mobile menu
-        function closeMobileMenu() {
-            mobileNav.classList.remove('active');
-            mobileNavOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        closeMenu.addEventListener('click', closeMobileMenu);
-        mobileNavOverlay.addEventListener('click', closeMobileMenu);
-
-        // Close menu when clicking on links
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+        
+        // Newsletter Form Submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.email-input').value;
+            alert(`Thank you for subscribing with ${email}! Welcome to the future of careers.`);
+            this.reset();
         });
-
-        // Close menu with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
-
-        // AI Assistant Functionality
-        const askAI = document.getElementById('askAI');
-        const aiQuestion = document.getElementById('aiQuestion');
-        const toast = document.getElementById('toast');
-
-        function showToast(message) {
-            toast.textContent = message;
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 5000);
-        }
-
-        askAI.addEventListener('click', () => {
-            const question = aiQuestion.value.trim();
-            
-            if (!question) {
-                showToast('Please enter a question for Urban AI');
-                aiQuestion.focus();
-                return;
-            }
-
-            // Show loading state
-            const originalText = askAI.innerHTML;
-            askAI.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            askAI.disabled = true;
-
-            // Simulate AI response
-            setTimeout(() => {
-                askAI.innerHTML = originalText;
-                askAI.disabled = false;
-
-                let response = '';
-                
-                if (question.toLowerCase().includes('islamabad') && question.toLowerCase().includes('save')) {
-                    response = "For 70k PKR in Islamabad: 1) Housing: 25-35k (shared accommodation), 2) Food: 15-20k (cook at home), 3) Transport: 5-8k (use ride-sharing), 4) Save 10-15k monthly. Consider freelance work for extra income!";
-                } else if (question.toLowerCase().includes('job') || question.toLowerCase().includes('career')) {
-                    response = "Top urban tech jobs: AI Specialist, Data Analyst, Smart City Consultant, Digital Mobility Planner. Start with online courses on Coursera or Udemy!";
-                } else if (question.toLowerCase().includes('app') || question.toLowerCase().includes('tool')) {
-                    response = "Essential urban apps: Careem/Über (transport), Foodpanda (food), Money Manager (budget), Zameen (housing), Daraz (shopping). Need recommendations for a specific category?";
-                } else {
-                    response = "Urban AI can help with budget planning, career advice, app recommendations, and tech skill development. Try asking something specific!";
-                }
-
-                showToast(response);
-                aiQuestion.value = '';
-            }, 1500);
-        });
-
-        // Enter key support for AI input
-        aiQuestion.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                askAI.click();
-            }
-        });
-
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetElement = document.querySelector(href);
-                if (!targetElement) return;
-
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Update URL
-                history.pushState(null, null, href);
-            });
-        });
-
-        // Header scroll effect
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 100) {
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 
-                // Hide header on scroll down, show on scroll up
-                if (scrollTop > lastScrollTop && scrollTop > 200) {
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    header.style.transform = 'translateY(0)';
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
+            });
+        });
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
             } else {
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
-                header.style.transform = 'translateY(0)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
             }
-            
-            lastScrollTop = scrollTop;
         });
-
-        // Prevent form submission
-        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            showToast('Thank you for subscribing! Updates coming soon.');
-            e.target.querySelector('input').value = '';
-        });
-
-        // Touch feedback for mobile
-        document.querySelectorAll('.trust-item, .feature-card, .tool-card').forEach(item => {
-            item.addEventListener('touchstart', function() {
-                this.style.opacity = '0.8';
-            });
-            
-            item.addEventListener('touchend', function() {
-                this.style.opacity = '1';
-            });
-        });
-
-        // Prevent zoom on double-tap (iOS)
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
     </script>
 </body>
 </html>
-
-
 
 
 
