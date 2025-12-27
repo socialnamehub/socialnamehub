@@ -1,300 +1,1264 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Professional Utility Tools | QR Code Generator, Barcode Generator, UUID & Unit Converter</title>
-
-    <meta name="description" content="Explore Tool Nest professional utility tools including QR Code Generator & Scanner, Barcode Generator, UUID Generator, Unit Converter, Time Zone Converter, and Random Number & Password Generator. Free, fast, and powerful online tools.">
-
-    <meta name="keywords" content="utility tools, online utility tools, qr code generator, qr code scanner, barcode generator, uuid generator, unit converter, time zone converter, random number generator, password generator, free online tools, productivity tools">
-
-    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
-
+    <title>UrbanOraTech – Smart Urban Life Powered by Technology & AI</title>
+    <meta name="description" content="AI-powered tools and tech insights to help you make smarter decisions in modern urban life.">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "UrbanOraTech",
+      "alternateName": "UrbanOraTech - Smart Urban Solutions",
+      "url": "https://urbanoratech.com",
+      "description": "AI-powered tools and tech insights for modern urban living",
+      "publisher": {
+        "@type": "Organization",
+        "name": "UrbanOraTech",
+        "logo": "https://urbanoratech.com/logo.png",
+        "sameAs": [
+          "https://twitter.com/urbanoratech",
+          "https://linkedin.com/company/urbanoratech",
+          "https://github.com/urbanoratech"
+        ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://urbanoratech.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
+        :root {
+            --primary: #0f172a; /* Dark Navy */
+            --primary-dark: #020617;
+            --accent-blue: #00d4ff; /* Electric Blue */
+            --accent-green: #00ff9d; /* Neon Green */
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --dark-gray: #334155;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+        }
+        
+        * {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0a1a2f;
-            color: #e6ecf3;
-            line-height: 1.8;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        header {
-            background: linear-gradient(90deg, #08162a, #0f2a4d);
-            padding: 40px 20px;
-            text-align: center;
+        
+        html {
+            scroll-behavior: smooth;
         }
-
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #ffffff;
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        header p {
-            max-width: 900px;
-            margin: auto;
-            font-size: 18px;
-            color: #cdd9e5;
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 20px;
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
+        
         h2 {
-            color: #4fc3f7;
-            margin-top: 50px;
-            font-size: 28px;
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            text-align: center;
         }
-
+        
         h3 {
-            color: #81d4fa;
-            margin-top: 30px;
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
         }
-
+        
         p {
-            font-size: 17px;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-size: 1.1rem;
         }
-
-        ul {
-            margin-left: 20px;
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
-
-        ul li {
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: var(--primary);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+        }
+        
+        .btn-light {
+            background-color: var(--white);
+            color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-light:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .logo-accent {
+            color: var(--accent-blue);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-blue);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 160px;
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(0, 255, 157, 0.05) 100%);
+            z-index: 0;
+        }
+        
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--gray);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .city-illustration {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dashboard-mockup {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 250px;
+            height: 180px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            z-index: 3;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 10px;
         }
-
-        a {
-            color: #4fc3f7;
-            font-weight: bold;
-            text-decoration: none;
+        
+        .dashboard-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
         }
-
-        a:hover {
-            text-decoration: underline;
+        
+        .dashboard-chart {
+            height: 80px;
+            background: linear-gradient(90deg, #00d4ff 0%, #00ff9d 100%);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
         }
-
-        .tool-box {
-            background-color: #102a4c;
-            border: 1px solid #1f3d66;
-            border-radius: 8px;
-            padding: 25px;
-            margin-top: 30px;
+        
+        .chart-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: var(--white);
+            opacity: 0.3;
+            top: 50%;
         }
-
-        footer {
-            background-color: #08162a;
-            padding: 30px 20px;
-            margin-top: 60px;
-            border-top: 1px solid #1f3d66;
+        
+        .ai-bubble {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 18px;
+            border-radius: 20px 20px 20px 0;
+            font-size: 0.9rem;
+            max-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 3;
         }
-
-        footer p {
+        
+        /* Trust Indicators */
+        .trust-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+        
+        .trust-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .trust-item {
             text-align: center;
-            font-size: 14px;
-            color: #b0c4de;
-            margin: 5px 0;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .trust-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .trust-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .trust-icon.blue {
+            color: var(--accent-blue);
+        }
+        
+        .trust-icon.green {
+            color: var(--accent-green);
+        }
+        
+        .trust-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        
+        /* Features Section */
+        .features-section {
+            background-color: var(--light-bg);
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+        
+        .feature-card:nth-child(2) .feature-icon {
+            color: var(--accent-green);
+        }
+        
+        .feature-card:nth-child(3) .feature-icon {
+            color: #ff6b6b;
+        }
+        
+        .feature-card:nth-child(4) .feature-icon {
+            color: #ffd166;
+        }
+        
+        .feature-description {
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        
+        .feature-link {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .feature-link:hover {
+            gap: 15px;
+        }
+        
+        /* AI Interactive Section */
+        .ai-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .ai-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .ai-section h2 {
+            color: var(--white);
+        }
+        
+        .ai-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .ai-input-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .ai-input {
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .ai-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3);
+        }
+        
+        .ai-btn {
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 18px 40px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        /* Popular Tools Section */
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tool-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .tool-thumbnail {
+            height: 180px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .tool-content {
+            padding: 25px;
+        }
+        
+        .tool-title {
+            margin-bottom: 10px;
+        }
+        
+        /* Brand Section */
+        .brand-section {
+            background-color: var(--light-bg);
+        }
+        
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .brand-visual {
+            flex: 1;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            border-radius: var(--border-radius);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .brand-content {
+            flex: 1;
+        }
+        
+        .brand-features {
+            margin-top: 25px;
+        }
+        
+        .brand-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .brand-feature i {
+            color: var(--accent-green);
+            margin-right: 10px;
+        }
+        
+        /* Monetization Section */
+        .monetization-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+        
+        .ad-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .ad-placeholder {
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin: 20px 0;
+            color: var(--gray);
+            border: 2px dashed var(--light-gray);
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+        }
+        
+        .newsletter-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .newsletter-section h2 {
+            color: var(--white);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            min-width: 250px;
+            padding: 18px 25px;
+            border-radius: var(--border-radius);
+            border: none;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 80px 0 40px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-blue);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-container {
+                flex-direction: column;
+                gap: 60px;
+            }
+            
+            .hero-content {
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .trust-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .brand-container {
+                flex-direction: column;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .trust-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                width: 100%;
+            }
         }
     </style>
 </head>
-
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <span>Urban<span class="logo-accent">Ora</span>Tech</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">Tools</a>
+                <a href="#ai">Urban AI</a>
+                <a href="#tools">Insights</a>
+                <a href="#newsletter">Updates</a>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <h1>Professional Utility Tools</h1>
-    <p>
-        Discover powerful, free, and fast online utility tools from Tool Nest. 
-        From QR Code generators to unit converters and password generators, 
-        our tools help you save time, improve productivity, and work smarter.
-    </p>
-</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Smarter Decisions for Modern Urban Life</h1>
+                <p class="hero-subtitle">AI-powered tools, tech insights, and smart solutions designed for city living.</p>
+                <div class="hero-buttons">
+                    <a href="#features" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Explore Smart Tools
+                    </a>
+                    <a href="#ai" class="btn btn-light">
+                        <i class="fas fa-robot"></i> Ask Urban AI
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="ai-bubble">
+                    Hi! I can help you optimize your urban lifestyle.
+                </div>
+                <div class="city-illustration">
+                    <!-- City skyline illustration placeholder -->
+                    <div style="width:100%; height:400px; background:linear-gradient(to bottom, #1e293b, #475569); border-radius:12px; position:relative;">
+                        <div style="position:absolute; bottom:0; width:100%; height:60%; background:#0f172a; border-radius:0 0 12px 12px;"></div>
+                        <!-- Buildings -->
+                        <div style="position:absolute; bottom:0; left:10%; width:8%; height:50%; background:#334155;"></div>
+                        <div style="position:absolute; bottom:0; left:22%; width:10%; height:70%; background:#475569;"></div>
+                        <div style="position:absolute; bottom:0; left:36%; width:12%; height:60%; background:#334155;"></div>
+                        <div style="position:absolute; bottom:0; left:52%; width:9%; height:80%; background:#1e293b;"></div>
+                        <div style="position:absolute; bottom:0; left:65%; width:7%; height:45%; background:#475569;"></div>
+                        <div style="position:absolute; bottom:0; left:76%; width:11%; height:65%; background:#334155;"></div>
+                        <!-- Windows -->
+                        <div style="position:absolute; bottom:20px; left:12%; width:4%; height:15px; background:#00d4ff;"></div>
+                        <div style="position:absolute; bottom:50px; left:25%; width:6%; height:15px; background:#00ff9d;"></div>
+                        <div style="position:absolute; bottom:80px; left:40%; width:4%; height:15px; background:#00d4ff;"></div>
+                        <div style="position:absolute; bottom:120px; left:55%; width:5%; height:15px; background:#00ff9d;"></div>
+                    </div>
+                </div>
+                <div class="dashboard-mockup">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title">Monthly Budget</div>
+                        <div style="font-size:0.8rem; color:#00d4ff;">+12%</div>
+                    </div>
+                    <div class="dashboard-chart">
+                        <div class="chart-line"></div>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:0.8rem;">
+                        <span>Expenses</span>
+                        <span>Savings</span>
+                        <span>Investment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="container">
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="container trust-container">
+            <div class="trust-item">
+                <div class="trust-icon blue">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="trust-text">AI-Powered Insights</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon green">
+                    <i class="fas fa-city"></i>
+                </div>
+                <div class="trust-text">Built for Urban Life</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon blue">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="trust-text">Privacy First</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon green">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="trust-text">Data-Driven Decisions</div>
+            </div>
+        </div>
+    </section>
 
-<h2>Introduction to Professional Utility Tools</h2>
-<p>
-In the modern digital era, online utility tools have become an essential part of daily workflows.
-Whether you are a developer, student, business owner, marketer, or general internet user,
-utility tools simplify complex tasks and improve productivity. Tool Nest provides a complete
-collection of professional utility tools designed to deliver speed, accuracy, and ease of use.
-</p>
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2>What Can UrbanOraTech Help You With?</h2>
+            <p class="section-subtitle">Our AI-powered tools are designed to tackle the unique challenges of modern urban living</p>
+            
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Smart Cost of Living</h3>
+                    <p class="feature-description">Estimate monthly expenses by city & lifestyle with our AI-powered calculator.</p>
+                    <a href="#" class="feature-link">
+                        Try Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Urban AI Assistant</h3>
+                    <p class="feature-description">Ask questions about money, career, tech & city life and get personalized advice.</p>
+                    <a href="#ai" class="feature-link">
+                        Try Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Urban Tech Finder</h3>
+                    <p class="feature-description">Discover the best apps & tools for city living, from transportation to food delivery.</p>
+                    <a href="#" class="feature-link">
+                        Try Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Jobs & Side Hustles</h3>
+                    <p class="feature-description">Find tech-driven income ideas and opportunities tailored for urban youth.</p>
+                    <a href="#" class="feature-link">
+                        Try Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>
-Our online utility tools are browser-based, free to use, and optimized for performance.
-From generating QR codes and barcodes to converting units and time zones,
-Tool Nest utility tools are built to meet real-world needs.
-</p>
+    <!-- Interactive AI Section -->
+    <section id="ai" class="ai-section">
+        <div class="container ai-container">
+            <h2>Ask Urban AI Anything</h2>
+            <p class="section-subtitle">Get instant, personalized advice for your urban life challenges</p>
+            
+            <div class="ai-input-container">
+                <input type="text" class="ai-input" placeholder="I live in Islamabad and earn 70k PKR, how can I save money?" id="ai-question">
+                <button class="btn ai-btn" id="ask-ai-btn">
+                    <i class="fas fa-brain"></i> Get Smart Advice
+                </button>
+            </div>
+        </div>
+    </section>
 
-<h2>Why Online Utility Tools Are Important</h2>
-<p>
-Utility tools help users perform repetitive or technical tasks instantly without installing software.
-Online utility tools are especially useful because they are accessible anytime, anywhere,
-and from any device. With Tool Nest, you get professional-grade tools that work smoothly on
-desktop, tablet, and mobile.
-</p>
+    <!-- Popular Tools Section -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <h2>Popular Right Now</h2>
+            <p class="section-subtitle">Discover the most helpful tools and insights for urban living</p>
+            
+            <div class="tools-container">
+                <div class="tool-card">
+                    <div class="tool-thumbnail">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Cost of Living in Pakistani Cities</h3>
+                        <p>Compare expenses across major cities and plan your budget effectively with real-time data.</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-thumbnail">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Best AI Tools for Students</h3>
+                        <p>Discover AI-powered tools that can help students with research, writing, and productivity.</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-thumbnail">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>How to Save Money in Cities</h3>
+                        <p>Practical tips and strategies to reduce expenses and increase savings in urban environments.</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-thumbnail">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Top Urban Apps You Should Use</h3>
+                        <p>Essential mobile applications for transportation, food, services, and urban navigation.</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-thumbnail">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Tech Skills for 2025 Jobs</h3>
+                        <p>Future-proof your career with the most in-demand tech skills for the coming year.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<ul>
-<li>Save time with instant results</li>
-<li>No installation or signup required</li>
-<li>Accurate and reliable outputs</li>
-<li>User-friendly interface</li>
-<li>Free professional utility tools</li>
-</ul>
+    <!-- Monetization Section -->
+    <section class="monetization-section">
+        <div class="container ad-container">
+            <h3>Recommended Tools & Resources</h3>
+            <p class="section-subtitle">Carefully selected solutions to enhance your urban tech experience</p>
+            
+            <div class="ad-placeholder">
+                <p>Responsive Ad Space (728x90)</p>
+                <p style="font-size:0.9rem;">Advertisements help us keep UrbanOraTech free for everyone</p>
+            </div>
+            
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px;">
+                <div class="ad-placeholder" style="padding:20px;">
+                    <p>Native Ad (300x250)</p>
+                </div>
+                <div class="ad-placeholder" style="padding:20px;">
+                    <p>Native Ad (300x250)</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="tool-box">
-<h3>🔳 QR Code Generator & Scanner</h3>
-<p>
-The <a href="https://www.tool-nest.online/qr.html">QR Code Generator & Scanner</a> is one of the most
-popular utility tools available online. QR codes are widely used for websites, payments,
-business cards, Wi-Fi sharing, product labels, and marketing campaigns.
-</p>
+    <!-- Brand Section -->
+    <section class="brand-section">
+        <div class="container brand-container">
+            <div class="brand-visual">
+                <div style="color:white; text-align:center; padding:30px;">
+                    <i class="fas fa-city" style="font-size:8rem; opacity:0.8;"></i>
+                    <h3 style="color:white; margin-top:20px;">Urban Tech Ecosystem</h3>
+                </div>
+            </div>
+            <div class="brand-content">
+                <h2>Built for the Urban Generation</h2>
+                <p>UrbanOraTech helps students, professionals, and entrepreneurs navigate modern city life using technology, AI, and real data. We understand the unique challenges of urban living and provide practical solutions.</p>
+                
+                <div class="brand-features">
+                    <div class="brand-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Practical & actionable insights</span>
+                    </div>
+                    <div class="brand-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Local + global perspectives</span>
+                    </div>
+                    <div class="brand-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Future-focused approach</span>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn btn-primary" style="margin-top:30px;">
+                    <i class="fas fa-book-open"></i> Learn Our Story
+                </a>
+            </div>
+        </div>
+    </section>
 
-<p>
-With Tool Nest QR Code Generator, you can instantly create QR codes for URLs, text, emails,
-phone numbers, and more. The QR code scanner allows you to scan QR codes directly from images
-or devices, making it a complete QR utility tool.
-</p>
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter-section">
+        <div class="container newsletter-container">
+            <h2>Stay Ahead of Urban Tech</h2>
+            <p class="section-subtitle">Get the latest tools, insights, and AI updates delivered directly to you</p>
+            
+            <div class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                <button class="btn btn-primary">Get Smart Updates</button>
+            </div>
+            
+            <p style="margin-top:20px; font-size:0.9rem; opacity:0.8;">
+                <i class="fas fa-shield-alt"></i> We respect your privacy. Unsubscribe at any time.
+            </p>
+        </div>
+    </section>
 
-<ul>
-<li>Create QR codes instantly</li>
-<li>Scan QR codes online</li>
-<li>Perfect for marketing & business</li>
-<li>Fast and secure QR processing</li>
-</ul>
-</div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>UrbanOraTech</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Smart Tools</a></li>
+                        <li><a href="#ai">Urban AI</a></li>
+                        <li><a href="#tools">Tech Finder</a></li>
+                        <li><a href="#">Blogs & Insights</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">City Guides</a></li>
+                        <li><a href="#">Career Resources</a></li>
+                        <li><a href="#">Financial Tools</a></li>
+                        <li><a href="#">Tech Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <p style="color:rgba(255,255,255,0.7); margin-bottom:20px;">Follow us for updates on urban tech</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 UrbanOraTech. All rights reserved.</p>
+                <p style="margin-top:10px;">Contact: urbanora.storee@gmail.com</p>
+            </div>
+        </div>
+    </footer>
 
-<div class="tool-box">
-<h3>📊 Barcode Generator</h3>
-<p>
-The <a href="https://www.tool-nest.online/barcode.html">Barcode Generator</a> is a powerful utility
-tool for businesses, inventory systems, retail stores, and logistics operations.
-Barcodes help track products, manage stock, and streamline operations.
-</p>
-
-<p>
-Tool Nest Barcode Generator allows you to create high-quality barcodes for products,
-labels, and packaging with ease. This utility tool is designed for accuracy and speed.
-</p>
-
-<ul>
-<li>Generate barcodes instantly</li>
-<li>Ideal for inventory management</li>
-<li>Supports professional use cases</li>
-<li>High-quality barcode output</li>
-</ul>
-</div>
-
-<div class="tool-box">
-<h3>🆔 UUID Generator</h3>
-<p>
-The <a href="https://www.tool-nest.online/uuid.html">UUID Generator</a> is an essential utility tool
-for developers and programmers. UUIDs (Universally Unique Identifiers) are used in databases,
-APIs, and software systems to ensure unique identification.
-</p>
-
-<p>
-With Tool Nest UUID Generator, you can generate random and secure UUIDs instantly.
-This tool helps developers avoid duplication and improve system reliability.
-</p>
-
-<ul>
-<li>Generate unique UUIDs</li>
-<li>Useful for software development</li>
-<li>Secure and random identifiers</li>
-<li>Fast and reliable utility tool</li>
-</ul>
-</div>
-
-<div class="tool-box">
-<h3>📐 Unit Converter</h3>
-<p>
-The <a href="https://www.tool-nest.online/unit-converter.html">Unit Converter</a> is a versatile
-utility tool that helps convert measurements quickly and accurately. Whether you need to
-convert length, weight, temperature, or volume, this tool handles it effortlessly.
-</p>
-
-<p>
-Unit conversion is essential for students, engineers, scientists, and professionals.
-Tool Nest Unit Converter ensures accurate results with a simple interface.
-</p>
-
-<ul>
-<li>Convert multiple unit types</li>
-<li>Accurate and fast calculations</li>
-<li>Perfect for education & engineering</li>
-<li>Easy-to-use converter tool</li>
-</ul>
-</div>
-
-<div class="tool-box">
-<h3>🌍 Time Zone Converter</h3>
-<p>
-The <a href="https://www.tool-nest.online/time-zone.html">Time Zone Converter</a> helps users convert
-time between different regions of the world. This utility tool is ideal for remote teams,
-international businesses, travelers, and freelancers.
-</p>
-
-<p>
-With this online time zone converter, you can avoid scheduling confusion and manage global
-communication efficiently.
-</p>
-
-<ul>
-<li>Convert global time zones</li>
-<li>Perfect for remote work</li>
-<li>Accurate real-time conversion</li>
-<li>Essential international utility tool</li>
-</ul>
-</div>
-
-<div class="tool-box">
-<h3>🎲 Random Number & Password Generator</h3>
-<p>
-The <a href="https://www.tool-nest.online/random-number.html">Random Number & Password Generator</a>
-is a must-have utility tool for security and automation. Generate strong passwords and random
-numbers instantly for testing, security, or daily use.
-</p>
-
-<ul>
-<li>Generate secure passwords</li>
-<li>Create random numbers instantly</li>
-<li>Improve online security</li>
-<li>Ideal for developers & users</li>
-</ul>
-</div>
-
-<h2>How Tool Nest Utility Tools Improve Productivity</h2>
-<p>
-Tool Nest professional utility tools are designed to eliminate complexity and deliver instant results.
-By using our online tools, users can focus on productivity instead of manual calculations or software setup.
-</p>
-
-<h2>Conclusion</h2>
-<p>
-If you are looking for reliable, fast, and free professional utility tools,
-Tool Nest is your ultimate destination. From QR codes and barcodes to unit conversion
-and password generation, our tools are built to serve real-world needs.
-</p>
-
-<p>
-Start using Tool Nest utility tools today and experience smarter digital productivity.
-</p>
-
-</div>
-
-<footer>
-    <p>© 2025 Tool Nest. All Rights Reserved.</p>
-    <p>Professional Utility Tools | Free Online Tools | Productivity Solutions</p>
-</footer>
-
+    <script>
+        // Interactive AI functionality
+        document.getElementById('ask-ai-btn').addEventListener('click', function() {
+            const question = document.getElementById('ai-question').value;
+            
+            if (question.trim() === '') {
+                alert('Please enter a question for Urban AI');
+                return;
+            }
+            
+            // Simulate AI processing
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            this.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-brain"></i> Get Smart Advice';
+                this.disabled = false;
+                
+                // Show a sample response based on common questions
+                let response = '';
+                
+                if (question.toLowerCase().includes('islamabad') && question.toLowerCase().includes('save')) {
+                    response = "For someone earning 70k PKR in Islamabad:\n\n1. Housing (25-35%): Consider shared accommodation or outskirts\n2. Transportation (10-15%): Use ride-sharing or public transport\n3. Food (20-25%): Cook at home, limit eating out to weekends\n4. Savings goal: Aim to save 15-20% monthly\n5. Side hustle: Consider freelance work online\n\nWould you like a detailed budget breakdown?";
+                } else if (question.toLowerCase().includes('job') || question.toLowerCase().includes('career')) {
+                    response = "Top urban tech jobs for 2025:\n\n1. AI/ML Specialist\n2. Urban Data Analyst\n3. Sustainability Tech Consultant\n4. Smart City Solutions Architect\n5. Digital Mobility Planner\n\nI can help you with skill development paths for any of these roles.";
+                } else {
+                    response = "Thanks for your question! Urban AI can help with:\n\n• Budget planning for city living\n• Career advice in tech fields\n• Finding the best urban apps\n• Side hustle opportunities\n• Tech skill development\n\nTry asking about a specific urban challenge you're facing!";
+                }
+                
+                alert("Urban AI Response:\n\n" + response);
+            }, 1500);
+        });
+        
+        // Enter key support for AI input
+        document.getElementById('ai-question').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('ask-ai-btn').click();
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+                header.style.backgroundColor = 'var(--white)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
 
