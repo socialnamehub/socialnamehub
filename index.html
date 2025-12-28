@@ -1,118 +1,106 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UrbanoraTech | Digital Hub</title>
+    <title>UrbanoraTech | Urban Template Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0a0a0c; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .glow:hover { border-color: #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); transition: all 0.3s ease; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background: #0f172a; color: #f8fafc; }
+        .template-preview { color: #000; background: #fff; width: 210mm; min-height: 297mm; padding: 20px; }
     </style>
 </head>
-<body class="text-gray-200 p-4 md:p-10 transition-colors duration-700" id="body-bg">
+<body class="p-4 md:p-10">
 
-    <header class="max-w-6xl mx-auto mb-10 flex justify-between items-center">
-        <div>
-            <h1 class="text-3xl font-extrabold tracking-tighter text-white">URBANORA<span id="accent-text" class="text-blue-500">TECH</span></h1>
-            <p class="text-gray-500 text-sm">Innovating the urban digital landscape.</p>
-        </div>
-        <div class="text-right">
-            <div id="clock" class="text-xl font-mono font-bold text-white">00:00:00</div>
-            <span class="text-[10px] font-mono text-blue-400 tracking-widest uppercase" id="status-glow">System Pulse: Active</span>
-        </div>
-    </header>
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-10 text-center">
+            <h1 class="text-4xl font-bold tracking-tighter">URBANORA<span class="text-blue-500">TECH</span></h1>
+            <p class="text-gray-400 mt-2 italic">Minimalist PDF Tools for the Urban Professional.</p>
+        </header>
 
-    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[180px]">
-        
-        <div class="glass glow rounded-3xl p-6 flex flex-col justify-between border-blue-500/30">
-            <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400">Environment</h3>
-            <div class="flex gap-2">
-                <button onclick="setTheme('cyan')" class="w-6 h-6 rounded-full bg-cyan-500 border-2 border-white/20"></button>
-                <button onclick="setTheme('amber')" class="w-6 h-6 rounded-full bg-amber-500 border-2 border-white/20"></button>
-                <button onclick="setTheme('purple')" class="w-6 h-6 rounded-full bg-purple-600 border-2 border-white/20"></button>
+        <div class="grid lg:grid-cols-2 gap-10">
+            <div class="space-y-6 bg-slate-800 p-8 rounded-2xl shadow-xl">
+                <h2 class="text-xl font-bold border-b border-slate-700 pb-2">Invoice Details</h2>
+                <div>
+                    <label class="block text-xs uppercase font-bold text-gray-500 mb-1">Your Business Name</label>
+                    <input type="text" id="bizName" oninput="updatePreview()" placeholder="Urbanora Studio" class="w-full bg-slate-900 border border-slate-700 p-3 rounded-lg focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-bold text-gray-500 mb-1">Service Description</label>
+                    <textarea id="service" oninput="updatePreview()" placeholder="Web Design & Branding" class="w-full bg-slate-900 border border-slate-700 p-3 rounded-lg h-24"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-bold text-gray-500 mb-1">Amount ($)</label>
+                    <input type="number" id="amount" oninput="updatePreview()" placeholder="500" class="w-full bg-slate-900 border border-slate-700 p-3 rounded-lg">
+                </div>
+                <button onclick="downloadPDF()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-blue-900/20">
+                    Download PDF
+                </button>
+            </div>
+
+            <div class="hidden lg:block">
+                <h2 class="text-xs uppercase font-bold text-gray-500 mb-4 text-center tracking-widest">Live Document Preview</h2>
+                <div id="pdf-content" class="template-preview shadow-2xl rounded-sm scale-[0.6] origin-top">
+                    <div class="flex justify-between border-b-2 border-black pb-4 mb-10">
+                        <h1 class="text-3xl font-black uppercase tracking-tighter" id="prevName">YOUR BUSINESS</h1>
+                        <div class="text-right">
+                            <p class="font-bold text-sm">INVOICE</p>
+                            <p class="text-xs text-gray-500">#001 - <span id="currentDate"></span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-10">
+                        <p class="text-xs uppercase font-bold text-gray-400">Description</p>
+                        <p class="text-xl mt-2" id="prevService">Service Details Here...</p>
+                    </div>
+
+                    <div class="flex justify-end pt-10 border-t border-gray-100">
+                        <div class="text-right">
+                            <p class="text-xs uppercase font-bold text-gray-400">Total Due</p>
+                            <p class="text-5xl font-black italic">$<span id="prevAmount">0.00</span></p>
+                        </div>
+                    </div>
+                    
+                    <footer class="mt-40 text-[10px] text-gray-400 border-t pt-4">
+                        Generated by UrbanoraTech.com — The digital pulse of the city.
+                    </footer>
+                </div>
             </div>
         </div>
-
-        <div class="md:col-span-2 md:row-span-2 glass glow rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden group">
-            <div class="absolute top-0 right-0 p-4 opacity-5 text-8xl font-black italic group-hover:opacity-10 transition-opacity">URBN</div>
-            <h2 class="text-2xl font-bold mb-2">The Architecture</h2>
-            <p class="text-gray-400 leading-relaxed">UrbanoraTech bridges the gap between cold code and the vibrant pulse of city living. We focus on lightweight, high-performance web assets hosted on the edge.</p>
-        </div>
-
-        <div class="md:col-span-1 glass glow rounded-3xl p-6 flex flex-col justify-center items-center text-center">
-             <div id="weather-icon" class="text-3xl mb-2">🏙️</div>
-             <span class="text-xs text-gray-500 uppercase">Urban Node: 01</span>
-        </div>
-
-        <div class="glass glow rounded-3xl p-6 flex flex-col justify-center">
-            <h3 class="text-xs font-bold text-blue-400 mb-4 uppercase tracking-widest accent-color">Stack</h3>
-            <div class="flex flex-wrap gap-2">
-                <span class="bg-white/5 px-2 py-1 rounded text-xs">Tailwind</span>
-                <span class="bg-white/5 px-2 py-1 rounded text-xs">Vanilla JS</span>
-                <span class="bg-white/5 px-2 py-1 rounded text-xs">GitHub Actions</span>
-            </div>
-        </div>
-
-        <div class="md:col-span-2 glass glow rounded-3xl p-6 relative overflow-hidden">
-            <h3 class="text-sm font-semibold mb-4 text-gray-400 italic">// Latest Deployment Stream</h3>
-            <div class="space-y-2">
-                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden"><div class="bg-blue-500 h-full w-[85%] accent-bg"></div></div>
-                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden"><div class="bg-blue-500 h-full w-[60%] accent-bg"></div></div>
-                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden"><div class="bg-blue-500 h-full w-[92%] accent-bg"></div></div>
-            </div>
-        </div>
-
-        <div class="md:col-span-2 glass glow rounded-3xl p-6 flex items-center justify-between px-10">
-            <span class="text-lg font-semibold">Ready to build?</span>
-            <button class="bg-white text-black px-6 py-2 rounded-xl font-bold hover:scale-105 transition-transform accent-btn">Connect</button>
-        </div>
-
-    </main>
+    </div>
 
     <script>
-        // 1. REAL-TIME CLOCK
-        function updateClock() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { hour12: false });
-            document.getElementById('clock').textContent = timeString;
+        // Set date
+        document.getElementById('currentDate').innerText = new Date().toLocaleDateString();
+
+        // Live Update Preview
+        function updatePreview() {
+            document.getElementById('prevName').innerText = document.getElementById('bizName').value || 'YOUR BUSINESS';
+            document.getElementById('prevService').innerText = document.getElementById('service').value || 'Service Details Here...';
+            document.getElementById('prevAmount').innerText = document.getElementById('amount').value || '0.00';
         }
-        setInterval(updateClock, 1000);
-        updateClock();
 
-        // 2. THEME SWITCHER
-        function setTheme(color) {
-            const accentText = document.getElementById('accent-text');
-            const bars = document.querySelectorAll('.accent-bg');
-            const status = document.getElementById('status-glow');
-            
-            const colors = {
-                cyan: { text: 'text-cyan-400', bg: 'bg-cyan-500', shadow: 'rgba(34, 211, 238, 0.2)', status: 'text-cyan-400' },
-                amber: { text: 'text-amber-500', bg: 'bg-amber-500', shadow: 'rgba(245, 158, 11, 0.2)', status: 'text-amber-500' },
-                purple: { text: 'text-purple-500', bg: 'bg-purple-600', shadow: 'rgba(147, 51, 234, 0.2)', status: 'text-purple-500' }
+        // Export to PDF
+        function downloadPDF() {
+            const element = document.getElementById('pdf-content');
+            const opt = {
+                margin:       10,
+                filename:     'urbanora-invoice.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
-
-            // Reset classes (Simplified for demo)
-            accentText.className = colors[color].text;
-            status.className = `text-[10px] font-mono tracking-widest uppercase ${colors[color].status}`;
-            
-            bars.forEach(bar => {
-                bar.className = `h-full accent-bg ${colors[color].bg}`;
-            });
-
-            // Update glow effect
-            document.querySelectorAll('.glow').forEach(el => {
-                el.style.boxShadow = `0 0 15px ${colors[color].shadow}`;
-            });
+            // Run html2pdf
+            html2pdf().set(opt).from(element).save();
         }
     </script>
 </body>
 </html>
-
 
 
 
