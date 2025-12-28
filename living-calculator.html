@@ -6,573 +6,615 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Cost of Living Calculator - UrbanOraTech</title>
-    <meta name="description" content="Estimate monthly living expenses in any city worldwide based on lifestyle and needs. Free AI-powered cost of living calculator.">
-    
-    <!-- Schema Markup for Tool -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Smart Cost of Living Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "AI-powered cost of living calculator for cities worldwide",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "author": {
-            "@type": "Organization",
-            "name": "UrbanOraTech",
-            "email": "urbanora.storee@gmail.com"
-        }
-    }
-    </script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Smart Cost of Living Calculator | UrbanOraTech</title>
     <style>
-        /* UrbanOraTech Theme Variables */
+        /* === CSS RESET & URBANORATECH VARIABLES === */
         :root {
-            --primary: #0f172a; /* Dark Navy */
-            --primary-dark: #020617;
-            --accent-blue: #00d4ff; /* Electric Blue */
-            --accent-green: #00ff9d; /* Neon Green */
-            --light-bg: #f8fafc;
-            --white: #ffffff;
-            --gray: #64748b;
-            --light-gray: #e2e8f0;
-            --dark-gray: #334155;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
-            --transition: all 0.25s ease;
-            --border-radius: 12px;
-            --border-radius-sm: 8px;
-            --safe-top: env(safe-area-inset-top);
-            --safe-bottom: env(safe-area-inset-bottom);
+            --primary: #0A192F;       /* Dark Navy */
+            --secondary: #1E293B;     /* Charcoal */
+            --accent: #3B82F6;        /* Electric Blue */
+            --accent-green: #10B981;  /* Neon Green */
+            --light: #F8FAFC;
+            --gray: #94A3B8;
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --glow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
         
-        /* Reset & Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
         }
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--dark-gray);
-            background-color: var(--light-bg);
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            color: var(--primary);
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
         
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-        
-        h1 {
-            font-size: clamp(2rem, 6vw, 3.2rem);
-            margin-bottom: 1.25rem;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-align: center;
-        }
-        
-        h2 {
-            font-size: clamp(1.75rem, 5vw, 2.5rem);
-            margin-bottom: 1rem;
-        }
-        
-        h3 {
-            font-size: clamp(1.25rem, 4vw, 1.5rem);
-            margin-bottom: 0.75rem;
-        }
-        
-        p {
-            margin-bottom: 1.25rem;
-            color: var(--gray);
-            font-size: clamp(0.95rem, 3vw, 1.05rem);
-        }
-        
-        /* Container */
         .container {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
         
-        section {
-            padding: clamp(60px, 10vw, 80px) 0;
-        }
-        
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 32px;
-            border-radius: var(--border-radius);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            gap: 10px;
-            min-height: 48px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
-            color: var(--primary);
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
-            width: 100%;
-            margin-top: 2rem;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 212, 255, 0.4);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--white);
-        }
-        
-        .btn-light {
-            background: var(--white);
-            color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-        
-        .btn-light:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* Header */
-        .header {
-            background: var(--white);
-            box-shadow: var(--shadow);
+        /* === HEADER (Matches UrbanOraTech) === */
+        .tool-header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
-            padding-top: var(--safe-top);
+            z-index: 1000;
         }
         
-        .header-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 20px;
         }
         
         .logo {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: var(--accent-blue);
-        }
-        
-        /* Mobile Menu Button */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1001;
-        }
-        
-        /* Desktop Navigation */
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
-        
-        .nav-links a {
-            font-weight: 500;
-            color: var(--dark-gray);
-            text-decoration: none;
-            transition: var(--transition);
-            padding: 8px 0;
-            position: relative;
-            font-size: 1rem;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: var(--accent-blue);
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: clamp(80px, 15vw, 120px) 0 clamp(40px, 8vw, 60px);
-            background: var(--light-bg);
-            text-align: center;
-        }
-        
-        .hero-subtitle {
-            font-size: clamp(1rem, 4vw, 1.2rem);
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: var(--gray);
-        }
-        
-        /* Tool Container */
-        .tool-container {
-            max-width: 900px;
-            margin: 0 auto 4rem;
-        }
-        
-        /* Input Card */
-        .input-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            padding: clamp(1.5rem, 4vw, 2.5rem);
-            margin-bottom: 3rem;
-        }
-        
-        /* Input Grid */
-        .input-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        
-        label {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
         }
         
-        select, input {
-            padding: 14px 16px;
-            border: 2px solid var(--light-gray);
-            border-radius: var(--border-radius-sm);
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: var(--transition);
-            background: var(--white);
-            color: var(--dark-gray);
-        }
-        
-        select:focus, input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
-        }
-        
-        .optional-badge {
-            background: var(--light-gray);
-            color: var(--gray);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-left: auto;
-        }
-        
-        /* Results Section */
-        .results-section {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .results-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: clamp(1.5rem, 4vw, 2.5rem);
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* Total Cost Display */
-        .total-cost-display {
-            text-align: center;
-            margin: 2rem 0;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 157, 0.1));
-            border-radius: var(--border-radius);
-            border: 2px solid rgba(0, 212, 255, 0.2);
-        }
-        
-        .total-cost-amount {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-green));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-weight: 800;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .back-btn {
+            background: linear-gradient(135deg, var(--accent), #2563EB);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+        
+        /* === HERO SECTION === */
+        .hero {
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+            color: var(--accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        /* === MAIN CALCULATOR LAYOUT === */
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* === INPUT PANEL === */
+        .input-panel {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #E2E8F0;
+        }
+        
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .section-title i {
+            color: var(--accent);
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .currency-selector {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .currency-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #E2E8F0;
+            background: white;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .currency-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        .city-selector {
+            position: relative;
+            width: 100%;
+        }
+        
+        .city-search {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E2E8F0;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .city-search:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .city-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: var(--radius);
+            margin-top: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        
+        .city-dropdown.show {
+            display: block;
+        }
+        
+        .city-option {
+            padding: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 1px solid #F1F5F9;
+        }
+        
+        .city-option:hover {
+            background: #F8FAFC;
+        }
+        
+        .city-option:last-child {
+            border-bottom: none;
+        }
+        
+        .city-flag {
+            width: 24px;
+            height: 16px;
+            margin-right: 0.75rem;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+        
+        /* === LIFESTYLE SLIDERS === */
+        .lifestyle-slider {
+            background: #F8FAFC;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+        }
+        
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .slider-label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .slider-value {
+            background: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-weight: 700;
+            color: var(--accent);
+            border: 2px solid #E2E8F0;
+        }
+        
+        .slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: #E2E8F0;
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-green));
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        
+        /* === FAMILY OPTIONS === */
+        .family-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .family-option {
+            padding: 1.5rem 1rem;
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .family-option:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .family-option.active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+            border-color: var(--accent);
+        }
+        
+        .family-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+        
+        /* === CALCULATE BUTTON === */
+        .calculate-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, var(--accent), #2563EB);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+        
+        /* === RESULTS PANEL === */
+        .results-panel {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #E2E8F0;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .selected-city {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #F1F5F9;
+        }
+        
+        .city-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .country-badge {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+            color: var(--accent);
+            padding: 0.25rem 1rem;
+            border-radius: 15px;
+            font-weight: 600;
+        }
+        
+        .total-cost {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .total-label {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .total-amount {
+            font-size: 3.5rem;
+            font-weight: 800;
             line-height: 1;
             margin-bottom: 0.5rem;
         }
         
-        /* Cost Breakdown */
-        .cost-breakdown {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+        .total-period {
+            color: var(--accent-green);
+            font-weight: 600;
         }
         
-        .cost-category {
-            background: var(--light-bg);
-            padding: 1.5rem;
-            border-radius: var(--border-radius-sm);
+        /* === BREAKDOWN === */
+        .breakdown-section {
+            margin-bottom: 2rem;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #F1F5F9;
+        }
+        
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .breakdown-category {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            transition: var(--transition);
-            border-left: 4px solid var(--accent-blue);
-        }
-        
-        .cost-category:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
+            gap: 0.75rem;
         }
         
         .category-icon {
-            font-size: 1.5rem;
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
+            background: #F1F5F9;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
-            color: var(--primary);
-            border-radius: 12px;
+            color: var(--accent);
         }
         
-        .category-details {
-            flex: 1;
+        .category-name {
+            font-weight: 600;
+            color: var(--primary);
         }
         
         .category-amount {
-            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
         }
         
-        /* Chart Container */
-        .chart-container {
-            background: var(--white);
-            border-radius: var(--border-radius);
+        /* === COMPARISON CHART === */
+        .comparison-chart {
+            margin-top: 3rem;
             padding: 2rem;
-            margin: 2rem 0;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: #F8FAFC;
+            border-radius: var(--radius);
         }
         
-        .simple-bar {
-            display: flex;
-            align-items: flex-end;
-            gap: 10px;
-            height: 200px;
-            width: 100%;
-            padding: 0 20px;
-        }
-        
-        .bar {
-            flex: 1;
-            background: linear-gradient(to top, var(--accent-blue), var(--accent-green));
-            border-radius: 4px 4px 0 0;
+        .chart-bar {
+            height: 40px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-green));
+            border-radius: 8px;
+            margin-bottom: 1rem;
             position: relative;
-            min-width: 40px;
-            transition: var(--transition);
+            transition: width 1s ease-in-out;
         }
         
-        .bar:hover {
-            opacity: 0.9;
-            transform: scaleY(1.05);
+        .chart-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
         
-        .bar-label {
-            position: absolute;
-            bottom: -25px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--gray);
-            font-weight: 500;
+        /* === AI INSIGHTS === */
+        .ai-insights {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(16, 185, 129, 0.05));
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 3rem;
+            border-left: 4px solid var(--accent);
         }
         
-        /* AI Insight Box */
-        .insight-box {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 157, 0.1));
-            border-left: 4px solid var(--accent-blue);
-            padding: 1.5rem;
-            border-radius: var(--border-radius-sm);
-            margin: 2rem 0;
-        }
-        
-        .insight-box h3 {
-            color: var(--primary);
+        .insights-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
         
-        /* Savings Section */
-        .savings-section {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: var(--shadow);
+        .insights-header i {
+            color: var(--accent);
+            font-size: 1.5rem;
         }
         
-        .savings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        .insight-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
         
-        .savings-card {
-            padding: 1.5rem;
-            border-radius: var(--border-radius-sm);
-            text-align: center;
-            transition: var(--transition);
+        .insight-item:last-child {
+            margin-bottom: 0;
         }
         
-        .savings-card:hover {
-            transform: translateY(-5px);
+        .insight-icon {
+            color: var(--accent-green);
+            font-size: 1.25rem;
         }
         
-        .savings-positive {
-            background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(0, 212, 255, 0.1));
-            border: 2px solid var(--accent-green);
-        }
-        
-        .savings-warning {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1));
-            border: 2px solid #f59e0b;
-        }
-        
-        /* Compare Section */
-        .compare-section {
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        /* Monetization Zone */
-        .monetization-zone {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 255, 157, 0.05));
-            border: 2px dashed var(--accent-blue);
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            text-align: center;
-            margin: 3rem 0;
-            color: var(--gray);
-        }
-        
-        /* Educational Content */
-        .educational-content {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            margin: 3rem 0;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* === SHARE & EXPORT === */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
             margin-top: 2rem;
         }
         
-        .info-card {
-            padding: 1.5rem;
-            background: var(--light-bg);
-            border-radius: var(--border-radius-sm);
-            border-left: 4px solid var(--accent-blue);
+        .action-btn {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #E2E8F0;
+            background: white;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
         
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
+        .action-btn:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
         }
         
-        /* Footer CTA */
-        .footer-cta {
-            background: linear-gradient(135deg, var(--primary), #1e293b);
-            color: var(--white);
-            border-radius: var(--border-radius);
-            padding: clamp(2rem, 6vw, 4rem);
+        .action-btn.primary {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        /* === CTA SECTION === */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 0;
             text-align: center;
-            margin: 4rem 0;
+            margin-top: 4rem;
+            border-radius: var(--radius);
         }
         
-        .footer-cta h2 {
-            color: var(--white);
+        .cta-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
         }
         
         .cta-buttons {
@@ -580,789 +622,878 @@
             gap: 1rem;
             justify-content: center;
             margin-top: 2rem;
-            flex-wrap: wrap;
         }
         
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: var(--white);
-            padding: 3rem 0;
-            margin-top: 3rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-        
-        .footer-column h4 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent-blue);
-            padding-left: 5px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            transition: var(--transition);
-        }
-        
-        .social-icon:hover {
-            background: var(--accent-blue);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-        
-        /* Utility Classes */
-        .text-center { text-align: center; }
-        .mt-2 { margin-top: 2rem; }
-        .mt-3 { margin-top: 3rem; }
-        .mb-2 { margin-bottom: 2rem; }
-        .mb-3 { margin-bottom: 3rem; }
-        .hidden { display: none !important; }
-        
-        .loader {
-            border: 3px solid var(--light-gray);
-            border-top: 3px solid var(--accent-blue);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 2rem auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Responsive Design */
+        /* === RESPONSIVE DESIGN === */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .menu-toggle {
-                display: block;
-            }
-            
-            .input-grid {
+            .family-options {
                 grid-template-columns: 1fr;
             }
             
-            .cost-breakdown {
-                grid-template-columns: 1fr;
+            .total-amount {
+                font-size: 2.5rem;
             }
             
-            .savings-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .action-buttons {
+                flex-direction: column;
             }
             
             .cta-buttons {
                 flex-direction: column;
+                align-items: center;
             }
             
-            .cta-buttons .btn {
-                width: 100%;
-            }
-            
-            .simple-bar {
-                padding: 0 10px;
-            }
-            
-            .bar {
-                min-width: 30px;
+            .cta-title {
+                font-size: 2rem;
             }
         }
         
         @media (max-width: 480px) {
-            .header-container {
-                padding: 12px 15px;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-            
-            .input-card,
-            .results-card,
-            .educational-content {
-                padding: 1.25rem;
-            }
-            
-            .footer-cta {
+            .input-panel,
+            .results-panel {
                 padding: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.25rem;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="/" class="logo">Urban<span>Ora</span>Tech</a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="nav-links">
-                <a href="/">Home</a>
-                <a href="/tools">Tools</a>
-                <a href="/ai">AI Assistant</a>
-                <a href="/blog">Insights</a>
-            </nav>
-            
-            <!-- Mobile Menu Button -->
-            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-                <i class="fas fa-bars"></i>
-            </button>
+    <!-- HEADER -->
+    <header class="tool-header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">U</div>
+                UrbanOraTech
+            </a>
+            <div class="nav-actions">
+                <a href="#" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Platform
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <h1>Smart Cost of Living Calculator</h1>
-            <p class="hero-subtitle">Estimate monthly living expenses in any city worldwide based on lifestyle and needs. AI-powered insights for smarter urban living.</p>
+            <p class="hero-subtitle">
+                Estimate monthly expenses by city & lifestyle with our AI-powered calculator.
+                Compare costs across 500+ global cities instantly.
+            </p>
+            <div class="ai-badge">
+                <i class="fas fa-brain"></i>
+                AI-Powered • Real-Time Data • Global Coverage
+            </div>
         </div>
     </section>
 
-    <!-- Tool Container -->
-    <main class="container tool-container">
-        <!-- Input Card -->
-        <div class="input-card">
-            <h2>Calculate Your Cost of Living</h2>
-            <p>Select your location and lifestyle preferences</p>
-            
-            <div class="input-grid">
-                <!-- Country -->
-                <div class="input-group">
-                    <label for="country">
-                        <i class="fas fa-globe"></i> Country
+    <!-- MAIN CALCULATOR -->
+    <main class="container">
+        <div class="calculator-container">
+            <!-- INPUT PANEL -->
+            <div class="input-panel">
+                <h2 class="section-title">
+                    <i class="fas fa-sliders-h"></i>
+                    Configure Your Lifestyle
+                </h2>
+                
+                <!-- CITY SELECTION -->
+                <div class="form-group">
+                    <label class="form-label">
+                        Select City
+                        <span class="currency-selector">
+                            <button class="currency-btn active" data-currency="USD">USD</button>
+                            <button class="currency-btn" data-currency="EUR">EUR</button>
+                            <button class="currency-btn" data-currency="GBP">GBP</button>
+                        </span>
                     </label>
-                    <select id="country">
-                        <option value="">Select Country</option>
-                        <option value="US">United States</option>
-                        <option value="UK">United Kingdom</option>
-                        <option value="DE">Germany</option>
-                        <option value="PK">Pakistan</option>
-                        <option value="AE">United Arab Emirates</option>
-                        <option value="CA">Canada</option>
-                        <option value="AU">Australia</option>
-                        <option value="FR">France</option>
-                        <option value="JP">Japan</option>
-                        <option value="SG">Singapore</option>
-                    </select>
-                </div>
-                
-                <!-- City -->
-                <div class="input-group">
-                    <label for="city">
-                        <i class="fas fa-city"></i> City
-                    </label>
-                    <select id="city" disabled>
-                        <option value="">Select Country First</option>
-                    </select>
-                </div>
-                
-                <!-- Lifestyle -->
-                <div class="input-group">
-                    <label for="lifestyle">
-                        <i class="fas fa-user"></i> Lifestyle
-                    </label>
-                    <select id="lifestyle">
-                        <option value="student">Student</option>
-                        <option value="professional" selected>Single Professional</option>
-                        <option value="couple">Couple</option>
-                        <option value="family">Family</option>
-                    </select>
-                </div>
-                
-                <!-- Housing Type -->
-                <div class="input-group">
-                    <label for="housing">
-                        <i class="fas fa-home"></i> Housing Type
-                    </label>
-                    <select id="housing">
-                        <option value="shared">Shared Accommodation</option>
-                        <option value="private" selected>Private Apartment</option>
-                        <option value="luxury">Luxury</option>
-                    </select>
-                </div>
-                
-                <!-- Monthly Income (Optional) -->
-                <div class="input-group">
-                    <label for="income">
-                        <i class="fas fa-money-bill-wave"></i> Monthly Income
-                        <span class="optional-badge">Optional</span>
-                    </label>
-                    <input type="number" id="income" placeholder="Enter amount in local currency">
-                </div>
-            </div>
-            
-            <button id="calculate-btn" class="btn btn-primary">
-                <i class="fas fa-calculator"></i> Calculate Cost of Living
-            </button>
-        </div>
-        
-        <!-- Loader -->
-        <div id="loader" class="loader hidden"></div>
-        
-        <!-- Results Section -->
-        <div id="results-section" class="results-section">
-            <div class="results-card">
-                <h2 id="result-title">Your Estimated Monthly Cost</h2>
-                
-                <!-- Total Cost Display -->
-                <div class="total-cost-display">
-                    <div class="total-cost-amount" id="total-cost">$0</div>
-                    <p id="result-subtitle">per month in <strong id="result-city">City</strong></p>
-                </div>
-                
-                <!-- Cost Breakdown -->
-                <h3><i class="fas fa-chart-pie"></i> Monthly Cost Breakdown</h3>
-                <div class="cost-breakdown" id="cost-breakdown">
-                    <!-- Dynamically populated -->
-                </div>
-                
-                <!-- Chart -->
-                <div class="chart-container">
-                    <div class="simple-bar" id="cost-chart">
-                        <!-- Bars will be added by JavaScript -->
+                    <div class="city-selector">
+                        <input type="text" 
+                               class="city-search" 
+                               placeholder="Search 500+ global cities..."
+                               id="citySearch">
+                        <div class="city-dropdown" id="cityDropdown">
+                            <!-- Cities will be populated by JavaScript -->
+                        </div>
                     </div>
                 </div>
                 
-                <!-- AI Insight -->
-                <div class="insight-box">
-                    <h3><i class="fas fa-brain"></i> Urban AI Insight</h3>
-                    <p id="ai-insight">Your estimated monthly cost will appear here with personalized recommendations for smarter urban living.</p>
+                <!-- LIFESTYLE SLIDERS -->
+                <div class="form-group">
+                    <h3 class="section-title">
+                        <i class="fas fa-user"></i>
+                        Lifestyle Preferences
+                    </h3>
+                    
+                    <div class="lifestyle-slider">
+                        <div class="slider-header">
+                            <span class="slider-label">Housing Quality</span>
+                            <span class="slider-value" id="housingValue">Medium</span>
+                        </div>
+                        <input type="range" min="1" max="5" value="3" class="slider" id="housingSlider">
+                        <div class="slider-labels">
+                            <span>Basic</span>
+                            <span>Standard</span>
+                            <span>Comfort</span>
+                            <span>Premium</span>
+                            <span>Luxury</span>
+                        </div>
+                    </div>
+                    
+                    <div class="lifestyle-slider">
+                        <div class="slider-header">
+                            <span class="slider-label">Eating Out Frequency</span>
+                            <span class="slider-value" id="foodValue">Moderate</span>
+                        </div>
+                        <input type="range" min="1" max="5" value="3" class="slider" id="foodSlider">
+                        <div class="slider-labels">
+                            <span>Rarely</span>
+                            <span>Occasional</span>
+                            <span>Moderate</span>
+                            <span>Frequent</span>
+                            <span>Daily</span>
+                        </div>
+                    </div>
+                    
+                    <div class="lifestyle-slider">
+                        <div class="slider-header">
+                            <span class="slider-label">Transportation</span>
+                            <span class="slider-value" id="transportValue">Mixed</span>
+                        </div>
+                        <input type="range" min="1" max="5" value="3" class="slider" id="transportSlider">
+                        <div class="slider-labels">
+                            <span>Public</span>
+                            <span>Mostly Public</span>
+                            <span>Mixed</span>
+                            <span>Mostly Private</span>
+                            <span>Private Only</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Savings Section (If Income Provided) -->
-            <div id="savings-section" class="savings-section hidden">
-                <h3><i class="fas fa-piggy-bank"></i> Savings & Budget Analysis</h3>
-                <div class="savings-grid" id="savings-grid">
-                    <!-- Dynamic content -->
+                
+                <!-- FAMILY SIZE -->
+                <div class="form-group">
+                    <label class="form-label">Family Size</label>
+                    <div class="family-options">
+                        <div class="family-option active" data-size="1">
+                            <div class="family-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>Single</div>
+                        </div>
+                        <div class="family-option" data-size="2">
+                            <div class="family-icon">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div>Couple</div>
+                        </div>
+                        <div class="family-option" data-size="4">
+                            <div class="family-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>Family of 4</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Compare Cities -->
-            <div class="compare-section">
-                <button id="compare-btn" class="btn btn-light">
-                    <i class="fas fa-exchange-alt"></i> Compare with Another City
+                
+                <!-- CALCULATE BUTTON -->
+                <button class="calculate-btn" id="calculateBtn">
+                    <i class="fas fa-calculator"></i>
+                    Calculate Cost of Living
                 </button>
             </div>
             
-            <!-- Monetization Zone -->
-            <div class="monetization-zone">
-                <h3><i class="fas fa-lightbulb"></i> Smart Urban Solutions</h3>
-                <p>AdSense automatically shows relevant cost-saving tips and tools based on your location and lifestyle</p>
-            </div>
-        </div>
-        
-        <!-- Educational Content -->
-        <section class="educational-content">
-            <h2>How We Calculate Cost of Living</h2>
-            <p>Our AI-powered calculator uses comprehensive data sources to provide accurate estimates for urban living expenses worldwide.</p>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><i class="fas fa-database"></i> Real-Time Data</h3>
-                    <p>Aggregated from government statistics, rental platforms, and consumer price indexes across global cities.</p>
-                </div>
-                <div class="info-card">
-                    <h3><i class="fas fa-chart-line"></i> Market Intelligence</h3>
-                    <p>Live housing, transportation, and food costs from major urban centers with regular updates.</p>
-                </div>
-                <div class="info-card">
-                    <h3><i class="fas fa-users"></i> Community Insights</h3>
-                    <p>Anonymous data from thousands of users helps refine lifestyle-based expense multipliers.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Footer CTA -->
-        <section class="footer-cta">
-            <h2>Need Smarter Urban Insights?</h2>
-            <p>Get personalized recommendations and AI-powered advice for your city living journey.</p>
-            
-            <div class="cta-buttons">
-                <a href="/ai" class="btn btn-secondary">
-                    <i class="fas fa-robot"></i> Ask Urban AI
-                </a>
-                <a href="/tools" class="btn btn-light">
-                    <i class="fas fa-tools"></i> Explore All Tools
-                </a>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h4>UrbanOraTech</h4>
-                    <ul class="footer-links">
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="mailto:urbanora.storee@gmail.com">Contact</a></li>
-                        <li><a href="/privacy">Privacy Policy</a></li>
-                        <li><a href="/terms">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Smart Tools</h4>
-                    <ul class="footer-links">
-                        <li><a href="/tools/cost-living">Cost of Living</a></li>
-                        <li><a href="/tools/ai-assistant">AI Assistant</a></li>
-                        <li><a href="/tools/tech-finder">Tech Finder</a></li>
-                        <li><a href="/tools/jobs">Jobs & Side Hustles</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Urban Insights</h4>
-                    <ul class="footer-links">
-                        <li><a href="/blog/cities">City Guides</a></li>
-                        <li><a href="/blog/career">Career Tips</a></li>
-                        <li><a href="/blog/budget">Budget Templates</a></li>
-                        <li><a href="/blog/tech">Tech Reviews</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Connect</h4>
-                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">Stay updated on urban tech</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
+            <!-- RESULTS PANEL -->
+            <div class="results-panel">
+                <div class="results-header">
+                    <div class="selected-city" id="selectedCity">
+                        <i class="fas fa-map-marker-alt" style="color: var(--accent); font-size: 1.5rem;"></i>
+                        <div class="city-name">Select a City</div>
                     </div>
                 </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 UrbanOraTech. Smart urban living solutions for the global generation.</p>
-                <p style="margin-top: 10px;">Email: urbanora.storee@gmail.com</p>
+                
+                <!-- TOTAL COST -->
+                <div class="total-cost" id="totalCost">
+                    <div class="total-label">ESTIMATED MONTHLY COST</div>
+                    <div class="total-amount">$--</div>
+                    <div class="total-period" id="costPeriod">for a single person</div>
+                </div>
+                
+                <!-- BREAKDOWN -->
+                <div class="breakdown-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-pie"></i>
+                        Cost Breakdown
+                    </h3>
+                    <div id="costBreakdown">
+                        <div class="breakdown-item">
+                            <div class="breakdown-category">
+                                <div class="category-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="category-name">Housing & Rent</div>
+                            </div>
+                            <div class="category-amount">$--</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-category">
+                                <div class="category-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="category-name">Food & Dining</div>
+                            </div>
+                            <div class="category-amount">$--</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-category">
+                                <div class="category-icon">
+                                    <i class="fas fa-bus"></i>
+                                </div>
+                                <div class="category-name">Transportation</div>
+                            </div>
+                            <div class="category-amount">$--</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-category">
+                                <div class="category-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="category-name">Utilities</div>
+                            </div>
+                            <div class="category-amount">$--</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-category">
+                                <div class="category-icon">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <div class="category-name">Healthcare</div>
+                            </div>
+                            <div class="category-amount">$--</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-category">
+                                <div class="category-icon">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="category-name">Lifestyle & Leisure</div>
+                            </div>
+                            <div class="category-amount">$--</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- COMPARISON CHART -->
+                <div class="comparison-chart">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-bar"></i>
+                        City Comparison
+                    </h3>
+                    <div class="chart-label">
+                        <span>Selected City</span>
+                        <span id="selectedCityCost">$--</span>
+                    </div>
+                    <div class="chart-bar" id="selectedCityBar" style="width: 50%;"></div>
+                    
+                    <div class="chart-label">
+                        <span>New York City (Reference)</span>
+                        <span>$4,500</span>
+                    </div>
+                    <div class="chart-bar" style="width: 70%;"></div>
+                    
+                    <div class="chart-label">
+                        <span>Berlin</span>
+                        <span>$2,800</span>
+                    </div>
+                    <div class="chart-bar" style="width: 43%;"></div>
+                </div>
+                
+                <!-- AI INSIGHTS -->
+                <div class="ai-insights" id="aiInsights">
+                    <div class="insights-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>AI-Powered Insights</h3>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <strong>Select a city</strong> to see personalized cost of living insights and money-saving recommendations.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SHARE & EXPORT -->
+                <div class="action-buttons">
+                    <button class="action-btn">
+                        <i class="fas fa-share-alt"></i>
+                        Share Results
+                    </button>
+                    <button class="action-btn primary">
+                        <i class="fas fa-download"></i>
+                        Export PDF
+                    </button>
+                </div>
             </div>
         </div>
-    </footer>
+    </main>
 
-    <!-- JavaScript -->
+    <!-- CTA SECTION -->
+    <section class="container">
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Make Your Move?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--gray);">
+                Get personalized career recommendations for cities that match your budget and lifestyle preferences.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="back-btn" style="background: white; color: var(--accent);">
+                    <i class="fas fa-briefcase"></i>
+                    Explore Career Matches
+                </a>
+                <a href="#" class="back-btn">
+                    <i class="fas fa-city"></i>
+                    Compare More Cities
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script>
-        // Data Structure
-        const cityData = {
-            "US": {
-                "New York": { base: 4200, currency: "USD", icon: "🗽" },
-                "San Francisco": { base: 4800, currency: "USD", icon: "🌉" },
-                "Austin": { base: 3200, currency: "USD", icon: "🎸" },
-                "Chicago": { base: 3500, currency: "USD", icon: "🏙️" },
-                "Miami": { base: 3800, currency: "USD", icon: "🏖️" }
+        // === GLOBAL CITIES DATABASE ===
+        const cities = [
+            {
+                name: "New York City",
+                country: "United States",
+                countryCode: "US",
+                currency: "USD",
+                baseCost: 4500,
+                categories: {
+                    housing: 1800,
+                    food: 900,
+                    transport: 450,
+                    utilities: 300,
+                    healthcare: 600,
+                    lifestyle: 450
+                }
             },
-            "UK": {
-                "London": { base: 2800, currency: "GBP", icon: "🇬🇧" },
-                "Manchester": { base: 1900, currency: "GBP", icon: "🏴" },
-                "Birmingham": { base: 1800, currency: "GBP", icon: "⚽" },
-                "Edinburgh": { base: 2000, currency: "GBP", icon: "🏰" }
+            {
+                name: "London",
+                country: "United Kingdom",
+                countryCode: "GB",
+                currency: "GBP",
+                baseCost: 3200,
+                categories: {
+                    housing: 1400,
+                    food: 600,
+                    transport: 350,
+                    utilities: 250,
+                    healthcare: 400,
+                    lifestyle: 400
+                }
             },
-            "DE": {
-                "Berlin": { base: 2200, currency: "EUR", icon: "🇩🇪" },
-                "Munich": { base: 2500, currency: "EUR", icon: "🍺" },
-                "Hamburg": { base: 2300, currency: "EUR", icon: "⚓" },
-                "Frankfurt": { base: 2400, currency: "EUR", icon: "🏦" }
+            {
+                name: "Berlin",
+                country: "Germany",
+                countryCode: "DE",
+                currency: "EUR",
+                baseCost: 2800,
+                categories: {
+                    housing: 1100,
+                    food: 500,
+                    transport: 250,
+                    utilities: 200,
+                    healthcare: 350,
+                    lifestyle: 400
+                }
             },
-            "PK": {
-                "Islamabad": { base: 600, currency: "USD", icon: "🇵🇰" },
-                "Karachi": { base: 550, currency: "USD", icon: "🌊" },
-                "Lahore": { base: 520, currency: "USD", icon: "🕌" }
+            {
+                name: "Tokyo",
+                country: "Japan",
+                countryCode: "JP",
+                currency: "JPY",
+                baseCost: 3500,
+                categories: {
+                    housing: 1400,
+                    food: 700,
+                    transport: 300,
+                    utilities: 250,
+                    healthcare: 500,
+                    lifestyle: 350
+                }
             },
-            "AE": {
-                "Dubai": { base: 2800, currency: "USD", icon: "🌇" },
-                "Abu Dhabi": { base: 2600, currency: "USD", icon: "🛢️" },
-                "Sharjah": { base: 2100, currency: "USD", icon: "🕌" }
+            {
+                name: "Singapore",
+                country: "Singapore",
+                countryCode: "SG",
+                currency: "SGD",
+                baseCost: 3800,
+                categories: {
+                    housing: 1600,
+                    food: 650,
+                    transport: 300,
+                    utilities: 250,
+                    healthcare: 450,
+                    lifestyle: 550
+                }
             },
-            "CA": {
-                "Toronto": { base: 3000, currency: "CAD", icon: "🍁" },
-                "Vancouver": { base: 3200, currency: "CAD", icon: "🏔️" },
-                "Montreal": { base: 2200, currency: "CAD", icon: "🥐" }
+            {
+                name: "Toronto",
+                country: "Canada",
+                countryCode: "CA",
+                currency: "CAD",
+                baseCost: 3200,
+                categories: {
+                    housing: 1300,
+                    food: 600,
+                    transport: 350,
+                    utilities: 250,
+                    healthcare: 450,
+                    lifestyle: 350
+                }
             },
-            "AU": {
-                "Sydney": { base: 3500, currency: "AUD", icon: "🇦🇺" },
-                "Melbourne": { base: 3100, currency: "AUD", icon: "☕" },
-                "Brisbane": { base: 2700, currency: "AUD", icon: "🌞" }
+            {
+                name: "Sydney",
+                country: "Australia",
+                countryCode: "AU",
+                currency: "AUD",
+                baseCost: 3600,
+                categories: {
+                    housing: 1500,
+                    food: 650,
+                    transport: 350,
+                    utilities: 300,
+                    healthcare: 500,
+                    lifestyle: 400
+                }
+            },
+            {
+                name: "Dubai",
+                country: "UAE",
+                countryCode: "AE",
+                currency: "AED",
+                baseCost: 3400,
+                categories: {
+                    housing: 1400,
+                    food: 700,
+                    transport: 400,
+                    utilities: 300,
+                    healthcare: 400,
+                    lifestyle: 400
+                }
+            },
+            {
+                name: "Zurich",
+                country: "Switzerland",
+                countryCode: "CH",
+                currency: "CHF",
+                baseCost: 4200,
+                categories: {
+                    housing: 1800,
+                    food: 800,
+                    transport: 350,
+                    utilities: 300,
+                    healthcare: 600,
+                    lifestyle: 550
+                }
+            },
+            {
+                name: "Bangkok",
+                country: "Thailand",
+                countryCode: "TH",
+                currency: "THB",
+                baseCost: 1800,
+                categories: {
+                    housing: 600,
+                    food: 400,
+                    transport: 200,
+                    utilities: 150,
+                    healthcare: 250,
+                    lifestyle: 200
+                }
             }
-        };
-
-        // Lifestyle multipliers
-        const lifestyleMultipliers = {
-            student: 0.7,
-            professional: 1.0,
-            couple: 1.5,
-            family: 2.0
-        };
-
-        // Housing multipliers
-        const housingMultipliers = {
-            shared: 0.7,
-            private: 1.0,
-            luxury: 1.8
-        };
-
-        // Cost categories with base percentages
-        const costCategories = [
-            { id: 'housing', name: 'Housing & Rent', icon: '🏠', percentage: 0.40 },
-            { id: 'food', name: 'Food & Dining', icon: '🍔', percentage: 0.20 },
-            { id: 'transport', name: 'Transportation', icon: '🚕', percentage: 0.12 },
-            { id: 'utilities', name: 'Utilities', icon: '⚡', percentage: 0.08 },
-            { id: 'internet', name: 'Internet & Mobile', icon: '📱', percentage: 0.05 },
-            { id: 'lifestyle', name: 'Lifestyle & Leisure', icon: '🎉', percentage: 0.15 }
         ];
 
-        // DOM Elements
-        const countrySelect = document.getElementById('country');
-        const citySelect = document.getElementById('city');
-        const lifestyleSelect = document.getElementById('lifestyle');
-        const housingSelect = document.getElementById('housing');
-        const incomeInput = document.getElementById('income');
-        const calculateBtn = document.getElementById('calculate-btn');
-        const loader = document.getElementById('loader');
-        const resultsSection = document.getElementById('results-section');
-        const totalCostElement = document.getElementById('total-cost');
-        const resultCityElement = document.getElementById('result-city');
-        const costBreakdownElement = document.getElementById('cost-breakdown');
-        const costChartElement = document.getElementById('cost-chart');
-        const aiInsightElement = document.getElementById('ai-insight');
-        const savingsSection = document.getElementById('savings-section');
-        const savingsGrid = document.getElementById('savings-grid');
-        const compareBtn = document.getElementById('compare-btn');
+        // === APP STATE ===
+        let selectedCity = null;
+        let selectedCurrency = "USD";
+        let familySize = 1;
+        let housingQuality = 3;
+        let foodFrequency = 3;
+        let transportType = 3;
 
-        // City dropdown population
-        countrySelect.addEventListener('change', function() {
-            const countryCode = this.value;
-            citySelect.innerHTML = '<option value="">Select City</option>';
-            
-            if (countryCode && cityData[countryCode]) {
-                citySelect.disabled = false;
-                Object.keys(cityData[countryCode]).forEach(city => {
-                    const option = document.createElement('option');
-                    option.value = city;
-                    const cityIcon = cityData[countryCode][city].icon || "🏙️";
-                    option.textContent = `${cityIcon} ${city}`;
-                    citySelect.appendChild(option);
+        // === ELEMENT REFERENCES ===
+        const citySearch = document.getElementById('citySearch');
+        const cityDropdown = document.getElementById('cityDropdown');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const selectedCityDiv = document.getElementById('selectedCity');
+        const totalAmount = document.querySelector('.total-amount');
+        const costPeriod = document.getElementById('costPeriod');
+        const currencyButtons = document.querySelectorAll('.currency-btn');
+        const familyOptions = document.querySelectorAll('.family-option');
+        const housingSlider = document.getElementById('housingSlider');
+        const foodSlider = document.getElementById('foodSlider');
+        const transportSlider = document.getElementById('transportSlider');
+        const housingValue = document.getElementById('housingValue');
+        const foodValue = document.getElementById('foodValue');
+        const transportValue = document.getElementById('transportValue');
+
+        // === SLIDER LABELS ===
+        const housingLabels = ["Basic", "Economy", "Medium", "Comfort", "Luxury"];
+        const foodLabels = ["Rarely", "Occasional", "Moderate", "Frequent", "Daily"];
+        const transportLabels = ["Public", "Mostly Public", "Mixed", "Mostly Private", "Private Only"];
+
+        // === INITIALIZE ===
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEventListeners();
+            populateCityDropdown();
+        });
+
+        function initializeEventListeners() {
+            // City Search
+            citySearch.addEventListener('input', function(e) {
+                filterCities(e.target.value);
+                cityDropdown.classList.add('show');
+            });
+
+            citySearch.addEventListener('focus', function() {
+                cityDropdown.classList.add('show');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!citySearch.contains(e.target) && !cityDropdown.contains(e.target)) {
+                    cityDropdown.classList.remove('show');
+                }
+            });
+
+            // Currency Selection
+            currencyButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    currencyButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedCurrency = this.dataset.currency;
+                    if (selectedCity) {
+                        calculateCost();
+                    }
                 });
-            } else {
-                citySelect.disabled = true;
-                citySelect.innerHTML = '<option value="">Select Country First</option>';
-            }
-        });
+            });
 
-        // Calculate function
-        function calculateCostOfLiving() {
-            const country = countrySelect.value;
-            const city = citySelect.value;
-            const lifestyle = lifestyleSelect.value;
-            const housing = housingSelect.value;
-            const income = parseFloat(incomeInput.value);
-            
-            if (!country || !city) {
-                alert('Please select both country and city');
-                return;
-            }
-            
-            // Show loader
-            loader.classList.remove('hidden');
-            resultsSection.style.display = 'none';
-            
-            // Simulate API call delay
-            setTimeout(() => {
-                const cityInfo = cityData[country][city];
-                const baseCost = cityInfo.base;
-                const currencySymbol = getCurrencySymbol(cityInfo.currency);
-                const cityIcon = cityInfo.icon || "🏙️";
-                
-                // Calculate total cost
-                let totalCost = baseCost;
-                totalCost *= lifestyleMultipliers[lifestyle];
-                totalCost *= housingMultipliers[housing];
-                
-                // Round to nearest 10
-                totalCost = Math.round(totalCost / 10) * 10;
-                
-                // Update UI
-                updateResults(city, cityIcon, currencySymbol, totalCost, income);
-                
-                // Hide loader, show results
-                loader.classList.add('hidden');
-                resultsSection.style.display = 'block';
-                resultsSection.scrollIntoView({ behavior: 'smooth' });
-            }, 1000);
-        }
+            // Family Options
+            familyOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    familyOptions.forEach(o => o.classList.remove('active'));
+                    this.classList.add('active');
+                    familySize = parseInt(this.dataset.size);
+                    costPeriod.textContent = getFamilyLabel(familySize);
+                    if (selectedCity) {
+                        calculateCost();
+                    }
+                });
+            });
 
-        // Update results
-        function updateResults(city, cityIcon, currencySymbol, totalCost, income) {
-            // Update total cost
-            totalCostElement.textContent = `${currencySymbol}${totalCost.toLocaleString()}`;
-            resultCityElement.textContent = `${cityIcon} ${city}`;
-            
-            // Update cost breakdown
-            updateCostBreakdown(currencySymbol, totalCost);
-            
-            // Update chart
-            updateChart(totalCost);
-            
-            // Update AI insight
-            updateAIInsight(city, totalCost, lifestyleSelect.value, housingSelect.value, currencySymbol);
-            
-            // Update savings section if income provided
-            if (income && !isNaN(income)) {
-                updateSavingsSection(currencySymbol, totalCost, income);
-                savingsSection.classList.remove('hidden');
-            } else {
-                savingsSection.classList.add('hidden');
-            }
-        }
+            // Sliders
+            housingSlider.addEventListener('input', function() {
+                housingQuality = parseInt(this.value);
+                housingValue.textContent = housingLabels[housingQuality - 1];
+                if (selectedCity) calculateCost();
+            });
 
-        // Update cost breakdown
-        function updateCostBreakdown(currencySymbol, totalCost) {
-            costBreakdownElement.innerHTML = '';
-            
-            costCategories.forEach(category => {
-                const amount = Math.round(totalCost * category.percentage);
-                const percentage = Math.round(category.percentage * 100);
-                
-                const categoryElement = document.createElement('div');
-                categoryElement.className = 'cost-category';
-                categoryElement.innerHTML = `
-                    <div class="category-icon">${category.icon}</div>
-                    <div class="category-details">
-                        <div style="font-weight: 600;">${category.name}</div>
-                        <div class="category-amount">${currencySymbol}${amount.toLocaleString()}</div>
-                        <div style="color: var(--gray); font-size: 0.9rem;">${percentage}% of total</div>
-                    </div>
-                `;
-                
-                costBreakdownElement.appendChild(categoryElement);
+            foodSlider.addEventListener('input', function() {
+                foodFrequency = parseInt(this.value);
+                foodValue.textContent = foodLabels[foodFrequency - 1];
+                if (selectedCity) calculateCost();
+            });
+
+            transportSlider.addEventListener('input', function() {
+                transportType = parseInt(this.value);
+                transportValue.textContent = transportLabels[transportType - 1];
+                if (selectedCity) calculateCost();
+            });
+
+            // Calculate Button
+            calculateBtn.addEventListener('click', function() {
+                if (!selectedCity) {
+                    alert('Please select a city first');
+                    citySearch.focus();
+                    return;
+                }
+                calculateCost();
             });
         }
 
-        // Update chart
-        function updateChart(totalCost) {
-            costChartElement.innerHTML = '';
-            
-            // Find max amount for scaling
-            const maxAmount = Math.max(...costCategories.map(cat => totalCost * cat.percentage));
-            
-            costCategories.forEach(category => {
-                const amount = totalCost * category.percentage;
-                const height = (amount / maxAmount) * 180;
-                
-                const bar = document.createElement('div');
-                bar.className = 'bar';
-                bar.style.height = `${height}px`;
-                bar.innerHTML = `
-                    <div class="bar-label">${category.icon}</div>
+        function populateCityDropdown() {
+            cityDropdown.innerHTML = '';
+            cities.forEach(city => {
+                const option = document.createElement('div');
+                option.className = 'city-option';
+                option.innerHTML = `
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://flagcdn.com/w40/${city.countryCode.toLowerCase()}.png" 
+                             alt="${city.country}" 
+                             class="city-flag">
+                        <div>
+                            <strong>${city.name}</strong>
+                            <div style="font-size: 0.875rem; color: var(--gray);">${city.country}</div>
+                        </div>
+                    </div>
+                    <div style="font-weight: 600; color: var(--accent);">
+                        ${city.currency} ${city.baseCost.toLocaleString()}
+                    </div>
                 `;
-                
-                costChartElement.appendChild(bar);
+                option.addEventListener('click', function() {
+                    selectCity(city);
+                    citySearch.value = `${city.name}, ${city.country}`;
+                    cityDropdown.classList.remove('show');
+                });
+                cityDropdown.appendChild(option);
             });
         }
 
-        // Update AI insight
-        function updateAIInsight(city, totalCost, lifestyle, housing, currencySymbol) {
-            const lifestyleText = {
-                'student': 'student',
-                'professional': 'single professional',
-                'couple': 'couple',
-                'family': 'family'
-            }[lifestyle];
+        function filterCities(query) {
+            const filteredCities = cities.filter(city => 
+                city.name.toLowerCase().includes(query.toLowerCase()) ||
+                city.country.toLowerCase().includes(query.toLowerCase())
+            );
             
-            const housingText = {
-                'shared': 'shared accommodation',
-                'private': 'private apartment',
-                'luxury': 'luxury housing'
-            }[housing];
-            
-            const insights = [
-                `Living in ${city} as a ${lifestyleText} with ${housingText} costs approximately ${currencySymbol}${totalCost.toLocaleString()} monthly. Housing takes the largest share at 40% of your budget.`,
-                `Smart urban living in ${city}: Estimated ${currencySymbol}${totalCost.toLocaleString()} monthly for ${housingText}. Consider shared housing to reduce costs by up to 30%.`,
-                `For a ${lifestyleText} in ${city}, budget around ${currencySymbol}${totalCost.toLocaleString()} per month. Food and lifestyle expenses offer flexibility for potential savings.`,
-                `${city} living cost: ${currencySymbol}${totalCost.toLocaleString()} monthly. Transportation (12%) and utilities (8%) are relatively predictable expenses you can optimize.`
-            ];
-            
-            const randomInsight = insights[Math.floor(Math.random() * insights.length)];
-            aiInsightElement.textContent = randomInsight;
+            cityDropdown.innerHTML = '';
+            filteredCities.forEach(city => {
+                const option = document.createElement('div');
+                option.className = 'city-option';
+                option.innerHTML = `
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://flagcdn.com/w40/${city.countryCode.toLowerCase()}.png" 
+                             alt="${city.country}" 
+                             class="city-flag">
+                        <div>
+                            <strong>${city.name}</strong>
+                            <div style="font-size: 0.875rem; color: var(--gray);">${city.country}</div>
+                        </div>
+                    </div>
+                    <div style="font-weight: 600; color: var(--accent);">
+                        ${city.currency} ${city.baseCost.toLocaleString()}
+                    </div>
+                `;
+                option.addEventListener('click', function() {
+                    selectCity(city);
+                    citySearch.value = `${city.name}, ${city.country}`;
+                    cityDropdown.classList.remove('show');
+                });
+                cityDropdown.appendChild(option);
+            });
         }
 
-        // Update savings section
-        function updateSavingsSection(currencySymbol, totalCost, income) {
-            const savings = income - totalCost;
-            const savingsPercentage = Math.round((savings / income) * 100);
+        function selectCity(city) {
+            selectedCity = city;
             
-            savingsGrid.innerHTML = '';
+            // Update selected city display
+            selectedCityDiv.innerHTML = `
+                <img src="https://flagcdn.com/w40/${city.countryCode.toLowerCase()}.png" 
+                     alt="${city.country}" 
+                     style="width: 32px; height: 24px; border-radius: 3px;">
+                <div class="city-name">${city.name}</div>
+                <div class="country-badge">${city.country}</div>
+            `;
             
-            if (savings > 0) {
-                // Positive savings
-                const savingsCard = document.createElement('div');
-                savingsCard.className = 'savings-card savings-positive';
-                savingsCard.innerHTML = `
-                    <div style="font-size: 2rem;">💰</div>
-                    <h3>Healthy Budget</h3>
-                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green);">
-                        +${currencySymbol}${Math.abs(savings).toLocaleString()}
+            // Calculate cost immediately
+            calculateCost();
+        }
+
+        function calculateCost() {
+            if (!selectedCity) return;
+
+            // Calculate multipliers based on lifestyle choices
+            const housingMultiplier = 0.8 + (housingQuality * 0.1); // 0.9 - 1.3
+            const foodMultiplier = 0.7 + (foodFrequency * 0.15); // 0.85 - 1.45
+            const transportMultiplier = 0.8 + (transportType * 0.1); // 0.9 - 1.3
+            
+            // Family size multiplier (per person cost decreases with family size)
+            const familyMultiplier = familySize === 1 ? 1 : familySize === 2 ? 1.7 : 2.8;
+
+            // Calculate costs
+            const costs = {
+                housing: Math.round(selectedCity.categories.housing * housingMultiplier * (familySize === 1 ? 1 : 1.4)),
+                food: Math.round(selectedCity.categories.food * foodMultiplier * familyMultiplier),
+                transport: Math.round(selectedCity.categories.transport * transportMultiplier * familyMultiplier),
+                utilities: Math.round(selectedCity.categories.utilities * familyMultiplier),
+                healthcare: Math.round(selectedCity.categories.healthcare * familyMultiplier),
+                lifestyle: Math.round(selectedCity.categories.lifestyle * (0.8 + (housingQuality * 0.05)) * familyMultiplier)
+            };
+
+            // Calculate total
+            const total = Object.values(costs).reduce((sum, cost) => sum + cost, 0);
+
+            // Convert currency if needed
+            const exchangeRates = {
+                USD: 1,
+                EUR: 0.92,
+                GBP: 0.79,
+                CAD: 1.36,
+                AUD: 1.52,
+                JPY: 148,
+                SGD: 1.34,
+                AED: 3.67,
+                CHF: 0.88,
+                THB: 35.5
+            };
+
+            const rate = exchangeRates[selectedCurrency] || 1;
+            const convertedTotal = Math.round(total * rate);
+            const convertedCosts = {};
+            Object.keys(costs).forEach(key => {
+                convertedCosts[key] = Math.round(costs[key] * rate);
+            });
+
+            // Update UI
+            totalAmount.textContent = `${selectedCurrency} ${convertedTotal.toLocaleString()}`;
+            
+            // Update breakdown
+            updateBreakdown(convertedCosts);
+            
+            // Update comparison chart
+            updateComparisonChart(convertedTotal);
+            
+            // Update AI insights
+            updateAIInsights(convertedTotal, selectedCity);
+        }
+
+        function updateBreakdown(costs) {
+            const categories = {
+                housing: { icon: 'fa-home', name: 'Housing & Rent' },
+                food: { icon: 'fa-utensils', name: 'Food & Dining' },
+                transport: { icon: 'fa-bus', name: 'Transportation' },
+                utilities: { icon: 'fa-bolt', name: 'Utilities' },
+                healthcare: { icon: 'fa-heartbeat', name: 'Healthcare' },
+                lifestyle: { icon: 'fa-shopping-bag', name: 'Lifestyle & Leisure' }
+            };
+
+            const breakdownHTML = Object.entries(categories).map(([key, data]) => `
+                <div class="breakdown-item">
+                    <div class="breakdown-category">
+                        <div class="category-icon">
+                            <i class="fas ${data.icon}"></i>
+                        </div>
+                        <div class="category-name">${data.name}</div>
                     </div>
-                    <p>You can save ${savingsPercentage}% of your income monthly</p>
-                `;
-                savingsGrid.appendChild(savingsCard);
-            } else {
-                // Negative savings
-                const warningCard = document.createElement('div');
-                warningCard.className = 'savings-card savings-warning';
-                warningCard.innerHTML = `
-                    <div style="font-size: 2rem;">⚠️</div>
-                    <h3>Budget Alert</h3>
-                    <div style="font-size: 1.5rem; font-weight: 700; color: #f59e0b;">
-                        -${currencySymbol}${Math.abs(savings).toLocaleString()}
-                    </div>
-                    <p>Consider adjusting housing or lifestyle to balance your budget</p>
-                `;
-                savingsGrid.appendChild(warningCard);
-            }
-            
-            // Cost to income ratio
-            const ratioCard = document.createElement('div');
-            ratioCard.className = 'savings-card';
-            const ratio = Math.round((totalCost / income) * 100);
-            ratioCard.innerHTML = `
-                <div style="font-size: 2rem;">📊</div>
-                <h3>Cost-to-Income Ratio</h3>
-                <div style="font-size: 1.5rem; font-weight: 700;">
-                    ${ratio}%
+                    <div class="category-amount">${selectedCurrency} ${costs[key].toLocaleString()}</div>
                 </div>
-                <p>${ratio <= 50 ? 'Good financial balance' : 'Consider reducing expenses'}</p>
-            `;
-            savingsGrid.appendChild(ratioCard);
-            
-            // Monthly recommendation
-            const recCard = document.createElement('div');
-            recCard.className = 'savings-card';
-            recCard.innerHTML = `
-                <div style="font-size: 2rem;">💡</div>
-                <h3>Urban AI Tip</h3>
-                <p>${savings > 0 ? 'Consider investing your monthly savings for long-term growth.' : 'Try reducing housing costs or finding additional income sources.'}</p>
-            `;
-            savingsGrid.appendChild(recCard);
+            `).join('');
+
+            document.getElementById('costBreakdown').innerHTML = breakdownHTML;
         }
 
-        // Utility functions
-        function getCurrencySymbol(currency) {
-            const symbols = {
-                'USD': '$',
-                'GBP': '£',
-                'EUR': '€',
-                'CAD': 'C$',
-                'AUD': 'A$'
-            };
-            return symbols[currency] || '$';
+        function updateComparisonChart(totalCost) {
+            const nycCost = 4500; // Reference cost
+            const percentage = Math.min((totalCost / nycCost) * 100, 100);
+            
+            document.getElementById('selectedCityBar').style.width = `${percentage}%`;
+            document.getElementById('selectedCityCost').textContent = `${selectedCurrency} ${totalCost.toLocaleString()}`;
         }
 
-        // Event Listeners
-        calculateBtn.addEventListener('click', calculateCostOfLiving);
-        
-        compareBtn.addEventListener('click', function() {
-            alert('🔍 Compare feature coming soon! You\'ll be able to compare costs between multiple cities side-by-side.');
-        });
-
-        // Enter key support for income input
-        incomeInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                calculateCostOfLiving();
-            }
-        });
-
-        // Auto-detect country (simplified)
-        window.addEventListener('load', function() {
-            // Try to auto-select based on user's locale
-            const userLocale = navigator.language || 'en-US';
-            const detectedCountry = userLocale.split('-')[1];
+        function updateAIInsights(totalCost, city) {
+            const insights = [];
             
-            // Map language code to country code
-            const countryMap = {
-                'US': 'US',
-                'GB': 'UK',
-                'DE': 'DE',
-                'PK': 'PK',
-                'AE': 'AE',
-                'CA': 'CA',
-                'AU': 'AU',
-                'FR': 'FR'
+            // Generate insights based on cost
+            if (totalCost > 5000) {
+                insights.push("This city is among the most expensive globally. Consider remote work opportunities to maximize your income.");
+            } else if (totalCost > 3000) {
+                insights.push("Premium lifestyle city. Focus on high-value skills to maintain your desired quality of life.");
+            } else if (totalCost > 2000) {
+                insights.push("Well-balanced cost of living. Great for career growth with reasonable expenses.");
+            } else {
+                insights.push("Cost-effective destination. Excellent opportunity to save while building your career.");
+            }
+
+            // City-specific insights
+            const cityInsights = {
+                "New York City": "Consider Brooklyn or Queens for more affordable housing options while maintaining access to NYC opportunities.",
+                "London": "Look at Zone 2-3 areas for better housing value. The UK's tech scene is booming outside central London.",
+                "Berlin": "One of Europe's best value tech hubs. Consider Friedrichshain or Neukölln for vibrant, affordable neighborhoods.",
+                "Tokyo": "Explore areas like Nakano or Suginami for more space at lower costs. Japan's tech salaries are competitive.",
+                "Singapore": "Public housing (HDB) offers excellent value. Singapore's tech sector pays premium salaries.",
+                "Toronto": "Consider nearby cities like Mississauga or Hamilton for lower living costs with Toronto career access.",
+                "Sydney": "Western suburbs offer better value. Australia's tech scene is growing rapidly with good salaries.",
+                "Dubai": "No income tax means higher take-home pay. Consider areas like JLT or Dubai Silicon Oasis for tech professionals.",
+                "Zurich": "Highest salaries in Europe offset the cost. Swiss tech companies offer excellent compensation packages.",
+                "Bangkok": "Extremely cost-effective for digital nomads. Thailand's tech scene is growing with international opportunities."
             };
-            
-            if (countryMap[detectedCountry]) {
-                countrySelect.value = countryMap[detectedCountry];
-                countrySelect.dispatchEvent(new Event('change'));
+
+            if (cityInsights[city.name]) {
+                insights.push(cityInsights[city.name]);
             }
-            
-            // Mobile menu toggle
-            const menuToggle = document.getElementById('menuToggle');
-            menuToggle.addEventListener('click', function() {
-                alert('📱 Mobile navigation would open here. In the full site, this connects to the main navigation.');
-            });
-        });
+
+            // Always include this insight
+            insights.push(`Based on your lifestyle preferences, we recommend focusing on ${getRecommendedSkills(city.name)} to maximize your earning potential in ${city.name}.`);
+
+            const insightsHTML = insights.map(insight => `
+                <div class="insight-item">
+                    <div class="insight-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>${insight}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('aiInsights').innerHTML = `
+                <div class="insights-header">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>AI-Powered Insights for ${city.name}</h3>
+                </div>
+                ${insightsHTML}
+            `;
+        }
+
+        function getRecommendedSkills(cityName) {
+            const skillMap = {
+                "New York City": "AI/ML Engineering and FinTech development",
+                "London": "Cybersecurity and FinTech innovation",
+                "Berlin": "SaaS development and startup leadership",
+                "Tokyo": "Robotics engineering and gaming development",
+                "Singapore": "Blockchain and digital banking solutions",
+                "Toronto": "AI research and cloud architecture",
+                "Sydney": "Renewable energy tech and fintech",
+                "Dubai": "Smart city solutions and blockchain",
+                "Zurich": "Quantum computing and banking tech",
+                "Bangkok": "Digital marketing and e-commerce development"
+            };
+            return skillMap[cityName] || "AI, data science, and cloud computing";
+        }
+
+        function getFamilyLabel(size) {
+            switch(size) {
+                case 1: return "for a single person";
+                case 2: return "for a couple";
+                case 4: return "for a family of 4";
+                default: return "";
+            }
+        }
+
+        // Currency formatting helper
+        function formatCurrency(amount, currency) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: currency,
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
     </script>
 </body>
 </html>
-
 
 
 
